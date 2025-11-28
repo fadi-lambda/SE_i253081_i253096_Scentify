@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #000;
+}
+
+.main-container {
+    background-image: url('your-background-image.jpg'); /* Apni tasveer ka naam yahan badal dein */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    background-color: #000000;
+    color: #fff;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #0866ff;
+}
+
+.logo-area img {
+    height: 40px;
+    vertical-align: middle;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 300px;
+    height: 40px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.user-actions a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.forms-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.form-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    margin: 0 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.form-card input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    background: transparent;
+    outline: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.form-card input::placeholder {
+    color: #666;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a86f7;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.primary-btn:hover {
+    background-color: #3367d6;
+}
+
+.bottom-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.bottom-link a {
+    color: #4a86f7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.center-decoration {
+    position: absolute;
+    z-index: 2;
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.social-btn {
+    flex-basis: 48%;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.social-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.or-separator {
+    text-align: center;
+    margin: 20px 0;
+    color: #666;
+    position: relative;
+}
+
+.or-separator::before,
+.or-separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+}
+
+.or-separator::before {
+    left: 0;
+}
+
+.or-separator::after {
+    right: 0;
+}
+
+.site-footer {
+    background-color: #333333;
+    color: #fff;
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: 14px;
+}
+
+.footer-section {
+    flex-basis: 30%;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #f7a83d;
+}
+
+.footer-section nav ul {
+    list-style: none;
+}
+
+.footer-section nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    line-height: 1.8;
+    transition: color 0.2s;
+}
+
+.footer-section nav ul li a:hover {
+    color: #fff;
+}
+
+.contact-info p {
+    line-height: 1.6;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 15px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.footer-logo {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}

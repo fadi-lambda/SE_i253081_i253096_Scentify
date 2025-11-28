@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #000;
+}
+
+.main-container {
+    /* Background Image ke liye: Apni tasveer ka naam yahan badal dein */
+    background-image: url('homepage-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === 1. Header Styling (Common) === */
+.page-header {
+    background-color: #000000;
+    color: #fff;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area img {
+    height: 40px;
+    vertical-align: middle;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 5px 15px;
+    width: 300px;
+    height: 40px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.user-actions a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* === 2. Navigation Bar Styling === */
+.main-nav {
+    background-color: rgba(0, 0, 0, 0.4); /* Thora sa transparent background */
+    padding: 15px 5%;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.main-nav ul li a:hover {
+    color: #f7a83d; /* Hover par golden/yellow color */
+}
+
+/* === 3. Hero Section (Perfume Bottles) === */
+.hero-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px; /* Footer se uper fasla */
+}
+
+.perfume-bottle-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Bottles ko neeche ki taraf align karne ke liye */
+    width: 70%; /* Ek munasib चौड़ाई (width) */
+    position: relative;
+    z-index: 10;
+}
+
+.bottle-card {
+    text-align: center;
+    padding: 20px;
+    /* Bottles ke aas paas halka sa shadow ya effect dalne ke liye */
+}
+
+.bottle-card img {
+    width: 100%; /* Agar aapki images PNG/transparent background mein hain */
+    max-width: 250px; /* Max size set karein */
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); /* Thora sa shadow effect */
+}
+
+.bottle-card p {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    /* Agar bottle ke uper ya neeche naam likhna ho */
+}
+
+/* === 4. Footer Styling (Common) === */
+.site-footer {
+    background-color: #333333;
+    color: #fff;
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: 14px;
+}
+
+.footer-section {
+    flex-basis: 30%;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #f7a83d;
+}
+
+.footer-section nav ul {
+    list-style: none;
+}
+
+.footer-section nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    line-height: 1.8;
+    transition: color 0.2s;
+}
+
+.footer-section nav ul li a:hover {
+    color: #fff;
+}
+
+.contact-info p {
+    line-height: 1.6;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 15px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.footer-logo {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
