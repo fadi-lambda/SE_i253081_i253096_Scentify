@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scent Personality Quiz</title>
+
+    <link rel="stylesheet" href="quiz.css">
+
+    </head>
+<body>
+
+    <div class="quiz-container">
+        
+        <header class="quiz-header">
+            <h1>Scent Personality Quiz</h1>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar-line">
+                    <span class="progress-indicator current"></span>
+                    <span class="progress-indicator"></span>
+                    <span class="progress-indicator"></span>
+                </div>
+                <p class="progress-text">Progress: Q1/3</p>
+            </div>
+        </header>
+
+        <form class="quiz-form">
+
+            <section class="question-block" id="q1">
+                <h2 class="question-title">1. Which Is Your Favorite Season?</h2>
+                <div class="options-grid season-options">
+                    
+                    <label class="option-card season-card">
+                        <input type="radio" name="season" value="spring">
+                        <img src="spring.png" alt="">
+                        <span>Spring (Bahar)</span>
+                    </label>
+                    
+                    <label class="option-card season-card">
+                        <input type="radio" name="season" value="summer">
+                        <img src="summer.png" alt="">
+                        <span>Summer (Garmi)</span>
+                    </label>
+                    
+                    <label class="option-card season-card">
+                        <input type="radio" name="season" value="winter">
+                        <img src="winter.png" alt="">
+                        <span>Winter (Sardi)</span>
+                    </label>
+                    
+                    <label class="option-card season-card">
+                        <input type="radio" name="season" value="autumn">
+                        <img src="autumn.png" alt="">
+                        <span>Autumn (Khizan)</span>
+                    </label>
+
+                </div>
+            </section>
+
+            <section class="question-block" id="q2">
+                <h2 class="question-title">2. How Do You Start Day?</h2>
+                <div class="options-grid lifestyle-options">
+                    
+                    <label class="option-card image-card">
+                        <input type="radio" name="start_day" value="calm">
+                        <img src="Yoga.png" alt="Yoga/Meditation">
+                        <p>Energetic and Calm</p>
+                    </label>
+                    
+                    <label class="option-card image-card">
+                        <input type="radio" name="start_day" value="active">
+                        <img src="Jogging.png" alt="Running/Jogging">
+                        <p>Active and Focused</p>
+                    </label>
+                    
+                    <label class="option-card image-card">
+                        <input type="radio" name="start_day" value="refined">
+                        <img src="Office.png" alt="Confident Professional">
+                        <p>Confident and Refined</p>
+                    </label>
+                    
+                    <label class="option-card image-card">
+                        <input type="radio" name="start_day" value="cozy">
+                        <img src="BED.png" alt="Relaxed Morning in Bed">
+                        <p>Relaxed and Cozy</p>
+                    </label>
+
+                </div>
+            </section>
+
+            <section class="question-block" id="q3">
+                <h2 class="question-title">3. How Is Your Personality Best Described?</h2>
+                <div class="options-grid personality-options">
+                    
+                    <label class="option-card personality-card">
+                        <input type="radio" name="personality" value="fresh">
+                        <span>Fresh and Clean</span>
+                    </label>
+                    
+                    <label class="option-card personality-card">
+                        <input type="radio" name="personality" value="cheerful">
+                        <span>Cheerful and Confident</span>
+                    </label>
+                    
+                    </div>
+            </section>
+            
+            <div class="quiz-navigation">
+                <button type="submit" class="next-button">Next Question</button>
+                </div>
+
+        </form>
+    </div>
+</body>
+</html>

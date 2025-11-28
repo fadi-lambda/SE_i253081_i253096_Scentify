@@ -1,0 +1,215 @@
+/* ========================================================= */
+/* 1. GLOBAL STYLES & CONTAINER SETUP */
+/* ========================================================= */
+body {
+    /* Page ka halka background color */
+    background-color: #f0f0f0; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.quiz-container {
+    /* Center alignment aur chaurai set karna */
+    max-width: 700px;
+    width: 90%;
+    margin: 20px auto;
+    background-color: #ffffff; /* Center content ka background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+}
+
+/* ========================================================= */
+/* 2. HEADER & PROGRESS BAR STYLES */
+/* ========================================================= */
+.quiz-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.quiz-header h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.progress-bar-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.progress-bar-line {
+    /* Progress bar ko line mein dikhane ke liye Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.progress-indicator {
+    display: block;
+    width: 80px; /* Har indicator ki chaurai */
+    height: 10px;
+    background-color: #ccc; /* Unanswered color (light gray) */
+    border-radius: 5px;
+}
+
+.progress-indicator.current {
+    /* Answered sawal (Golden/Yellow color) */
+    background-color: #FFD700; 
+}
+
+.progress-text {
+    font-weight: bold;
+    color: #FFD700;
+    font-size: 0.95rem;
+}
+
+/* ========================================================= */
+/* 3. QUESTION BLOCK STYLES */
+/* ========================================================= */
+
+.question-block {
+    /* Question block ka dark gray background */
+    background-color: #616161; 
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.question-title {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* ========================================================= */
+/* 4. OPTIONS GRID LAYOUT (Pure CSS Grid) */
+/* ========================================================= */
+.options-grid {
+    display: grid;
+    gap: 15px;
+    /* Zyada tar options ko 2 columns mein divide karein */
+    grid-template-columns: 1fr 1fr; 
+}
+
+/* Option Card (Label tag) ka base style */
+.option-card {
+    background-color: #888888; /* Option ka halka gray background */
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s, border 0.2s;
+    position: relative;
+    border: 2px solid transparent; /* Default border */
+    overflow: hidden;
+}
+
+/* Radio buttons ko chhupana hai */
+.option-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* Selected State: Jab radio button check ho jaye */
+.option-card input[type="radio"]:checked + img,
+.option-card input[type="radio"]:checked + span,
+.option-card input[type="radio"]:checked ~ p {
+    /* Yahan selected option ko highlight kiya ja sakta hai, maslan gold border */
+}
+
+/* Selected Option par golden border lagana */
+.option-card input[type="radio"]:checked {
+    /* Transparent input ke bajaye poore card par border lagayenge */
+    border: 3px solid #FFD700; 
+}
+
+
+/* ========================================================= */
+/* 5. QUESTION 1 & 3 STYLES (Simple Text Options) */
+/* ========================================================= */
+.season-card, .personality-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Fixed height for consistent look */
+    background-color: #ffffff;
+    color: #333;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px;
+    /* Checkbox/radio icon ko style karne ke liye */
+}
+
+/* Images in Season Cards (Icons ke liye) */
+.season-card img {
+    width: 25px; 
+    height: 25px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* ========================================================= */
+/* 6. QUESTION 2 STYLES (Image Options) */
+/* ========================================================= */
+
+.image-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Padding hamesha image card mein zero rakhein */
+}
+
+.image-card img {
+    width: 100%;
+    height: 100px; /* Image ki height set karein */
+    display: block;
+    object-fit: cover;
+}
+
+.image-card p {
+    /* Image ke neeche wala text block */
+    margin: 0;
+    padding: 10px 5px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #555; /* Text block ka background */
+    flex-grow: 1; /* Taa-kay text block poori chaurai le le */
+}
+
+
+/* ========================================================= */
+/* 7. NAVIGATION BUTTON */
+/* ========================================================= */
+.quiz-navigation {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.next-button {
+    background-color: #FFD700; /* Golden/Yellow color */
+    color: #333;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.next-button:hover {
+    background-color: #e6c500;
+}
