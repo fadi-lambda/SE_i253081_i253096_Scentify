@@ -10,7 +10,7 @@ body {
 }
 
 .main-container {
-    background-image: url('your-background-image.jpg'); /* Apni tasveer ka naam yahan badal dein */
+    background-image: url('loginpagebackground.png'); /* Apni tasveer ka naam yahan badal dein */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -30,8 +30,8 @@ body {
 }
 
 .logo-area img {
-    height: 40px;
-    vertical-align: middle;
+    height: 100px !important;
+    width: auto !important;
 }
 
 .search-bar {
@@ -40,7 +40,7 @@ body {
     background-color: #fff;
     border-radius: 50px;
     padding: 5px 15px;
-    width: 300px;
+    width: 200px;
     height: 40px;
 }
 
@@ -76,7 +76,15 @@ body {
     padding: 40px;
     width: 400px;
     margin: 0 40px;
+     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
 }
 
 .form-card h2 {

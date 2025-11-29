@@ -1,179 +1,212 @@
-* {
-    box-sizing: border-box;
+/* ==================================== */
+/* GLOBAL STYLES */
+/* ==================================== */
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
 }
 
-body {
-    background-color: #000;
-}
-
-.main-container {
-    /* Background Image ke liye: Apni tasveer ka naam yahan badal dein */
-    background-image: url('homepage-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-/* === 1. Header Styling (Common) === */
+/* ==================================== */
+/* HEADER & NAVIGATION STYLES */
+/* ==================================== */
 .page-header {
-    background-color: #000000;
-    color: #fff;
+    background-color: #000;
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #333; /* Thodi si line neeche */
 }
 
-.logo-area img {
-    height: 40px;
-    vertical-align: middle;
+/* Logo ko center karne ka hal */
+.logo-area {
+    flex-grow: 1; /* Center ki poori jagah lega */
+    text-align: center; /* Logo ko us jagah ke beech mein layega */
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 50px;
-    padding: 5px 15px;
-    width: 300px;
-    height: 40px;
-}
-
+/* Search bar styling */
 .search-bar input {
+    padding: 10px 15px;
     border: none;
-    outline: none;
-    flex-grow: 1;
-    padding-left: 10px;
+    border-radius: 25px;
+    width: 250px;
+    font-size: 1em;
 }
 
+/* User actions (ACCOUNT/CART) */
 .user-actions a {
     color: #fff;
     text-decoration: none;
     margin-left: 20px;
-    font-size: 14px;
+    font-size: 1em;
     font-weight: bold;
 }
 
-/* === 2. Navigation Bar Styling === */
+/* Main Navigation (HOME, PRODUCTS, etc.) */
 .main-nav {
-    background-color: rgba(0, 0, 0, 0.4); /* Thora sa transparent background */
-    padding: 15px 5%;
+    justify-content: space-between;
+    text-align: center;
+    text-decoration: solid;
+    background-color: #fff; 
+    padding: 10px 0;
+    
 }
 
 .main-nav ul {
-    list-style: none;
+    list-style:none;
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Links ko center mein layega */
+    margin: 0;
+    padding: 0;
 }
 
-.main-nav ul li a {
-    color: #fff;
+.main-nav li a {
+    color: #000;
     text-decoration: none;
-    font-size: 16px;
+    padding: 0 20px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+
+/* ==================================== */
+/* STORY PAGE STYLES */
+/* ==================================== */
+.story-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.story-title {
+    text-align: center;
+    font-size: 2.5em;
     font-weight: bold;
-    padding: 5px 10px;
-    transition: color 0.3s;
+    margin: 40px 0 10px;
+    color: #fdd835;
 }
 
-.main-nav ul li a:hover {
-    color: #f7a83d; /* Hover par golden/yellow color */
+.star-icon {
+    font-size: 1.2em;
+    color: #fdd835;
+    margin: 0 5px;
 }
 
-/* === 3. Hero Section (Perfume Bottles) === */
-.hero-section {
-    flex-grow: 1;
+.story-subtitle {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+/* 1. TOP CONTENT (3 Columns) */
+.top-content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.story-card h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.story-card p, .story-card ul {
+    line-height: 1.6;
+    font-size: 1em;
+    margin: 0;
+}
+
+/* 2. TEAM DEDICATION SECTION (2 Images side-by-side) */
+.section-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 50px 0 20px;
+}
+
+.team-dedication-flex {
     display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+    max-width: 900px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.team-card {
+    flex: 1; 
+    max-width: 35%;
+    /* Background aur padding images ke aas paas ki safedi ke liye */
+    background-color: #000;
+    color :#fff ;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.team-img {
+    width: 100%;
+    height: 220px; /* <--- Height 250px se 220px karke dekhein */
+    object-fit: cover; 
+    margin-bottom: 10px; /* Margin kam kar dain */
+    border-radius: 5px;
+}
+
+.team-text h3 {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+/* 3. MILESTONES SECTION (4 Boxes) */
+.milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.milestone-box {
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 5px;
+    min-height: 100px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 100px; /* Footer se uper fasla */
 }
 
-.perfume-bottle-display {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Bottles ko neeche ki taraf align karne ke liye */
-    width: 70%; /* Ek munasib चौड़ाई (width) */
-    position: relative;
-    z-index: 10;
-}
-
-.bottle-card {
-    text-align: center;
-    padding: 20px;
-    /* Bottles ke aas paas halka sa shadow ya effect dalne ke liye */
-}
-
-.bottle-card img {
-    width: 100%; /* Agar aapki images PNG/transparent background mein hain */
-    max-width: 250px; /* Max size set karein */
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)); /* Thora sa shadow effect */
-}
-
-.bottle-card p {
-    color: #fff;
-    font-size: 14px;
+.highlight {
+    font-size: 2em;
     font-weight: bold;
-    margin-top: 10px;
-    /* Agar bottle ke uper ya neeche naam likhna ho */
+    color: #fdd835;
 }
 
-/* === 4. Footer Styling (Common) === */
-.site-footer {
-    background-color: #333333;
-    color: #fff;
-    padding: 30px 5%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    font-size: 14px;
+.rating-box .stars {
+    color: #fdd835;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+.rating-box .highlight {
+    font-size: 1.5em;
 }
 
-.footer-section {
-    flex-basis: 30%;
+.award-box .trophy-icon {
+    font-size: 2em;
+    color: #fdd835;
+    margin-bottom: 5px;
 }
-
-.footer-section h3 {
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #f7a83d;
+.award-box .highlight {
+    font-size: 1.5em;
+    line-height: 1.2;
 }
-
-.footer-section nav ul {
-    list-style: none;
-}
-
-.footer-section nav ul li a {
-    color: #ccc;
-    text-decoration: none;
-    line-height: 1.8;
-    transition: color 0.2s;
-}
-
-.footer-section nav ul li a:hover {
-    color: #fff;
-}
-
-.contact-info p {
-    line-height: 1.6;
-}
-
-.social-icons a {
-    color: #fff;
-    margin-right: 15px;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.footer-logo {
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
+.milestone-box .subtext {
+    font-size: 0.8em;
 }
