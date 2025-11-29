@@ -3,158 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scentify - Fragrances | Home</title>
-    <!-- Link to Font Awesome for Icons -->
+    <title>Scentify - Luxury Perfumes & Attars</title>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
+    <!-- Load Global Styling -->
+    <link rel="stylesheet" href="index.css"> 
+    <!-- Load Product Detail Page Styling (Naye Page Ki Styling) -->
+    <link rel="stylesheet" href="Sultan_Ameer_Detail Page.css">
+    <script src="index.js"></script>
 </head>
 <body>
 
-    <!--
-        HEADER STRUCTURE (Same as previous, sticky, black)
-    -->
+    <!-- ========================================
+    HEADER START (Yeh Hamesha Fix Rahega)
+    ======================================== -->
     <header class="main-header-fixed">
-        <!-- 1. Top Bar: Return Policy & Social Icons -->
+        <!-- 1. Top Bar -->
         <div class="top-bar">
-            <p class="return-policy-text">7 Days Easy Return & Exchange Policy</p>
+            <span>Free Shipping Above Rs.1999</span>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="visually-hidden">Facebook</a><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="visually-hidden">Instagram</a><i class="fab fa-instagram"></i></a>
+                <a href="#" class="visually-hidden">Twitter</a><i class="fab fa-twitter"></i></a>
+                <a href="#" class="visually-hidden">WhatsApp</a><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
 
-        <!-- 2. Main Header: Search, Logo, Actions -->
+        <!-- 2. Main Header (Logo, Search, Actions) -->
         <div class="main-header">
-            
-            <!-- Search Container (Search on left, voice on right) -->
+            <div class="logo">
+                <!-- LOGO - CLICK KARNE PAR HOME PAGE WAPAS AAYEGA -->
+                <a href="#" onclick="showPage('home-page'); return false;">
+                    <img src="Logo-removebg-preview_crop.png" alt="Scentify Logo" class="logo-image">
+                </a>
+            </div>
+
+            <!-- Search Bar -->
             <div class="search-container">
-                <form action="/search" method="get" class="search-form">
-                    <button type="submit" class="search-button">
-                        <i class="fas fa-search"></i> 
-                    </button>
-                    <input type="search" placeholder="Search" name="q" class="search-input">
-                    <button type="button" class="voice-search-button">
-                        <i class="fas fa-microphone"></i> 
-                    </button>
+                <form class="search-form">
+                    <button type="submit" class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+                    <input type="search" placeholder="Search by name, category or mood..." class="search-input">
+                    <button type="button" class="voice-search-button" aria-label="Voice Search"><i class="fas fa-microphone"></i></button>
                 </form>
             </div>
-
-            <!-- Logo Container (Using a meaningful placeholder image name) -->
-            <div class="logo">
-                <img src="Logo-removebg-preview_crop.png" alt="Scentify Logo" class="logo-image">
-            </div>
-
-            <!-- User Actions: Account & Cart -->
+            
+            <!-- User Actions -->
             <div class="user-actions">
-                <a href="/account" class="action-link account-link">
-                    <i class="far fa-user"></i> ACCOUNT
-                </a>
-                <a href="/cart" class="action-link cart-link">
-                    <i class="fas fa-shopping-cart"></i> CART
-                </a>
+                <a href="#"><i class="fas fa-user"></i> Account</a>
+                <a href="#"><i class="fas fa-shopping-bag"></i> Cart (0)</a>
             </div>
         </div>
 
-        <!-- 3. Main Navigation Bar -->
+        <!-- 3. Main Navigation -->
         <nav class="main-nav">
             <ul class="nav-list">
-                <li class="nav-item"><a href="/" class="nav-link active">HOME</a></li>
-                <li class="nav-item"><a href="/shop" class="nav-link">SHOP <i class="fas fa-chevron-down nav-arrow"></i></a></li>
-                <li class="nav-item"><a href="/bestsellers" class="nav-link">BEST SELLERS</a></li>
-                <li class="nav-item"><a href="/deals" class="nav-link">DEALS</a></li>
-                <li class="nav-item"><a href="/testers" class="nav-link">TESTERS</a></li>
-                <li class="nav-item"><a href="/outlets" class="nav-link">OUR OUTLETS</a></li>
-                <li class="nav-item"><a href="/blogs" class="nav-link">BLOGS</a></li>
+                <li class="nav-item"><a href="#" class="nav-link active">HOME</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">ATTARS <span class="nav-arrow">&#9662;</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link">PERFUMES <span class="nav-arrow">&#9662;</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link">BEST SELLERS</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- Content to push below the fixed header -->
+    <!-- CONTENT SPACER -->
     <div class="content-spacer"></div>
+    <!-- ========================================
+    HEADER END
+    ======================================== -->
 
-    <main>
-        <!-- Sample content to show scrolling effect -->
-        <section class="hero-section">
-            <img src="HP image.png" alt="HP display" class="HP-image">
+
+    <!-- ========================================
+    MAIN CONTENT CONTAINER (Yeh Badal Jaye Ga)
+    ======================================== -->
+    <div id="main-content-area">
+
+        <!-- +++++++++++++++++++++++++++++++++++++++
+        PAGE 1: HOME PAGE (By default active)
+        +++++++++++++++++++++++++++++++++++++++ -->
+        <section id="home-page" class="content-page active">
+            <div class="hero-section">
+                <h1>Welcome to Scentify - Discover Your Signature Scent</h1>
+                <p>The essence of luxury captured in a bottle. Explore our latest collection.</p>
+                
+                <!-- HOME PAGE PRODUCT IMAGE (Clickable to go to Product Detail Page) -->
+                <a href="#" onclick="showPage('product-detail-page'); return false;">
+                    <img src="HP image.png" 
+                         alt="Main Product Placeholder" 
+                         class="hero-placeholder-image"
+                         style="cursor: pointer; border: 4px solid var(--color-primary);">
+                </a>
+            </div>
+            <!-- Yahan Home Page Ke Baqi Sections Aayenge (e.g., Featured Products, Reviews) -->
         </section>
-    </main>
 
-    <!-- ======================= FOOTER START ======================= -->
+
+        <!-- +++++++++++++++++++++++++++++++++++++++
+        PAGE 2: PRODUCT DETAIL PAGE (Initially hidden)
+        +++++++++++++++++++++++++++++++++++++++ -->
+        <section id="product-detail-page" class="content-page">
+            <!-- Product Detail Page Ka Content (Jo Pichli Bar Banaya Tha) -->
+            <main class="product-page-container">
+                <section class="product-info-grid">
+                    <div class="product-gallery">
+                        <div class="thumbnail-selector">
+                            <!-- Image 1 -->
+                            <img src="Sultan A1.webp" 
+                                 alt="Product View 1" 
+                                 class="thumbnail-image active" 
+                                 onclick="changeMainImage(this)">
+                            <!-- Image 2 -->
+                            <img src="Sultan A 2.webp" 
+                                 alt="Product View 2" 
+                                 class="thumbnail-image" 
+                                 onclick="changeMainImage(this)">
+                            <!-- Image 3 -->
+                            <img src="Sultan A3.png" 
+                                 alt="Product View 3" 
+                                 class="thumbnail-image" 
+                                 onclick="changeMainImage(this)">
+                            <!-- Image 4 (Optional) -->
+                            <img src="Sultan A4.png" 
+                                 alt="Product View 4" 
+                                 class="thumbnail-image" 
+                                 onclick="changeMainImage(this)">
+                        </div>
+                        <div class="main-image-wrapper">
+                            <img src="Sultan A1.webp" 
+                                 alt="Sultan E Ameer Attar" 
+                                 id="main-product-image" 
+                                 class="main-product-image">
+                        </div>
+                    </div>
+
+                    <div class="product-details">
+                        <h1 class="product-title">Sultan E Ameer | Concentrated Perfume | Attar Oil | 16ml</h1>
+                        <p class="product-tag">Addition To Arabia <i class="fa-solid fa-star gold-star"></i></p>
+                        <div class="price-section">
+                            <span class="old-price">Rs.2,500.00</span>
+                            <span class="current-price">Rs.2,199.00</span>
+                        </div>
+                        <div class="quantity-control-wrapper">
+                            <label for="quantity" class="quantity-label">Quantity</label>
+                            <div class="quantity-input-group">
+                                <button class="qty-btn minus-btn" onclick="updateQuantity(-1)">-</button>
+                                <input type="number" id="quantity" value="1" min="1" class="qty-input">
+                                <button class="qty-btn plus-btn" onclick="updateQuantity(1)">+</button>
+                            </div>
+                        </div>
+                        <div class="product-features">
+                            <p><i class="fa-solid fa-truck-fast icon-gold"></i> 7 Days Easy Return & Exchange</p>
+                            <p><i class="fa-solid fa-users icon-gold"></i> 500,000+ Happy Customers</p>
+                            <p><i class="fa-solid fa-trophy icon-gold"></i> Celebrities Most Loved Brand</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="add-to-cart-btn">Add To Cart</button>
+                            <button class="buy-now-btn">Buy It Now</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DESCRIPTION & SPECIFICATIONS TABS -->
+                <section class="details-section">
+                    <div class="tab-header">
+                        <!-- Ensure these tabs call the correct function -->
+                        <button class="tab-button active" onclick="openTab(event, 'Description')">Description</button>
+                        <button class="tab-button" onclick="openTab(event, 'Specifications')">Specifications</button>
+                    </div>
+
+                    <div id="Description" class="tab-content active">
+                        <p>
+                            Here is Sultan E Ameer With Floral-Woody Accords, This Fragrance Is Enhanced By Subtle 
+                            Undertones Of Musk And Citrus, Creating An Enchanting And Captivating Scent.
+                        </p>
+                        <p>
+                            **Top Note:** Bergamot; **Middle Note:** Jasmine, Rose; **Base Notes:** Sandalwood, Amber, Oakmoss, Musk.
+                        </p>
+                        <p class="long-description-placeholder">
+                            [Aap yahan mukammal description daal sakte hain. Ye text Sirf placeholder hai.]
+                        </p>
+                    </div>
+
+                    <div id="Specifications" class="tab-content">
+                        <ul>
+                            <li>
+                                <strong>Variants:</strong> We offer this attar in one format.
+                                <ul>
+                                    <li>**Roll-On Attar:** Available in one size: 16ml.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Concentration:</strong>
+                                <ul>
+                                    <li>**Roll-On Attar:** 100% Concentrated</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Sillage & Lasting:</strong>
+                                <ul>
+                                    <li>**Sillage:** High</li>
+                                    <li>**Lasting Up To:** 8 to 10 hours (measured in a standard atmosphere)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- RELATED PRODUCTS -->
+                <section class="related-products">
+                    <h2 class="section-heading">More To Explore</h2>
+                    <div class="related-products-grid">
+                        <div class="related-product-card">
+                            <img src="Black & Silver Oud.webp" alt="Black & Silver Oud" class="related-product-image">
+                            <p class="related-product-title">Black & Silver Oud | Concentrated Perfume | Attar Oil</p>
+                            <p class="related-product-price">Rs.1,899.00</p>
+                            <p class="related-product-qty">Qty: 1</p>
+                        </div>
+                        <div class="related-product-card">
+                            <img src="Ameer Al Oud.webp" alt="Ameer Al Oud" class="related-product-image">
+                            <p class="related-product-title">Ameer Al Oud | Concentrated Perfume Attar Oil</p>
+                            <p class="related-product-price">Rs.936.00</p>
+                            <p class="related-product-qty">Qty: 1</p>
+                        </div>
+                         <div class="related-product-card">
+                            <img src="Black & Silver Platinum.webp" alt="Placeholder Product 3" class="related-product-image">
+                            <p class="related-product-title">Black & Silver Platinum | Luxury Attar Collection</p>
+                            <p class="related-product-price">Rs.1,499.00</p>
+                            <p class="related-product-qty">Qty: 1</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </section>
+        
+    </div>
+    <!-- ========================================
+    MAIN CONTENT CONTAINER END
+    ======================================== -->
+
+
+    <!-- ========================================
+    FOOTER START (Yeh Hamesha Fix Rahega)
+    ======================================== -->
     <footer class="main-footer">
-        <!-- TOP SECTION: Links, Contact, Services (Grid) -->
         <div class="footer-content-container">
-            
-            <!-- 1. Logo (Takes the first column in the grid) -->
+            <!-- 1. Logo Section -->
             <div class="footer-section logo-section">
                 <img src="Logo-removebg-preview_crop.png" alt="Scentify Logo" class="footer-logo-image">
             </div>
-            
-            <!-- 2. Quick Links (Takes the second column) -->
+
+            <!-- 2. Quick Links -->
             <div class="footer-section quick-links-section">
-                <h4 class="visually-hidden">Quick Links</h4> <!-- Hiding heading but keeping structure for screen readers -->
-                <h4>Quick Links</h4>
-                <a href="#">About</a>
-                <a href="#">FAQ's</a>
-                <a href="#">Returns</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
+                <h4>QUICK LINKS</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Shop</a>
+                <a href="#">Returns & Exchange</a>
             </div>
 
-            <!-- 3. Contact Info & Follow Us (Combined Section) -->
+            <!-- 3. Customer Services -->
+            <div class="footer-section customer-services-section">
+                <h4>CUSTOMER SERVICES</h4>
+                <a href="#">Track Order</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">FAQs</a>
+            </div>
+
+            <!-- 4. Contact Info -->
             <div class="footer-section contact-info-section">
-                <h4>Contact Info</h4>
-                <p class="contact-detail">
-                    <i class="fa-regular fa-envelope"></i> Support@Scentify.Com
-                </p>
-                <p class="contact-detail phone">
-                    <i class="fa-solid fa-phone"></i> +92 300 1234567
-                </p>
-                <p class="contact-detail location">
-                    <i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan
-                </p>
+                <h4>CONTACT INFO</h4>
+                <p class="contact-detail"><i class="fa-solid fa-map-marker-alt"></i> 123 Luxury Lane, Perfume City, PK</p>
+                <p class="contact-detail"><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
+                <p class="contact-detail"><i class="fa-solid fa-envelope"></i> support@scentify.com</p>
                 
                 <div class="follow-us-section">
-                    <h4>Follow Us</h4>
+                    <h4>FOLLOW US</h4>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
-            
-            <!-- 4. Customer Services -->
-            <div class="footer-section customer-services-section">
-                <h4>Customer Services</h4>
-                <a href="#">About Us</a>
-                <a href="#">Scentify Media Page</a>
-                <a href="#">Terms Of Service</a>
-                <a href="#">Refund And Exchange Policy</a>
-            </div>
         </div>
-        
-        <!-- MIDDLE SECTION: Address (Full Width) -->
+
+        <!-- Middle Address Row -->
         <div class="address-row-container">
             <div class="address-section">
-                <h4>Address</h4>
-                <p>
-                    Shop G-179, Scentify, Musk Al Mahal,<br>
-                    Opp Rex Centre, Next To Meezan Bank, <br>
-                    Panaroma Centre, Saddar, Karachi.
-                </p>
+                <p>Corporate Office: Scentify (Pvt) Ltd, 1st Floor, Building A, Main Boulevard, Perfume City, Lahore, Pakistan.</p>
             </div>
         </div>
 
-        <!-- BOTTOM SECTION: Copyright -->
+        <!-- Copyright -->
         <div class="footer-bottom">
-            <p class="copyright">© 2025 Scentify</p> 
+            <p>© 2025 SCENTIFY - All Rights Reserved.</p>
         </div>
     </footer>
-    <!-- ======================= FOOTER END ======================= -->
+    <!-- ========================================
+    FOOTER END
+    ======================================== -->
 
 </body>
 </html>
