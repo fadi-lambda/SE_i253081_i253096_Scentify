@@ -1,105 +1,443 @@
-/* --- TOP BAR STYLES --- */
-.top-bar .return-policy-text {
+/* ========================================
+GLOBAL STYLES AND RESET
+======================================== 
+*/
+:root {
+    --color-primary: #ffc107; /* Golden/Yellow */
+    --color-dark: #000;
+    --color-light: #fff;
+    --color-text-light: #ccc;
+    --header-height: 190px; /* Total height of fixed header */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    font-size: 0.9em;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
 }
 
-.top-bar .social-icons {
-    /* Social icons ko top-right corner par set karna */
-    position: absolute; 
-    right: 20px; 
-    top: 50%; /* Vertical center karne ke liye */
-    transform: translateY(-50%);
-    display: flex;
-    gap: 10px;
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
 }
 
-/* --- MAIN HEADER STYLES --- */
-.main-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #000;
+a:hover {
+    color: var(--color-primary) !important;
 }
 
-.main-header .search-container {
-    flex-basis: 30%;
+h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--color-primary); 
 }
 
-.main-header .search-form {
-    display: flex;
-    background-color: #fff;
-    border-radius: 4px;
+/* Helper class to hide an element visually but keep it for screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
     overflow: hidden;
-    max-width: 400px;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
-.main-header .search-input {
-    padding: 10px;
-    border: none;
+/* ========================================
+HEADER STYLES (NO CHANGE)
+======================================== 
+*/
+
+/* --- 1. Sticky Container --- */
+.main-header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Content Spacer to prevent content from hiding behind fixed header --- */
+.content-spacer {
+    height: var(--header-height); /* Set height equal to header's total height */
+}
+
+/* --- 2. Top Bar (Golden Bar) --- */
+.top-bar {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 80px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.top-bar .social-icons a {
+    color: var(--color-dark);
+    margin-left: 15px;
+}
+
+.top-bar .social-icons a:hover {
+    color: var(--color-light) !important;
+}
+
+/* --- 3. Main Header (Black Bar) --- */
+.main-header {
+    background-color: var(--color-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+/* Logo */
+.logo-image {
+    height: 60px; /* Adjust as needed */
+    width: auto;
+}
+
+/* User Actions */
+.user-actions {
+    display: flex;
+    gap: 25px;
+    color: var(--color-light);
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.user-actions i {
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+/* --- 4. Search Bar Customization --- */
+.search-container {
     flex-grow: 1;
-    outline: none;
+    max-width: 250px;
+}
+.search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 50px; /* Fully rounded search bar */
+    overflow: hidden;
+    background-color: var(--color-light);
+    height: 50px;
 }
 
-.main-header .search-button {
-    padding: 10px;
+.search-button, .voice-search-button {
+    background-color: transparent;
     border: none;
-    background: none;
+    color: #666; /* Default icon color */
+    padding: 0 15px;
     cursor: pointer;
+    font-size: 1.1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.main-header .logo {
-    flex-basis: 30%;
+/* Search button (Left side, simple) */
+.search-button {
+    color: var(--color-primary);
+}
+
+/* Voice button (Right side) */
+.voice-search-button {
+    color: #666;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 0;
+    font-size: 1em;
+    outline: none;
+    height: 100%;
+}
+.search-input::placeholder {
+    color: #aaa;
+}
+
+
+/* --- 5. Main Navigation --- */
+.main-nav {
+    background-color: var(--color-dark);
+    padding: 10px 80px;
     text-align: center;
 }
 
-.main-header .logo-image {
-    height: 50px; /* Logo image ki height */
-}
-
-.main-header .logo-text {
-    color: #ffc107;
-    font-size: 1.5em;
-    margin: 0;
-}
-
-.main-header .user-actions {
-    flex-basis: 30%;
-    text-align: right;
-    color: #fff;
-}
-
-.main-header .action-link {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px; /* Right-aligned hone ki wajah se margin left mein diya */
-    font-weight: bold;
-}
-
-/* --- NAVIGATION STYLES --- */
-.main-nav {
-    background-color: #000;
-    padding: 10px 0;
-    border-top: 1px solid #333;
-}
-
-.main-nav .nav-list {
+.nav-list {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
+    gap: 30px;
 }
 
-.main-nav .nav-item {
-    margin: 0 15px;
+.nav-item {
+    padding: 0 5px; /* Add small padding for better click area */
 }
 
-.main-nav .nav-link {
-    color: #fff;
-    text-decoration: none;
+.nav-link {
+    color: var(--color-text-light);
+    font-size: 0.95em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--color-light) !important;
+}
+
+.nav-arrow {
+    font-size: 0.6em;
+    margin-left: 5px;
+}
+
+
+/* ========================================
+MAIN CONTENT (Sample)
+======================================== 
+*/
+.hero-section {
+    padding: 100px 50px;
+    text-align: center;
+    background-color: #e8e8e8;
+    color: #333;
+}
+
+.hero-placeholder-image {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* Placeholder style */
+    background-color: #ccc; 
+    padding: 50px;
     font-weight: bold;
-    padding: 5px 0; /* Clickable area behtar karne ke liye */
+    color: #666;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ========================================
+FOOTER STYLES (UPDATED FOR 4-COLUMN LAYOUT)
+======================================== 
+*/
+
+.main-footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding-top: 50px;
+}
+
+.main-footer a {
+    color: var(--color-text-light);
+    display: block;
+    margin-bottom: 8px; 
+    font-size: 0.9em;
+}
+
+.main-footer a:hover {
+    color: var(--color-primary) !important;
+}
+
+/* ------------------ 1. TOP SECTION (4-COLUMN GRID) ------------------ */
+.footer-content-container {
+    display: grid;
+    /* 4 columns of equal width */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* Reduced gap slightly */
+    padding: 0 80px 50px 80px;
+    align-items: start; /* Align content to the top of grid cells */
+}
+
+.footer-section {
+    padding: 0; 
+}
+
+/* Logo Section */
+.logo-section {
+    padding-top: 10px; /* Aligns the logo with the top of the Quick Links text */
+}
+
+.footer-logo-image {
+    height: 80px;
+    width: auto;
+}
+
+/* Quick Links Section */
+.quick-links-section {
+    /* No need for specific styling here, default link styling applies */
+    /* The <h4> is hidden via .visually-hidden class in HTML/CSS */
+}
+
+
+/* Contact Info Section (Combined) */
+.contact-info-section .contact-detail {
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+    color: var(--color-text-light);
+}
+
+.contact-info-section i {
+    color: var(--color-primary); 
+    margin-right: 8px;
+    width: 15px; 
+}
+
+/* Follow Us */
+.follow-us-section {
+    margin-top: 25px;
+}
+
+.follow-us-section .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.follow-us-section .social-icons a {
+    font-size: 1.4em;
+    display: inline-block;
+    color: var(--color-light);
+}
+
+
+/* ------------------ 2. MIDDLE SECTION (ADDRESS) ------------------ */
+.address-row-container {
+    padding: 30px 80px 40px 80px;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+}
+.address-section {
+    max-width: 600px;
+}
+.address-section p {
+    line-height: 1.6;
+    color: var(--color-text-light);
+    font-size: 0.9em;
+}
+
+
+/* ------------------ 3. BOTTOM SECTION (COPYRIGHT) ------------------ */
+.footer-bottom {
+    text-align: center;
+    padding: 15px 50px;
+    font-size: 0.9em;
+    color: var(--color-text-light);
+}
+
+
+/* ========================================
+RESPONSIVE DESIGN 
+======================================== 
+*/
+
+@media (max-width: 1024px) {
+    /* --- HEADER (Tablet) --- */
+    .top-bar, .main-header, .main-nav {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .main-header {
+        flex-wrap: wrap;
+    }
+    .search-container {
+        order: 3; 
+        flex-basis: 100%;
+        margin-top: 15px;
+        max-width: 100%;
+    }
+    .logo, .user-actions {
+        order: 1; 
+        flex-grow: 1;
+        text-align: center;
+    }
+    .content-spacer {
+        height: 230px; 
+    }
+    
+    /* --- FOOTER (Tablet) --- */
+    .footer-content-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+        padding: 0 40px 40px 40px;
+        gap: 30px;
+    }
+    /* Group logo and quick links side-by-side on tablet */
+    .logo-section {
+        grid-column: 1 / 2;
+    }
+    .quick-links-section {
+        grid-column: 2 / 3;
+    }
+    .contact-info-section {
+        grid-column: 1 / 2;
+    }
+    .customer-services-section {
+        grid-column: 2 / 3;
+    }
+    .address-row-container {
+        padding: 20px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- HEADER (Mobile) --- */
+    .content-spacer {
+        height: 250px; 
+    }
+
+    /* --- FOOTER (Mobile) --- */
+    .main-footer {
+        padding-top: 30px;
+    }
+    .footer-content-container {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        padding: 0 20px 30px 20px;
+        gap: 20px;
+        text-align: center;
+    }
+    /* All sections stack vertically on mobile */
+    .logo-section,
+    .quick-links-section,
+    .contact-info-section,
+    .customer-services-section {
+        grid-column: 1 / 2;
+        /* Center content for mobile */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .address-row-container {
+        padding: 20px 20px;
+        text-align: center;
+    }
+    .follow-us-section .social-icons {
+        justify-content: center;
+    }
+    .quick-links-section a {
+        display: inline-block; /* Change links to inline for horizontal flow on mobile/center alignment */
+        margin: 0 10px 8px 10px;
+    }
 }

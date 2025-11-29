@@ -4,103 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scentify - Fragrances | Home</title>
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="index.css">
-    </head>
+</head>
 <body>
 
-    <header>
-    <!-- Top Bar: Return Policy & Social Icons -->
-    <div class="top-bar">
-        <div class="social-icons">
-            <span><i class="fab fa-facebook-f"></i></span>
-            <span><i class="fab fa-instagram"></i></span>
-            <span><i class="fab fa-tiktok"></i></span>
-            <span><i class="fab fa-linkedin-in"></i></span>
-            <span><i class="fab fa-youtube"></i></span>
-        </div>
-    </div>
-
-    <!-- Main Header: Search, Logo, Actions -->
-    <div class="main-header">
-        
-        <!-- Search Container -->
-        <div class="search-container">
-            <form action="/search" method="get" class="search-form">
-                <input type="search" placeholder="Search" name="q" class="search-input">
-                <button type="submit" class="search-button">
-                    🔍
-                </button>
-            </form>
+    <!--
+        HEADER STRUCTURE (Same as previous, sticky, black)
+    -->
+    <header class="main-header-fixed">
+        <!-- 1. Top Bar: Return Policy & Social Icons -->
+        <div class="top-bar">
+            <p class="return-policy-text">7 Days Easy Return & Exchange Policy</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
         </div>
 
-        <!-- Logo Container -->
-        <div class="logo">
-            <img src="musk-al-mahal-logo.png" alt="MUSK AL MAHAL Logo" class="logo-image">
-            <h1 class="logo-text">مسك المحال</h1>
+        <!-- 2. Main Header: Search, Logo, Actions -->
+        <div class="main-header">
+            
+            <!-- Search Container (Search on left, voice on right) -->
+            <div class="search-container">
+                <form action="/search" method="get" class="search-form">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i> 
+                    </button>
+                    <input type="search" placeholder="Search" name="q" class="search-input">
+                    <button type="button" class="voice-search-button">
+                        <i class="fas fa-microphone"></i> 
+                    </button>
+                </form>
+            </div>
+
+            <!-- Logo Container (Using a meaningful placeholder image name) -->
+            <div class="logo">
+                <img src="Logo-removebg-preview_crop.png" alt="Scentify Logo" class="logo-image">
+            </div>
+
+            <!-- User Actions: Account & Cart -->
+            <div class="user-actions">
+                <a href="/account" class="action-link account-link">
+                    <i class="far fa-user"></i> ACCOUNT
+                </a>
+                <a href="/cart" class="action-link cart-link">
+                    <i class="fas fa-shopping-cart"></i> CART
+                </a>
+            </div>
         </div>
 
-        <!-- User Actions: Account & Cart -->
-        <div class="user-actions">
-            <a href="/account" class="action-link account-link">👤 ACCOUNT</a>
-            <a href="/cart" class="action-link cart-link">🛒 CART</a>
-        </div>
-    </div>
-
-    <!-- Main Navigation Bar -->
-    <nav class="main-nav">
-        <ul class="nav-list">
-            <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
-            <li class="nav-item"><a href="/shop" class="nav-link">SHOP ⌄</a></li>
-            <li class="nav-item"><a href="/bestsellers" class="nav-link">BEST SELLERS</a></li>
-            <li class="nav-item"><a href="/deals" class="nav-link">DEALS</a></li>
-            <li class="nav-item"><a href="/testers" class="nav-link">TESTERS</a></li>
-            <li class="nav-item"><a href="/outlets" class="nav-link">OUR OUTLETS</a></li>
-            <li class="nav-item"><a href="/blogs" class="nav-link">BLOGS</a></li>
-        </ul>
-    </nav>
+        <!-- 3. Main Navigation Bar -->
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/" class="nav-link active">HOME</a></li>
+                <li class="nav-item"><a href="/shop" class="nav-link">SHOP <i class="fas fa-chevron-down nav-arrow"></i></a></li>
+                <li class="nav-item"><a href="/bestsellers" class="nav-link">BEST SELLERS</a></li>
+                <li class="nav-item"><a href="/deals" class="nav-link">DEALS</a></li>
+                <li class="nav-item"><a href="/testers" class="nav-link">TESTERS</a></li>
+                <li class="nav-item"><a href="/outlets" class="nav-link">OUR OUTLETS</a></li>
+                <li class="nav-item"><a href="/blogs" class="nav-link">BLOGS</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
+    <!-- Content to push below the fixed header -->
+    <div class="content-spacer"></div>
 
+    <main>
+        <!-- Sample content to show scrolling effect -->
+        <section class="hero-section">
+            <img src="HP image.png" alt="HP display" class="HP-image">
+        </section>
     </main>
 
+    <!-- ======================= FOOTER START ======================= -->
     <footer class="main-footer">
+        <!-- TOP SECTION: Links, Contact, Services (Grid) -->
         <div class="footer-content-container">
-            <div class="footer-section links-section">
-                <img src="images/logo-footer.png" alt="Scentify Logo"> 
-                <p>Scentify Fragrances</p>
-                <div class="quick-links">
-                    <h4>Quick Links</h4>
-                    <a href="#">About</a>
-                    <a href="#">FAQ's</a>
-                    <a href="#">Returns</a>
-                    <a href="#">Terms & Condition</a>
-                    <a href="#">Privacy Policy</a>
+            
+            <!-- 1. Logo (Takes the first column in the grid) -->
+            <div class="footer-section logo-section">
+                <img src="Logo-removebg-preview_crop.png" alt="Scentify Logo" class="footer-logo-image">
+            </div>
+            
+            <!-- 2. Quick Links (Takes the second column) -->
+            <div class="footer-section quick-links-section">
+                <h4 class="visually-hidden">Quick Links</h4> <!-- Hiding heading but keeping structure for screen readers -->
+                <h4>Quick Links</h4>
+                <a href="#">About</a>
+                <a href="#">FAQ's</a>
+                <a href="#">Returns</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+
+            <!-- 3. Contact Info & Follow Us (Combined Section) -->
+            <div class="footer-section contact-info-section">
+                <h4>Contact Info</h4>
+                <p class="contact-detail">
+                    <i class="fa-regular fa-envelope"></i> Support@Scentify.Com
+                </p>
+                <p class="contact-detail phone">
+                    <i class="fa-solid fa-phone"></i> +92 300 1234567
+                </p>
+                <p class="contact-detail location">
+                    <i class="fa-solid fa-location-dot"></i> Islamabad, Pakistan
+                </p>
+                
+                <div class="follow-us-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
             
-            <div class="footer-section contact-info">
-                <h4>Contact Info</h4>
+            <!-- 4. Customer Services -->
+            <div class="footer-section customer-services-section">
+                <h4>Customer Services</h4>
+                <a href="#">About Us</a>
+                <a href="#">Scentify Media Page</a>
+                <a href="#">Terms Of Service</a>
+                <a href="#">Refund And Exchange Policy</a>
+            </div>
+        </div>
+        
+        <!-- MIDDLE SECTION: Address (Full Width) -->
+        <div class="address-row-container">
+            <div class="address-section">
+                <h4>Address</h4>
                 <p>
-                    Support@Scentify.Com<br>
-                    +92 300 1234567
+                    Shop G-179, Scentify, Musk Al Mahal,<br>
+                    Opp Rex Centre, Next To Meezan Bank, <br>
+                    Panaroma Centre, Saddar, Karachi.
                 </p>
             </div>
-
-            <div class="footer-section social-media">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
-            </div>
         </div>
-        <div class="ai-disclaimer">
-            <p>Disclaimer: All product images used on this site are AI-generated and provided by [AI Tool Name].</p> 
-        </div>
-        </footer>
 
-    </body>
+        <!-- BOTTOM SECTION: Copyright -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 Scentify</p> 
+        </div>
+    </footer>
+    <!-- ======================= FOOTER END ======================= -->
+
+</body>
 </html>
