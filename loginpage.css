@@ -1,183 +1,176 @@
+/* Basic Reset and Global Styles */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box; 
 }
 
 body {
-    background-color: #000;
+    font-family: Arial, sans-serif;
+    color: #333;
 }
 
-.main-container {
-    background-image: url('loginpagebackground.png'); /* Apni tasveer ka naam yahan badal dein */
+/* --- Main Container & Background --- */
+.login-page-container {
+    /* *** YAHAN APNI BACKGROUND IMAGE KA PATH BADLEN *** */
+    background-image: url('loginpagebackground.png'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Poori height cover kare */
     display: flex;
     flex-direction: column;
 }
 
-.page-header {
-    background-color: #000000;
-    color: #fff;
-    padding: 15px 5%;
+/* --- Header Styling (Top Bar) --- */
+.main-header {
+    background-color: #000; /* Black Header */
+    padding: 15px 0;
+    border-bottom: 5px solid #E8C100;
+}
+
+.header-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #0866ff;
+    padding: 0 20px; 
 }
 
-.logo-area img {
-    height: 100px !important;
-    width: auto !important;
-}
-
+/* Search Bar */
 .search-bar {
     display: flex;
     align-items: center;
     background-color: #fff;
-    border-radius: 50px;
-    padding: 5px 15px;
-    width: 200px;
-    height: 40px;
+    padding: 8px 15px;
+    border-radius: 50px; 
+    border: 1px solid #ccc;
+    width: 250px;
 }
+.search-bar i { color: #333; margin-right: 10px; }
+.search-bar input { border: none; outline: none; width: 100%; font-size: 16px; }
 
-.search-bar input {
-    border: none;
-    outline: none;
-    flex-grow: 1;
-    padding-left: 10px;
-}
+/* Logo */
+.logo { text-align: center; color: #E8C100; }
+.logo img { max-width: 180px; height: auto; display: block; }
+.logo-fragrances { font-size: 10px; letter-spacing: 2px; color: #E8C100; }
 
+/* User Actions */
+.user-actions { display: flex; align-items: center; }
 .user-actions a {
-    color: #fff;
     text-decoration: none;
-    margin-left: 20px;
+    color: #fff; 
     font-size: 14px;
     font-weight: bold;
+    margin-left: 20px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
+.user-actions a i {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #fff;
 }
 
-.forms-area {
+/* --- Main Forms Wrapper --- */
+.auth-forms-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    padding: 50px 0;
-    position: relative;
-    z-index: 1;
+    gap: 150px; /* Do blocks ke beech ki jagah (aap isse adjust kar sakte hain) */
+    padding: 50px 20px;
+    flex-grow: 1; /* Jagah bharne ke liye */
 }
 
-.form-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(8px);
-    border-radius: 20px;
-    padding: 40px;
-    width: 400px;
-    margin: 0 40px;
-     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    min-height: 700px;
+/* Auth Blocks (Login / Create Account) */
+.auth-block {
+    background-color: rgba(255, 255, 255, 0.9); /* Halka transparent white background */
+    padding: 40px 30px;
+    border-radius: 20px; /* Gol kinare */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 450px; /* Har block ki width */
+    min-height: 550px; /* Barabar height maintain karne ke liye */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     
+    /* ➡️ Note: min-height: 550px; se dono blocks ki height barabar ho jayegi */
 }
 
-.form-card h2 {
+.auth-block h2 {
     text-align: center;
+    font-size: 32px;
     margin-bottom: 30px;
-    font-size: 28px;
-    color: #333;
 }
 
-.input-group {
-    margin-bottom: 20px;
-}
-
-.form-card input {
+/* Form Inputs */
+.auth-block input[type="email"],
+.auth-block input[type="password"],
+.auth-block input[type="text"] {
     width: 100%;
     padding: 10px 0;
+    margin-bottom: 25px;
     border: none;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #ccc; /* Bottom line input */
     background: transparent;
+    font-size: 16px;
     outline: none;
-    color: #333;
-    font-size: 16px;
 }
-
-.form-card input::placeholder {
-    color: #666;
-}
-
-.primary-btn {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4a86f7;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.primary-btn:hover {
-    background-color: #3367d6;
-}
-
-.bottom-link {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-.bottom-link a {
-    color: #4a86f7;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.center-decoration {
-    position: absolute;
-    z-index: 2;
-}
-
-.social-login {
+.auth-block form {
+    /* Login button ko neeche dhakelne ke liye */
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    flex-direction: column;
+    flex-grow: 1; 
+    justify-content: flex-end; /* Inputs ko upar, button ko neeche */
 }
 
-.social-btn {
-    flex-basis: 48%;
-    padding: 8px;
-    border: 1px solid #aaa;
+/* Blue Buttons */
+.blue-btn {
+    background-color: #4A89F5; /* Blue color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    background-color: #fff;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s;
+    width: 100%; /* Full width button */
+    margin-top: 15px; /* Alignment ke liye */
+}
+.blue-btn:hover {
+    background-color: #3876e0;
 }
 
-.social-btn:hover {
-    background-color: #f0f0f0;
+/* Create Account Specific Styles */
+.social-login-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
 }
+.social-btn {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+.social-btn:hover { background-color: #f0f0f0; }
 
-.or-separator {
+.separator-or {
     text-align: center;
-    margin: 20px 0;
-    color: #666;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #555;
     position: relative;
 }
-
-.or-separator::before,
-.or-separator::after {
+.separator-or::before, .separator-or::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -185,63 +178,20 @@ body {
     height: 1px;
     background: #ccc;
 }
+.separator-or::before { left: 0; }
+.separator-or::after { right: 0; }
 
-.or-separator::before {
-    left: 0;
-}
-
-.or-separator::after {
-    right: 0;
-}
-
-.site-footer {
-    background-color: #333333;
-    color: #fff;
-    padding: 30px 5%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
+/* Bottom Links */
+.login-link, .signup-link {
+    text-align: center;
     font-size: 14px;
+    margin-top: 15px;
 }
-
-.footer-section {
-    flex-basis: 30%;
-}
-
-.footer-section h3 {
-    margin-bottom: 15px;
-    font-size: 16px;
-    color: #f7a83d;
-}
-
-.footer-section nav ul {
-    list-style: none;
-}
-
-.footer-section nav ul li a {
-    color: #ccc;
+.login-link a, .signup-link a {
+    color: #4A89F5;
     text-decoration: none;
-    line-height: 1.8;
-    transition: color 0.2s;
-}
-
-.footer-section nav ul li a:hover {
-    color: #fff;
-}
-
-.contact-info p {
-    line-height: 1.6;
-}
-
-.social-icons a {
-    color: #fff;
-    margin-right: 15px;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.footer-logo {
     font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
+}
+.login-link a:hover, .signup-link a:hover {
+    text-decoration: underline;
 }

@@ -1,93 +1,141 @@
+/* Basic Reset and Global Styles */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box; 
 }
 
 body {
+    font-family: Arial, sans-serif;
     background-color: #000;
+    color: #333;
 }
 
-.main-container {
-    /* Background Image: Poori tasveer yahan set hogi */
-    /* NOTE: 'full_homepage_image.jpg' ko apni tasveer ke sahi naam se badal dein */
+/* Headings Font (Playfair Display) */
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Hero Section (Background Image) --- */
+.hero-section {
+    /* *** YAHAN APNI BACKGROUND IMAGE KA PATH BADLEN *** */
     background-image: url('headaerpageb.jpg'); 
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
+    background-position: center top; /* Center aur top se shuru ho */
+    background-repeat: no-repeat;
+    height: 100vh; /* Poori viewport height cover kare */
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1; /* Taaki dusre elements iske upar rahen */
 }
 
-/* === 1. Header Styling === */
-.page-header {
-    background-color: black; /* Transparent rakhein taake background image dikhe */
-    color: #fff;
-    padding: 15px 5%;
+/* Header Styling (Top Bar) */
+.main-header {
+    background-color: rgba(0, 0, 0, 0.8); /* Thoda sa transparent black */
+    padding: 15px 0;
+    /* Is page par header ke neeche koi border nahi hai jaisa tasveer mein hai */
+}
+
+.header-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px; /* Header ki height set karein */
-    padding-top: 25px;
+    padding: 0 20px; 
 }
 
+/* Search Bar (Left Side) - White Background */
 .search-bar {
     display: flex;
     align-items: center;
     background-color: #fff;
-    border-radius: 50px;
-    padding: 5px 15px;
+    padding: 8px 15px;
+    border-radius: 50px; 
+    border: 1px solid #ccc;
     width: 250px;
-    height: 50px;
 }
+.search-bar i { color: #333; margin-right: 10px; }
+.search-bar input { border: none; outline: none; width: 100%; font-size: 16px; }
 
-.search-bar input {
-    border: none;
-    outline: none;
-    flex-grow: 1;
-    padding-left: 10px;
+/* Logo (Center) - Golden Color */
+.logo { text-align: center; color: #E8C100; }
+.logo img { 
+    max-width: 180px; 
+    height: auto;
+    display: block; 
 }
+.logo-fragrances { font-size: 10px; letter-spacing: 2px; color: #E8C100; }
 
+/* User Actions (Right Side) - White Icons/Text */
+.user-actions { display: flex; align-items: center; }
 .user-actions a {
-    color: #fff;
     text-decoration: none;
-    margin-left: 20px;
-    font-size: 22px;
+    color: #fff; /* White Text */
+    font-size: 14px;
     font-weight: bold;
+    margin-left: 20px;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
 }
-
-
-.logo-area {
-    flex-grow: 1;
-    justify-content: space-between;
+.user-actions a i {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #fff; /* White Icon */
 }
+.user-actions a:hover { color: #E8C100; }
 
-/* === 2. Navigation Bar Styling (Iske uper koi background color nahi aana chahiye) === */
+
+/* --- Main Navigation Links --- */
 .main-nav {
-    background-color: transparent; /* Transparent rakhein */
-    font-size: 60px;
-    padding: 7px 5%;
+    width: 100%;
+    margin-top: 50px; /* Header se thoda neeche */
+    text-align: center;
 }
 
-.main-nav ul {
-    list-style: none;
+.nav-links {
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
 }
 
-.main-nav ul li a {
-    color: #fff;
+.nav-item {
     text-decoration: none;
+    color: #fff; /* White links */
     font-size: 16px;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 10px 15px;
+    letter-spacing: 1px;
     transition: color 0.3s;
+    position: relative;
+    font-family: Arial, sans-serif;
 }
 
-.main-nav ul li a:hover {
-    color: #f7a83d;
+/* Hover effect: Gold line neeche aayegi */
+.nav-item:hover, .nav-item.active {
+    color: #E8C100; /* Golden text on hover/active */
+}
+.nav-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #E8C100;
+    transform: scaleX(0); /* Shuru mein line chhupi hui */
+    transition: transform 0.3s ease-in-out;
+}
+.nav-item:hover::after, .nav-item.active::after {
+    transform: scaleX(1); /* Hover par line poori dikhegi */
 }
 
-/* Footer ki zarurat nahi, kyunki HTML mein hata diya gaya hai */
+/* --- Product Display (Jahan bottles hain) --- */
+.hero-products-display {
+    /* Isse background image mein bottles ki position theek rahegi */
+    flex-grow: 1; 
+}

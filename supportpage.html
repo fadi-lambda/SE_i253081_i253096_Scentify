@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Scentify Support</title>
-    <link rel="stylesheet" href="supprotpage.css">
+    <title>Scentify - Contact Support</title>
+    <link rel="stylesheet" href="supportpage.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -15,10 +16,11 @@
             <div class="search-bar">
                 <i class="fas fa-search"></i>
                 <input type="text" placeholder="Search">
-                <i class="fas fa-microphone"></i> </div>
+                <i class="fas fa-microphone"></i> 
+            </div>
             
             <div class="logo">
-                <img src="logopic.png" heoght="70" alt="Scentify Logo"> 
+                <img src="logopic.png" alt="Scentify Logo">
                 <span class="logo-fragrances"></span>
             </div>
             
@@ -29,66 +31,73 @@
         </div>
     </header>
 
-    <main class="contact-page-main">
+    <main class="contact-page-wrapper">
         
         <section class="contact-banner">
-            <div class="banner-content">
-                <h1>Contact Scentify Support</h1>
-                <p>We're Here To Help You Find A Perfect Scent</p>
-            </div>
+            <h1>Contact Scentify Support</h1>
+            <p>We're Here To Help You Find A Perfect Scent</p>
         </section>
 
-        <section class="faq-section">
-            <div class="faq-box">
-                <div class="faq-text">
-                    <i class="fas fa-comments"></i>
-                    <h4>Get Instant Answers (FAQs)</h4>
-                    <p>Before Reaching Out, Please Check Our Frequently Asked Questions. We Might Have Already Answered Your Query!</p>
-                </div>
-                <button class="faq-button">Get FAQs Page</button>
+        <div class="faq-box">
+            <div class="faq-content">
+                <i class="fas fa-comments"></i>
+                <p class="faq-title">Get Instant Answers (FAQs)</p>
+                <p class="faq-description">Before Reaching Out, Please Check Our Frequently Asked Questions. We Might Have Already Answered Your Query!</p>
+                <button class="faq-btn">Get FAQs Page</button>
             </div>
-        </section>
+        </div>
 
-        <section class="contact-form-support">
-            <div class="form-container">
-                <h2 class="form-heading"><i class="fas fa-envelope"></i> Send Us Your Message</h2>
+        <div class="support-content-grid">
+            
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-comment-dots"></i> Send Us Your Message</h2>
                 <form>
-                    <div class="input-row">
+                    <div class="form-row">
                         <input type="text" placeholder="Your Name">
                         <input type="text" placeholder="Order Number (Optional)">
                     </div>
-                    <div class="input-row">
+
+                    <div class="form-row">
                         <input type="email" placeholder="Email Address">
-                        <div class="subject-dropdown-container">
-                             <select class="subject-dropdown">
-                                <option value="" disabled selected>Subject</option>
-                                <option value="order">Order Inquiry</option>
-                                <option value="product">Product Question</option>
-                                <option value="general">General Feedback</option>
-                            </select>
-                        </div>
+                        <select>
+                            <option value="" disabled selected>Subject</option>
+                            <option>Product Inquiry</option>
+                            <option>Order Status</option>
+                            <option>Returns/Exchange</option>
+                            <option>General Question</option>
+                        </select>
                     </div>
-                    <textarea placeholder="Your Message" rows="6"></textarea>
+
+                    <textarea placeholder="Your Message"></textarea>
                     
-                    <button type="submit" class="submit-button">Submit Message</button>
+                    <button type="submit" class="submit-btn">Submit Message</button>
                 </form>
             </div>
 
-            <div class="support-panel">
-                <div class="support-box email-support">
-                    <i class="fas fa-envelope-square"></i>
-                    <p>Email Support<br><strong>Support@Scentify.Com</strong></p>
+            <div class="contact-info-section">
+                
+                <div class="contact-box email-box">
+                    <i class="fas fa-envelope"></i>
+                    <p class="contact-type">Email Support</p>
+                    <p class="contact-detail">Support@Scentify.Com</p>
                 </div>
-                <div class="support-box live-chat">
-                    <i class="fas fa-comment-dots"></i>
-                    <p>Live Chat<br>Mon-Fri<br><strong>9AM-5AM (CST)</strong></p>
+                
+                <div class="contact-box chat-box">
+                    <i class="fas fa-comments"></i>
+                    <p class="contact-type">Live Chat</p>
+                    <p class="contact-detail">Mon-Fri</p>
+                    <p class="contact-detail time">9AM-5AM(CST)</p>
                 </div>
-                <div class="support-box phone-support">
+
+                <div class="contact-box phone-box">
                     <i class="fas fa-phone"></i>
-                    <p>Phone Support<br><strong>(021) 35644514</strong></p>
+                    <p class="contact-type">Phone Support</p>
+                    <p class="contact-detail">(021) 35644514</p>
                 </div>
             </div>
-        </section>
+        </div>
+
     </main>
+
 </body>
 </html>

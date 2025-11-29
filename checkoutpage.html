@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scentify - Checkout</title>
+    <link rel="stylesheet" href="checkoutpage.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="search-bar simple-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            
+            <div class="logo">
+                <img src="logopic.png" alt="Scentify Logo"> 
+                <span class="logo-fragrances"></span>
+            </div>
+            
+            <div class="user-actions">
+                <a href="#" class="header-action-text"><i class="fas fa-user"></i> ACCOUNT</a>
+                <a href="#" class="header-action-text"><i class="fas fa-shopping-cart"></i> CART</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-wrapper">
+        <div class="checkout-content-grid">
+
+            <div class="checkout-forms">
+
+                <section class="contact-section">
+                    <h2>Contact</h2>
+                    <input type="email" placeholder="Email or mobile phone number" class="full-width-input">
+                </section>
+
+                <section class="shipping-section">
+                    <h2>Shipping</h2>
+                    
+                    <select class="full-width-input">
+                        <option value="Pakistan" selected>Country/Region - Pakistan</option>
+                        <option value="UAE">Country/Region - UAE</option>
+                    </select>
+
+                    <div class="form-row">
+                        <input type="text" placeholder="First Name">
+                        <input type="text" placeholder="Last Name">
+                    </div>
+
+                    <input type="text" placeholder="Address" class="full-width-input">
+
+                    <div class="form-row">
+                        <input type="text" placeholder="City">
+                        <input type="text" placeholder="Phone">
+                    </div>
+                </section>
+
+                <section class="shipping-method-section">
+                    <h3>Shipping Method</h3>
+                    <div class="shipping-option">
+                        <input type="radio" id="free_shipping" name="shipping_method" checked>
+                        <label for="free_shipping">Free Shipping</label>
+                        <span class="price-right free-text">FREE</span>
+                    </div>
+                    <div class="shipping-option">
+                        <input type="radio" id="standard_shipping" name="shipping_method">
+                        <label for="standard_shipping">Standard</label>
+                        <span class="price-right">Rs 200.00</span>
+                    </div>
+                </section>
+
+                <section class="payment-section">
+                    <h3>Payment</h3>
+                    <p class="secure-text">All transactions are secure and encrypted</p>
+                    
+                    <div class="payment-grid">
+                        <div class="payment-card payment-card-left">
+                            <label><input type="radio" name="payment_method" checked> Debit - Credit Card</label>
+                            <label><input type="radio" name="payment_method"> Cash On Delivery (COD)</label>
+                        </div>
+                        
+                        <div class="payment-card payment-card-right">
+                            <label><input type="radio" name="payment_method"> Pay Pal</label>
+                            <label><input type="radio" name="payment_method"> Apple Pay</label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="billing-address-section">
+                    <h3>Billing Address</h3>
+                    <div class="billing-option">
+                        <input type="radio" id="same_address" name="billing_address" checked>
+                        <label for="same_address">Same as shipping address</label>
+                    </div>
+                    <div class="billing-option">
+                        <input type="radio" id="different_address" name="billing_address">
+                        <label for="different_address">Use a different billing address</label>
+                    </div>
+                </section>
+
+                <button class="place-order-btn">Place Order</button>
+
+            </div>
+
+            <div class="order-summary-area">
+                
+                <div class="product-list">
+                    
+                    <div class="cart-item">
+                        <div class="item-details">
+                            <div class="item-img-container">
+                                <img src="checkout1.jpg" alt="Sultan E Ameer Attar" class="product-img">
+                                <span class="item-quantity">1</span>
+                            </div>
+                            <div class="item-description">
+                                <p class="item-title">Sultan E Ameer | Concentrated Perfume | Attar Oil</p>
+                                <p class="item-variant">16ml</p>
+                            </div>
+                        </div>
+                        <span class="item-price">Rs 2,199.00</span>
+                    </div>
+                    
+                    <div class="cart-item">
+                        <div class="item-details">
+                            <div class="item-img-container">
+                                <img src="checkout2.jpg" alt="Black & Silver Oudh Attar" class="product-img">
+                                <span class="item-quantity">1</span>
+                            </div>
+                            <div class="item-description">
+                                <p class="item-title">Black & Silver Oudh | Concentrated Perfume | Attar Oil</p>
+                                <p class="item-variant">12ml</p>
+                            </div>
+                        </div>
+                        <span class="item-price">Rs 1,899.00</span>
+                    </div>
+
+                    <div class="cart-item">
+                        <div class="item-details">
+                            <div class="item-img-container">
+                                <img src="checkout3.jpg" alt="Black N Gold Premium Attar" class="product-img">
+                                <span class="item-quantity">1</span>
+                            </div>
+                            <div class="item-description">
+                                <p class="item-title">Black N Gold | Premium Attar</p>
+                                <p class="item-variant">12ml</p>
+                            </div>
+                        </div>
+                        <span class="item-price">Rs 2,500.00</span>
+                    </div>
+                    
+                </div>
+                
+                <div class="summary-totals">
+                    <div class="summary-line">
+                        <p>Subtotal. 3 Items</p>
+                        <p>Rs 6,598.00</p>
+                    </div>
+                    <div class="summary-line">
+                        <p>Shipping</p>
+                        <p>Rs 199.00</p>
+                    </div>
+                    <div class="summary-line total-line">
+                        <p>Total</p>
+                        <p class="final-total-price">Rs 6,797.00</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

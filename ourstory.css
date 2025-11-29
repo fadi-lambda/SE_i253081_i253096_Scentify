@@ -1,0 +1,254 @@
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; 
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Global Link/Hover Style (Golden/Yellow aur Underline) --- */
+a, .header-action-text, .stat-value a {
+    color: inherit; 
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+a:hover, .header-action-text:hover, .stat-value a:hover {
+    color: #E8C100 !important; 
+    text-decoration: underline; 
+}
+
+
+/* --- Header Styling (Black and Golden) --- */
+.main-header {
+    background-color: #000;
+    padding: 15px 0;
+    border-bottom: 5px solid #E8C100;
+}
+.header-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; 
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px 15px;
+    border-radius: 50px; 
+    width: 250px;
+}
+.search-bar i { color: #333; margin-right: 10px; }
+.search-bar input { border: none; outline: none; width: 100%; font-size: 16px; }
+
+.logo { text-align: center; color: #E8C100; display: flex; align-items: center; } /* Logo alignment */
+/* 'B' text hata diya gaya hai, isliye is class ko adjust kiya */
+.logo img { max-width: 180px; height: auto; display: block; margin-right: 5px; } /* Image ke baad fragrances */
+.logo-fragrances { font-size: 10px; letter-spacing: 2px; color: #E8C100; }
+
+.user-actions { display: flex; align-items: center; }
+.user-actions a {
+    color: #fff; 
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 20px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
+.user-actions a i {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #fff;
+}
+
+
+/* --- Main Content Area --- */
+.about-us-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Golden Border Frame */
+.page-frame {
+    border: 3px solid #E8C100; 
+    background-color: #fff;
+    padding: 40px 60px; 
+    border-radius: 10px;
+}
+
+/* --- 1. Title Section --- */
+.story-title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.main-title {
+    font-size: 40px;
+    color: #E8C100;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+.main-title i {
+    font-size: 20px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+/* --- 2. Company Story, Mission & Values --- */
+.info-section {
+    margin-bottom: 50px;
+}
+.info-section h2 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+.info-card {
+    /* Har box ko alag-alag style karne ke liye */
+    background-color: #fff; /* Default white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Optional subtle shadow */
+}
+.info-card h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #000;
+}
+.info-card p, .info-card li {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+.values-card ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+.values-card li {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+/* --- 3. Team & Milestones (Lower Layout) --- */
+.team-milestones-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px;
+    margin-top: 50px; 
+    align-items: start; 
+}
+.team-dedication-area h2, .achievements-area h2 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+/* Team Images Grid (2 columns) */
+.team-image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.team-box {
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5px; 
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.team-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.team-box p {
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 0 5px 5px;
+}
+
+
+/* Achievements & Milestones Grid (2x2) */
+.milestones-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; 
+}
+.milestone-card {
+    background-color: #333; 
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.milestone-card .stat-type {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.milestone-card .stat-value {
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+}
+.milestone-card:nth-child(1) .stat-value,
+.milestone-card:nth-child(2) .stat-value {
+    color: #E8C100; 
+}
+
+/* Rating Card Styling */
+.rating-card .stars i {
+    color: #E8C100;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.rating-card .yellow-text {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+/* Award Card Styling (Yellow background) */
+.award-card {
+    background-color:  #333; 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+.award-card i {
+    font-size: 28px;
+    color: #E8C100;
+    margin-bottom: 5px;
+}
+.award-card .stat-value {
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+}

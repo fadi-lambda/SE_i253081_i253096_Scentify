@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #000; /* Page ka background ab black hai */
+    background-color: #000; /* Page ka background black hai */
     color: #333;
     line-height: 1.6;
 }
@@ -17,10 +17,9 @@ h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
 }
 
-/* --- Header Styling (Pichle Designs Jaisa) --- */
+/* --- Header Styling --- */
 .main-header {
-    /* Header background black, jaisa image mein hai */
-    background-color: #000; 
+    background-color: #000; /* Black background */
     padding: 15px 0;
     border-bottom: 5px solid #E8C100;
 }
@@ -56,7 +55,7 @@ h1, h2, h3, h4 {
 }
 .logo-fragrances { font-size: 10px; letter-spacing: 2px; color: #E8C100; }
 
-/* User Actions (Right Side) - White/Black Icons/Text */
+/* User Actions (Right Side) - White Icons/Text */
 .user-actions { display: flex; align-items: center; }
 .user-actions a {
     text-decoration: none;
