@@ -6,15 +6,14 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+   font-family: 'Playfair Display', serif
     background-color: #fff;
-    color: #333;
-    line-height: 1.6;
+    color: #000;
+    line-height 1.6;
 }
 
 /* --- Header Styling --- */
 .main-header {
-    border-bottom: 5px solid #E8C100; /* Yellow Border */
     padding: 15px 0;
     background-color: #000;
 }
@@ -36,7 +35,7 @@ body {
     background-color: #fff;
     padding: 8px 15px;
     border-radius: 50px; /* Poori tarah gol (Fully rounded) */
-    width: 250px;
+    width: 190px;
 }
 
 .search-bar i {
@@ -53,7 +52,7 @@ body {
 
 /* UPDATED: Logo Styling */
 .logo {
-    text-align: center;
+    text-align: justify;
     /* Margin for centering relative to search and icons */
 }
 
@@ -65,10 +64,15 @@ body {
 }
 
 /* Account aur Cart Icons */
-.user-actions i {
-    font-size: 20px;
+.user-actions a {
+    text-decoration: none;
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: bold; 
     margin-left: 20px;
+    letter-spacing: 1px; 
     cursor: pointer;
+    transition: color 0.2s;
 }
 
 
@@ -84,16 +88,18 @@ body {
     font-size: 32px;
     font-weight: bold;
     margin: 40px 0;
-    color: #333;
+    color:goldenrod;
     text-transform: uppercase;
 }
 
 /* Company Info, Mission, Values */
 .company-info-mission-values h2 {
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 32px; /* Thodi badi size */
+    font-weight: 700; /* Extra bold */
     margin-bottom: 30px;
-    color: #333;
+    color: #000;
+    position: relative; /* Line banane ke liye */
+    display: inline-block; /* Line sirf text ke niche aaye */
 }
 
 .info-grid {
@@ -149,10 +155,14 @@ body {
 .team-images {
     display: flex;
     gap: 20px;
+    border-radius: 10px;
 }
 
 .team-card {
     flex: 1;
+    display :flex;
+    flex-direction: column;
+
 }
 
 .team-card img {
@@ -161,6 +171,7 @@ body {
     display: block;
     object-fit: cover;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .team-card p {
@@ -208,7 +219,7 @@ body {
 }
 
 .box-award {
-    background-color: #000; /* Yellow background for the award box */
+    background-color: #333; /* Yellow background for the award box */
     color: #E8C100;
 }
 

@@ -3,124 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scentify - Contact Support</title>
+    <title>Contact Scentify Support</title>
     <link rel="stylesheet" href="supprotpage.css">
-    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body>
 
-    <div class="main-container">
-        
-        <header class="page-header">
-            
+    <header class="main-header">
+        <div class="header-content">
             <div class="search-bar">
+                <i class="fas fa-search"></i>
                 <input type="text" placeholder="Search">
-                </div>
+                <i class="fas fa-microphone"></i> </div>
             
-            <div class="logo-area">
-                <img src="scentify_logo.png" alt="Scentify Fragrances Logo">
+            <div class="logo">
+                <img src="logopic.png" heoght="70" alt="Scentify Logo"> 
+                <span class="logo-fragrances"></span>
             </div>
             
             <div class="user-actions">
-                <a href="#">ACCOUNT</a>
-                <a href="#">CART</a>
+                <a href="#" class="header-action-text"><i class="fas fa-user"></i> ACCOUNT</a>
+                <a href="#" class="header-action-text"><i class="fas fa-shopping-cart"></i> CART</a>
             </div>
-        </header>
-
-        <div class="main-heading-section">
-            <h1 class="contact-title">Contact Scentify Support</h1>
-            <p class="tagline">We're Here To Help You Find A Perfect Scent</p>
         </div>
-        
-        <div class="contact-content-area">
+    </header>
 
+    <main class="contact-page-main">
+        
+        <section class="contact-banner">
+            <div class="banner-content">
+                <h1>Contact Scentify Support</h1>
+                <p>We're Here To Help You Find A Perfect Scent</p>
+            </div>
+        </section>
+
+        <section class="faq-section">
             <div class="faq-box">
-                <div class="speech-bubble">
-                    <p><strong>Get Instant Answers (FAQs)</strong></p>
-                    <p>Before Reaching Out, Please Check Our Frequently Asked Questions. We Might Have Already Answered Your Query.</p>
+                <div class="faq-text">
+                    <i class="fas fa-comments"></i>
+                    <h4>Get Instant Answers (FAQs)</h4>
+                    <p>Before Reaching Out, Please Check Our Frequently Asked Questions. We Might Have Already Answered Your Query!</p>
                 </div>
-                <a href="#" class="btn-faq">Get FAQs Page</a>
+                <button class="faq-button">Get FAQs Page</button>
             </div>
+        </section>
 
-            <div class="form-and-details-container">
-                
-                <div class="message-form-section">
-                    <h2>Send Us Your Message</h2>
-                    
-                    <form action="#" method="post">
-                        
-                        <div class="input-row">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            <input type="text" name="order_number" placeholder="Order Number (Optional)">
-                        </div>
-                        
-                        <div class="input-row">
-                            <input type="email" name="email" placeholder="Email Address" required>
-                            <input type="text" name="subject" placeholder="Subject" required>
-                        </div>
-                        
-                        <div class="input-row">
-                            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">Submit Message</button>
-                    </form>
-                </div>
-
-                <div class="contact-options-section">
-                    
-                    <div class="contact-block email-support">
-                        <p>Email Support</p>
-                        <strong>Support@Scentify.Com</strong>
+        <section class="contact-form-support">
+            <div class="form-container">
+                <h2 class="form-heading"><i class="fas fa-envelope"></i> Send Us Your Message</h2>
+                <form>
+                    <div class="input-row">
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Order Number (Optional)">
                     </div>
-                    
-                    <div class="contact-block live-chat">
-                        <p>Live Chat</p>
-                        <strong>Mon-Fri</strong>
-                        <strong>9AM-5AM(CST)</strong>
+                    <div class="input-row">
+                        <input type="email" placeholder="Email Address">
+                        <div class="subject-dropdown-container">
+                             <select class="subject-dropdown">
+                                <option value="" disabled selected>Subject</option>
+                                <option value="order">Order Inquiry</option>
+                                <option value="product">Product Question</option>
+                                <option value="general">General Feedback</option>
+                            </select>
+                        </div>
                     </div>
+                    <textarea placeholder="Your Message" rows="6"></textarea>
                     
-                    <div class="contact-block phone-support">
-                        <p>Phone Support</p>
-                        <strong>(021) 35644514</strong>
-                    </div>
+                    <button type="submit" class="submit-button">Submit Message</button>
+                </form>
+            </div>
 
+            <div class="support-panel">
+                <div class="support-box email-support">
+                    <i class="fas fa-envelope-square"></i>
+                    <p>Email Support<br><strong>Support@Scentify.Com</strong></p>
                 </div>
-
-            </div>
-        </div>
-
-        <footer class="site-footer">
-            <div class="footer-section quick-links">
-                <div class="footer-logo">Scentify FRAGRANCES</div>
-                <h3>Quick Links</h3>
-                <nav>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <div class="footer-section contact-info">
-                <h3>Contact Info</h3>
-                <p>Support@Scentify.com</p>
-                <p>+92 300 1234567</p>
-                <p>Islamabad, Pakistan</p>
-            </div>
-            
-            <div class="footer-section follow-us">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#">Facebook Icon</a>
-                    <a href="#">Instagram Icon</a>
-                    <a href="#">YouTube Icon</a>
-                    <a href="#">LinkedIn Icon</a>
+                <div class="support-box live-chat">
+                    <i class="fas fa-comment-dots"></i>
+                    <p>Live Chat<br>Mon-Fri<br><strong>9AM-5AM (CST)</strong></p>
+                </div>
+                <div class="support-box phone-support">
+                    <i class="fas fa-phone"></i>
+                    <p>Phone Support<br><strong>(021) 35644514</strong></p>
                 </div>
             </div>
-        </footer>
-        
-    </div> </body>
+        </section>
+    </main>
+</body>
 </html>
