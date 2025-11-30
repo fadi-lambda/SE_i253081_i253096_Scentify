@@ -1,273 +1,794 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scentify Luxury Fragrances</title>
-    <!-- Load Tailwind CSS from CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Load Lucide icons for clean UI elements -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Custom CSS Styles (Combined Header and Footer Styles) -->
-    <style>
-        /* ==================================================
-        Custom CSS for Header and Footer Components
-        ================================================== */
-        
-        /* Global Base Styling */
+        :root {
+            --color-primary: #f59e0b; /* Yellow/Gold Accent */
+            --color-dark: #000;
+            --color-light: #fff;
+            --color-gray: #1f2937; /* Dark Gray for borders/dividers */
+            --font-family-sans: 'Inter', sans-serif;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000; /* Dark background for the overall site theme */
-            /* Mandatory padding to prevent content from being hidden under the fixed header */
-            padding-top: 140px; 
-            min-height: 100vh; /* Ensure full page height */
+            font-family: var(--font-family-sans);
+            margin: 0;
+            padding-top: 150px; /* Space for fixed header */
+            background-color: #f9f9f9;
+            color: #333;
         }
 
-        /* --------------------------------------------------
-        1. Header Specific Customizations
-        -------------------------------------------------- */
-        /* Custom color definition for the top announcement bar */
-        .bg-yellow-500 {
-            background-color: #f7b731; /* Specific gold/yellow shade */
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        /* Fixed Header positioning and stacking is handled by Tailwind classes (fixed, top-0, z-50) */
-
-        /* Search Input Customization (Improves focus ring appearance) */
-        .header-search input:focus {
-            border-color: #f7b731; /* Focus ring color */
-            box-shadow: 0 0 0 1px #f7b731; 
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        /* Ensures Lucide icons render sharply */
-        [data-lucide] {
-            stroke-width: 2;
+        /* ========================================
+           1. HEADER STYLES (Fixed, Black/Gold)
+           ======================================== */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
 
-        /* --------------------------------------------------
-        2. Footer Specific Customizations
-        -------------------------------------------------- */
-        .footer-link-list a {
-            transition: color 0.2s ease;
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background-color: var(--color-primary);
+            padding: 8px 0;
+            text-align: center;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 600; /* font-semibold */
+            color: #1f2937; /* Dark text */
+            position: relative;
         }
 
-        .footer-link-list a:hover {
-            color: #f7b731; /* Gold hover color */
+        .social-icons-desktop {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;
+            align-items: center;
+            gap: 12px;
+            color: #1f2937;
         }
         
-        /* Optional: Social Icons hover */
-        .footer-social a:hover {
-            color: #f7b731; 
+        @media (min-width: 768px) {
+            .social-icons-desktop {
+                display: flex;
+            }
         }
 
-        /* Address and Info Text color */
-        .footer address, .footer ul li span {
-            color: #a0a0a0; 
+        .social-icons-desktop a:hover {
+            opacity: 0.8;
         }
 
-        /* Copyright section separator */
-        .footer .copyright-bar {
-            border-top-color: #1a1a1a;
+        /* Main Navigation Bar */
+        .header-main {
+            background-color: var(--color-dark);
+            padding: 16px 0;
         }
-    </style>
-</head>
-<body>
 
-<!-- ====================================================================================== -->
-<!-- HEADER START (Fixed component) -->
-<!-- ====================================================================================== -->
-/* ==================================================
-Custom CSS for SCENTIFY Header Component
-(Note: Most styling is handled by Tailwind utility classes in the HTML)
-================================================== */
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* 1. Global Body/Page Setup */
-body {
-    /* Set the primary font for the page */
-    font-family: 'Inter', sans-serif;
-    /* Dark background to match the theme */
-    background-color: #000;
-    /* CRITICAL: Add padding to push main content below the FIXED header (approx. 140px) */
-    padding-top: 140px; 
-}
+        /* Search Bar (Desktop) */
+        .search-bar-desktop {
+            display: none;
+            width: 25%;
+            position: relative;
+        }
 
-/* 2. Custom Color Definition */
-/* Define the specific gold/yellow color used for the announcement bar and accents 
-   (This overrides the default Tailwind yellow-500 for a more specific shade if needed) */
-.bg-yellow-500 {
-    background-color: #f7b731;
-}
-.text-yellow-500 {
-    color: #f7b731;
-}
-.hover\:text-yellow-500:hover {
-    color: #f7b731;
-}
+        @media (min-width: 1024px) {
+            .search-bar-desktop {
+                display: block;
+            }
+        }
 
-/* 3. Icon Styling Enhancement */
-/* Ensures Lucide icons (used for search, user, cart, menu) render sharply */
-[data-lucide] {
-    stroke-width: 2; /* Bolder look for better visibility */
-    transition: color 0.2s;
-}
+        .search-bar-desktop input {
+            width: 100%;
+            background-color: var(--color-light);
+            color: #111;
+            border-radius: 9999px; /* rounded-full */
+            padding: 8px 24px;
+            padding-left: 48px;
+            font-size: 0.875rem;
+            border: none;
+            outline: none;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-/* 4. Search Input Focus Style (Already handled by Tailwind, but defined here for completeness) */
-.header-search .relative input:focus {
-    border-color: #f7b731; 
-    box-shadow: 0 0 0 1px #f7b731;
-}
+        .search-bar-desktop .fa-search {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            width: 20px;
+            color: #6b7280; /* text-gray-500 */
+        }
 
-/* 5. Navigation Link Hover Effect Enhancement (Using the pb-1 for the bottom border effect) */
-.border-transparent:hover {
-    border-color: #f7b731;
-}
-<!-- HEADER END -->
-
-<!-- ====================================================================================== -->
-<!-- MAIN CONTENT START (Placeholder for Hero Section) -->
-<!-- ====================================================================================== -->
-<main>
-    <section id="hero-banner" class="relative w-full overflow-hidden bg-cover bg-center h-[500px] md:h-[600px] border-b border-gray-800" 
-        style="background-image: url('https://placehold.co/1200x600/1e1e1e/8a6b18?text=LUXURY+FRAGRANCE+BANNER'); background-attachment: fixed;">
+        /* Logo */
+        .logo-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
         
-        <!-- Optional Overlay to make text readable -->
-        <div class="absolute inset-0 bg-black/40"></div>
+        @media (min-width: 1024px) {
+            .logo-wrapper {
+                flex-grow: 0;
+            }
+        }
+        
+        .logo-text {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 800; /* font-extrabold */
+            color: var(--color-light);
+            letter-spacing: 0.05em; /* tracking-widest */
+        }
 
-        <!-- Content for the Hero Section -->
-        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center p-4">
-            <h2 class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4">
-                DISCOVER YOUR SIGNATURE SCENT
-            </h2>
-            <p class="text-lg md:text-xl text-yellow-300 font-medium mb-8 max-w-2xl">
-                Explore our exquisite collection of premium concentrated perfumes and attar oils.
-            </p>
-            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full shadow-lg uppercase tracking-wider transition duration-300 transform hover:scale-105">
-                Shop The Collection
-            </a>
-        </div>
-    </section>
-    
-    <!-- Placeholder for other sections to allow scrolling -->
-    <section class="min-h-[500px] p-8 text-center text-gray-500">
-        <h2 class="text-3xl font-bold text-white mb-4">Featured Products Placeholder</h2>
-        <p class="text-gray-400">Content for the product grids and quiz section will go here.</p>
-    </section>
-</main>
-<!-- MAIN CONTENT END -->
+        .logo-text span {
+            color: var(--color-primary);
+        }
 
-<!-- ====================================================================================== -->
-<!-- FOOTER START -->
-<!-- ====================================================================================== -->
-<footer class="bg-black text-white pt-12 pb-6 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Column 1: Logo and Address -->
-            <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                <div class="mb-6">
-                    <!-- Placeholder for Scentify Logo -->
-                    <h2 class="text-3xl font-extrabold text-white tracking-widest">
-                        <span class="text-yellow-500">SCENTIFY</span>
-                    </h2>
-                    <p class="text-sm text-gray-400">FRAGRANCES</p>
-                </div>
-                
-                <h3 class="text-lg font-bold text-yellow-500 mb-2 uppercase tracking-wider">Address</h3>
-                <address class="text-sm text-gray-400 not-italic leading-relaxed">
-                    Shop G-179, Musk Al Mahal,
-                    <br>
-                    Opp Rex Centre, Next To Meezan Bank,
-                    <br>
-                    Panorama Centre, Saddar,
-                    <br>
-                    Karachi.
-                </address>
-            </div>
+        /* Icons Group */
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: var(--color-light);
+            font-size: 1rem;
+        }
 
-            <!-- Column 2: Quick Links -->
-            <div class="text-center md:text-left footer-link-list">
-                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Quick Links</h3>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">FAQ's</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Returns</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms & Conditions</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Privacy Policy</a></li>
-                </ul>
-            </div>
+        .header-icons a, .header-icons button {
+            color: var(--color-light);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            transition: color 150ms;
+        }
 
-            <!-- Column 3: Contact Info -->
-            <div class="text-center md:text-left">
-                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Contact Info</h3>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center justify-center md:justify-start">
-                        <i data-lucide="mail" class="h-5 w-5 text-yellow-500 mr-3"></i>
-                        <a href="mailto:Support@Scentify.com" class="text-gray-400 hover:text-white transition duration-200">Support@Scentify.com</a>
-                    </li>
-                    <li class="flex items-center justify-center md:justify-start">
-                        <i data-lucide="phone" class="h-5 w-5 text-yellow-500 mr-3"></i>
-                        <a href="tel:+923001234567" class="text-gray-400 hover:text-white transition duration-200">+92 300 1234567</a>
-                    </li>
-                    <li class="flex items-center justify-center md:justify-start">
-                        <i data-lucide="map-pin" class="h-5 w-5 text-yellow-500 mr-3"></i>
-                        <span class="text-gray-400">Islamabad, Pakistan</span>
-                    </li>
-                </ul>
-                
-                <!-- Follow Us (Mobile/Tablet) -->
-                <div class="mt-8 md:hidden footer-social">
-                    <h3 class="text-lg font-bold text-yellow-500 mb-3 uppercase tracking-wider">Follow Us</h3>
-                    <div class="flex justify-center space-x-4 text-white">
-                        <a href="#" aria-label="Facebook" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="facebook"></i></a>
-                        <a href="#" aria-label="Instagram" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="instagram"></i></a>
-                        <a href="#" aria-label="Twitter" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
+        .header-icons a:hover, .header-icons button:hover {
+            color: var(--color-primary);
+        }
+        
+        .header-icons .icon-label {
+            display: none;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        
+        @media (min-width: 640px) {
+            .header-icons .icon-label {
+                display: inline;
+            }
+        }
 
-            <!-- Column 4: Customer Services & Follow Us -->
-            <div class="text-center md:text-left">
-                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Customer Services</h3>
-                <ul class="space-y-2 text-sm mb-8 footer-link-list">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About Us</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Scentify Media Page</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms Of Service</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Refund And Exchange Policy</a></li>
-                </ul>
+        /* Cart Badge */
+        .cart-icon-wrapper {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background-color: #dc2626; /* red-600 */
+            color: var(--color-light);
+            font-size: 0.75rem; /* text-xs */
+            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+        }
 
-                <!-- Follow Us (Desktop) -->
-                <div class="hidden md:block footer-social">
-                    <h3 class="text-lg font-bold text-yellow-500 mb-3 uppercase tracking-wider">Follow Us</h3>
-                    <div class="flex space-x-4 text-white">
-                        <a href="#" aria-label="Facebook" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="facebook"></i></a>
-                        <a href="#" aria-label="Instagram" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="instagram"></i></a>
-                        <a href="#" aria-label="Twitter" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        .suggestion-grid {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
 
-    <!-- Copyright Bar -->
-    <div class="mt-8 pt-6 border-t border-gray-900 text-center">
-        <p class="text-sm text-gray-500">
-            &copy; <span id="current-year">2025</span> Scentify. All rights reserved.
-        </p>
-    </div>
-</footer>
-<!-- FOOTER END -->
+        .product-card {
+            background-color: var(--color-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
 
-<script>
-    // Initialize Lucide icons
-    document.addEventListener('DOMContentLoaded', () => {
-        lucide.createIcons();
-        // Dynamically set the current year in the footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    });
-</script>
-</body>
-</html>
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-details {
+            padding: 15px;
+        }
+
+        .card-details h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            color: var(--color-dark);
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .card-details p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .card-details .price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #dc2626; /* Red Price */
+            margin-top: 10px;
+        }
+
+        /* Quiz Button Styling (HINDI: Quiz Button की स्टाइलिंग) */
+        .quiz-button-container {
+            text-align: center;
+            margin: 40px 0 60px;
+            padding: 0 15px;
+        }
+
+        .quiz-button {
+            padding: 15px 40px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--color-primary), #d97706);
+            color: var(--color-dark);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .quiz-button:hover {
+            background: linear-gradient(135deg, #d97706, var(--color-primary));
+            color: var(--color-light); /* Hover par text white ho jaye */
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.6);
+        }
+        
+        /* Mobile Specific Icons */
+        .search-mobile-icon, .menu-mobile-icon {
+            display: block;
+        }
+        
+        @media (min-width: 1024px) {
+            .search-mobile-icon, .menu-mobile-icon {
+                display: none;
+            }
+        }
+
+        /* Navigation Links (Desktop Only) */
+        .nav-links-desktop {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: none;
+            border-top: 1px solid var(--color-gray);
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links-desktop {
+                display: block;
+            }
+        }
+
+        .nav-list {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-list a {
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: color 150ms, border-color 150ms;
+        }
+
+        .nav-list a:hover {
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+        
+        .nav-list li {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-list i {
+            margin-left: 4px;
+            font-size: 0.75rem;
+        }
+
+
+        /* ========================================
+           2. MAIN CONTENT AREA STYLES
+           ======================================== */
+        .main-content-area {
+            padding-top: 20px; /* Additional spacing below the header */
+        }
+        
+        .content-page {
+            display: none;
+            padding: 20px 0;
+        }
+        
+        .content-page.active {
+            display: block;
+        }
+
+        /* Home Page Styles */
+        .hero-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 15px 40px;
+        }
+        
+        .hero-section h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--color-dark);
+        }
+        
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        
+        .hero-placeholder-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            border: 4px solid var(--color-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-placeholder-image:hover {
+            transform: scale(1.01);
+        }
+
+        /* Product Detail Page Styles */
+        .product-page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        @media (min-width: 768px) {
+            .product-info-grid {
+                grid-template-columns: 40% 1fr;
+            }
+        }
+
+        /* Product Gallery */
+        .product-gallery {
+            display: flex;
+            gap: 15px;
+        }
+
+        .thumbnail-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .thumbnail-image {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s, border-color 0.2s;
+        }
+
+        .thumbnail-image.active {
+            border-color: var(--color-primary);
+            opacity: 1;
+        }
+
+        .main-image-wrapper {
+            flex-grow: 1;
+        }
+
+        .main-product-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product Details */
+        .product-details {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: var(--color-light);
+        }
+
+        .product-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 0;
+            color: var(--color-dark);
+        }
+
+        .product-tag {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .gold-star {
+            color: var(--color-primary);
+            margin-left: 5px;
+        }
+
+        .price-section {
+            margin: 20px 0;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.1rem;
+            margin-right: 15px;
+        }
+
+        .current-price {
+            color: #dc2626; /* red */
+            font-size: 1.7rem;
+            font-weight: bold;
+        }
+
+        /* Quantity Control */
+        .quantity-control-wrapper {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quantity-label {
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        .quantity-input-group {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .qty-btn {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.1s;
+        }
+
+        .qty-btn:hover {
+            background-color: #ddd;
+        }
+
+        .qty-input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            padding: 10px 0;
+        }
+
+        /* Product Features */
+        .product-features p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .icon-gold {
+            color: var(--color-primary);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .add-to-cart-btn, .buy-now-btn {
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .add-to-cart-btn {
+            background-color: #333;
+            color: var(--color-light);
+        }
+
+        .buy-now-btn {
+            background-color: var(--color-primary);
+            color: var(--color-dark);
+        }
+
+        .add-to-cart-btn:hover, .buy-now-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        
+        /* Description and Specs Tabs */
+        .details-section {
+            margin-top: 40px;
+            background-color: var(--color-light);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-header {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: color 0.2s, border-bottom-color 0.2s;
+        }
+
+        .tab-button.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        .tab-content {
+            display: none;
+            line-height: 1.6;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+
+        /* Related Products */
+        .related-products {
+            margin-top: 50px;
+            padding: 20px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--color-dark);
+            margin-bottom: 30px;
+        }
+
+        .related-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .related-product-card {
+            background-color: var(--color-light);
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .related-product-card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .related-product-image {
+            max-width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .related-product-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            height: 40px;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .related-product-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--color-dark);
+            margin: 5px 0;
+        }
+
+        .related-product-qty {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* ========================================
+           3. FOOTER STYLES (Copied from the previous image)
+           ======================================== */
+        .main-footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 40px 20px 0;
+            border-top: 5px solid var(--color-primary);
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            padding-bottom: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr; /* 2 columns on mobile/tablet */
+            }
+            .footer-logo {
+                grid-column: span 2; /* Logo takes full width on small screens */
+                text-align: center;
+            }
+        }
+
+        .footer-section h3 {
+            color: var(--color-primary);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .footer-section li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-section i {
+            margin-right: 10px;
+            width: 15px; /* Fixed width for alignment */
+            text-align: center;
+            color: #ccc;
+        }
+
+        .footer-section a {
+            transition: color 0.2s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .address-section p {
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 30px;
+            height: 30px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid #444;
+            transition: background-color 0.2s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--color-primary);
+            color: var(--color-dark);
+            border-color: var(--color-primary);
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #444;
+            font-size: 0.85rem;
+            color: #999;
+        }

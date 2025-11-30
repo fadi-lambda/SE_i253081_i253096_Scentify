@@ -7,98 +7,95 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Load Global Styling -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
+    <!-- Load Product Detail Page Styling (Naye Page Ki Styling) -->
     <script src="script.js"></script>
 </head>
 <body>
 
-    <!-- ========================================
-    HEADER START (Yeh Hamesha Fix Rahega)
-    ======================================== -->
-    <header id="fixed-header" class="fixed top-0 left-0 right-0 z-50 bg-black shadow-xl">
-    <!-- 1. Top Announcement Bar (Gold/Yellow) -->
-    <div class="bg-yellow-500 py-1 text-center text-sm font-semibold text-gray-900 relative">
-        7 Days Easy Return & Exchange Policy
-        <!-- Social Icons (Desktop Only) -->
-        <div class="absolute right-4 top-1 hidden md:flex items-center space-x-3 text-gray-900">
-            <a href="#" aria-label="Facebook" class="hover:text-black/70 transition"><i data-lucide="facebook" class="h-4 w-4"></i></a>
-            <a href="#" aria-label="Instagram" class="hover:text-black/70 transition"><i data-lucide="instagram" class="h-4 w-4"></i></a>
-            <a href="#" aria-label="YouTube" class="hover:text-black/70 transition"><i data-lucide="youtube" class="h-4 w-4"></i></a>
+    <header id="fixed-header" class="fixed-header">
+        <!-- 1. Top Announcement Bar (Gold/Yellow) -->
+        <div class="announcement-bar">
+            7 Days Easy Return & Exchange Policy
+            <!-- Social Icons (Desktop Only) -->
+            <div class="social-icons-desktop">
+                <a href="#" aria-label="Facebook" class="transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" class="transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube" class="transition"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
-    </div>
 
-    <!-- 2. Main Navigation Bar (Logo, Search, Icons) -->
-    <div class="bg-black py-4">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            
-            <!-- Search Bar (Left - Visible on Desktop) -->
-            <div class="hidden lg:block w-1/4">
-                <div class="relative">
-                    <input type="text" placeholder="Search products..." class="w-full bg-white text-gray-900 rounded-full py-2 px-6 pl-12 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-150 shadow-inner">
-                    <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500"></i>
+        <!-- 2. Main Navigation Bar (Logo, Search, Icons) -->
+        <div class="header-main">
+            <div class="header-container">
+                
+                <!-- Search Bar (Desktop) -->
+                <div class="search-bar-desktop">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Search products...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <!-- Logo (Center) -->
+                <div class="logo-wrapper">
+                    <h1 class="logo-text">
+                        <span>SCENTIFY</span>
+                    </h1>
+                </div>
+
+                <!-- Icons (Right) -->
+                <div class="header-icons">
+                    
+                    <!-- Search Icon (Mobile Only) -->
+                    <button class="search-mobile-icon" aria-label="Open Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <!-- Account Icon -->
+                    <a href="#" class="icon-link">
+                        <i class="fas fa-user"></i>
+                        <span class="icon-label">Account</span>
+                    </a>
+                    
+                    <!-- Cart Icon -->
+                    <a href="#" class="icon-link cart-icon-wrapper">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="icon-label">Cart</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button (Hamburger) -->
+                    <button class="menu-mobile-icon" aria-label="Open Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
-
-            <!-- Logo (Center) -->
-            <div class="flex justify-center flex-grow lg:flex-none">
-                <!-- Placeholder for the main brand logo/text -->
-                <h1 class="text-3xl font-extrabold text-white tracking-widest">
-                    <span class="text-yellow-500">SCENTIFY</span>
-                </h1>
-            </div>
-
-            <!-- Icons (Right) -->
-            <div class="flex items-center space-x-5 text-white text-base">
-                <!-- Search Icon (Mobile Only) -->
-                <button class="lg:hidden text-white hover:text-yellow-500 transition duration-150 p-1" aria-label="Open Search">
-                    <i data-lucide="search" class="h-6 w-6"></i>
-                </button>
-                
-                <!-- Account Icon -->
-                <a href="#" class="flex items-center space-x-1 hover:text-yellow-500 transition duration-150 rounded-full p-1">
-                    <i data-lucide="user" class="h-6 w-6"></i>
-                    <span class="hidden sm:inline text-sm uppercase font-medium">Account</span>
-                </a>
-                
-                <!-- Cart Icon -->
-                <a href="#" class="flex items-center space-x-1 hover:text-yellow-500 transition duration-150 rounded-full p-1 relative">
-                    <i data-lucide="shopping-cart" class="h-6 w-6"></i>
-                    <!-- Cart count badge -->
-                    <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold w-4 h-4 flex items-center justify-center rounded-full">3</span>
-                </a>
-                
-                <!-- Mobile Menu Button (Hamburger) -->
-                <button class="lg:hidden text-white hover:text-yellow-500 transition duration-150 p-1" aria-label="Open Menu">
-                    <i data-lucide="menu" class="h-6 w-6"></i>
-                </button>
-            </div>
         </div>
-    </div>
 
-    <!-- 3. Navigation Links (Desktop Only - Wide Menu Bar) -->
-    <nav class="bg-black text-white text-sm font-semibold uppercase tracking-wider hidden lg:block border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4">
-            <ul class="flex justify-center space-x-10 py-3">
-                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">HOME</a></li>
-                <li><a href="#" class="flex items-center hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">SHOP <i data-lucide="chevron-down" class="ml-1 h-3 w-3"></i></a></li>
-                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">BEST SELLERS</a></li>
-                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">DEALS</a></li>
-                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">TESTERS</a></li>
-                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">OUR OUTLETS</a></li>
-                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">BLOGS</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+        <!-- 3. Navigation Links (Desktop Only - Wide Menu Bar) -->
+        <nav class="nav-links-desktop">
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li><a href="#" onclick="showPage('home-page'); return false;">HOME</a></li>
+                    <li><a href="#" class="dropdown-link">SHOP <i class="fas fa-chevron-down"></i></a></li>
+                    <li><a href="#">BEST SELLERS</a></li>
+                    <li><a href="#">DEALS</a></li>
+                    <li><a href="#">TESTERS</a></li>
+                    <li><a href="#">OUR OUTLETS</a></li>
+                    <li><a href="#">BLOGS</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <!-- ========================================
     HEADER END
     ======================================== -->
 
 
     <!-- ========================================
-    MAIN CONTENT CONTAINER (Yeh Badal Jaye Ga)
+    MAIN CONTENT CONTAINER
     ======================================== -->
-    <div id="main-content-area">
+    <div id="main-content-area" class="main-content-area">
 
         <!-- +++++++++++++++++++++++++++++++++++++++
         PAGE 1: HOME PAGE (By default active)
@@ -110,10 +107,9 @@
                 
                 <!-- HOME PAGE PRODUCT IMAGE (Clickable to go to Product Detail Page) -->
                 <a href="#" onclick="showPage('product-detail-page'); return false;">
-                    <img src="HP image.png" 
-                         alt="Main Product Placeholder" 
-                         class="hero-placeholder-image"
-                         style="cursor: pointer; border: 4px solid var(--color-primary);">
+                    <img src="Images/HP image.png" 
+                             alt="Main Product Placeholder" 
+                             class="hero-placeholder-image">
                 </a>
             </div>
             <!-- Yahan Home Page Ke Baqi Sections Aayenge (e.g., Featured Products, Reviews) -->
@@ -199,7 +195,7 @@
                             Undertones Of Musk And Citrus, Creating An Enchanting And Captivating Scent.
                         </p>
                         <p>
-                            **Top Note:** Bergamot; **Middle Note:** Jasmine, Rose; **Base Notes:** Sandalwood, Amber, Oakmoss, Musk.
+                            <strong>Top Note:</strong> Bergamot; <strong>Middle Note:</strong> Jasmine, Rose; <strong>Base Notes:</strong> Sandalwood, Amber, Oakmoss, Musk.
                         </p>
                         <p class="long-description-placeholder">
                             [Aap yahan mukammal description daal sakte hain. Ye text Sirf placeholder hai.]
@@ -211,20 +207,20 @@
                             <li>
                                 <strong>Variants:</strong> We offer this attar in one format.
                                 <ul>
-                                    <li>**Roll-On Attar:** Available in one size: 16ml.</li>
+                                    <li><strong>Roll-On Attar:</strong> Available in one size: 16ml.</li>
                                 </ul>
                             </li>
                             <li>
                                 <strong>Concentration:</strong>
                                 <ul>
-                                    <li>**Roll-On Attar:** 100% Concentrated</li>
+                                    <li><strong>Roll-On Attar:</strong> 100% Concentrated</li>
                                 </ul>
                             </li>
                             <li>
                                 <strong>Sillage & Lasting:</strong>
                                 <ul>
-                                    <li>**Sillage:** High</li>
-                                    <li>**Lasting Up To:** 8 to 10 hours (measured in a standard atmosphere)</li>
+                                    <li><strong>Sillage:</strong> High</li>
+                                    <li><strong>Lasting Up To:</strong> 8 to 10 hours (measured in a standard atmosphere)</li>
                                 </ul>
                             </li>
                         </ul>
@@ -247,7 +243,7 @@
                             <p class="related-product-price">Rs.936.00</p>
                             <p class="related-product-qty">Qty: 1</p>
                         </div>
-                         <div class="related-product-card">
+                        <div class="related-product-card">
                             <img src="Black & Silver Platinum.webp" alt="Placeholder Product 3" class="related-product-image">
                             <p class="related-product-title">Black & Silver Platinum | Luxury Attar Collection</p>
                             <p class="related-product-price">Rs.1,499.00</p>
@@ -259,115 +255,143 @@
         </section>
         
     </div>
+
+        <!-- +++++++++++++++++++++++++++++++++++++++
+        PAGE 3: QUIZ PAGE (Initially hidden)
+        +++++++++++++++++++++++++++++++++++++++ -->
+        <section id="quiz-page" class="content-page">
+            <div style="max-width: 800px; margin: 50px auto; padding: 20px; text-align: center; background-color: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <h2 style="font-size: 2.5rem; color: var(--color-dark);">Discover Your Scent Personality</h2>
+                <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">
+                    Take our quick quiz to find the perfect attar that matches your style and mood.
+                </p>
+                <img src="https://placehold.co/400x200/F59E0B/000000?text=QUIZ+START" alt="Quiz Placeholder" style="width: 100%; max-width: 400px; border-radius: 8px;">
+                <p style="margin-top: 30px;">[Yahan aapke Scent Personality Quiz ke questions aayenge.]</p>
+                <!-- For now, we will add a button to go back to Home -->
+                <button onclick="showPage('home-page');" style="padding: 10px 20px; margin-top: 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    Start Quiz (Go Back)
+                </button>
+            </div>
+        </section>
+
+        <div class="suggestion-grid">
+                
+                <!-- Product 1: Sultan E Ameer (Clickable to Detail Page) -->
+                <a href="#" class="product-card" onclick="showPage('product-detail-page'); return false;">
+                    <img src="Images/Sultan A1.webp" alt="Sultan E Ameer">
+                    <div class="card-details">
+                        <h4>Sultan E Ameer | Attar Oil</h4>
+                        <p>Addition To Arabia</p>
+                        <p class="price">Rs.2,199.00</p>
+                    </div>
+                </a>
+
+                <!-- Product 2: Black & Silver Platinum (Non-clickable) -->
+                <div class="product-card">
+                    <img src="Images/Black & Silver Platinum.webp" alt="Black & Silver Platinum">
+                    <div class="card-details">
+                        <h4>Black&Silver Platinum | Attar Oil</h4>
+                        <p>Long lasting fragrance</p>
+                        <p class="price">Rs.1,499.00</p>
+                    </div>
+                </div>
+                
+                <!-- Product 3: Black & Silver Oud (Non-clickable) -->
+                <div class="product-card">
+                    <img src="Images/Black & Silver Oud.webp" alt="Black & Silver Oud">
+                    <div class="card-details">
+                        <h4>Black & Silver Oud | Attar Oil</h4>
+                        <p>King of the series</p>
+                        <p class="price">Rs.1,899.00</p>
+                    </div>
+                </div>
+
+                <!-- Product 4: White Oudh (Non-clickable) -->
+                <div class="product-card">
+                    <img src="Images/White Oud.webp" alt="White Oudh">
+                    <div class="card-details">
+                        <h4>White Oudh | Concentrated Oils</h4>
+                        <p>Dense heavy fragrance</p>
+                        <p class="price">Rs.999.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Button (Hover effect wala) -->
+            <div class="quiz-button-container">
+                <button class="quiz-button" onclick="showPage('quiz-page');">
+                    Take The Quiz
+                </button>
+            </div>
+
     <!-- ========================================
     MAIN CONTENT CONTAINER END
     ======================================== -->
 
 
     <!-- ========================================
-    FOOTER START (Yeh Hamesha Fix Rahega)
+    FOOTER SECTION
     ======================================== -->
-<footer class="bg-black text-white pt-12 pb-6 border-t border-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Column 1: Logo and Address -->
-            <div>
-                <div class="mb-6">
-                    <!-- Placeholder for Scentify Logo -->
-                    <h2 class="text-3xl font-extrabold text-white tracking-widest">
-                        <span class="text-yellow-500">SCENTIFY</span>
-                    </h2>
-                    <p class="text-sm text-gray-400">FRAGRANCES</p>
-                </div>
-                
-                <h3 class="text-lg font-bold text-white mb-2 uppercase tracking-wider">Address</h3>
-                <address class="text-sm text-gray-400 not-italic leading-relaxed">
-                    Shop G-179, Musk Al Mahal,
-                    <br>
-                    Opp Rex Centre, Next To Meezan Bank,
-                    <br>
-                    Panorama Centre, Saddar,
-                    <br>
-                    Karachi.
-                </address>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <!-- Logo/Branding Section -->
+            <div class="footer-logo">
+                <!-- Placeholder for Scentify Logo/Branding -->
+                <img src="https://placehold.co/150x50/000000/F7B322?text=Scentify+Fragrances" alt="Scentify Fragrances Logo" style="filter: brightness(2); width: 150px; height: 50px;">
             </div>
 
-            <!-- Column 2: Quick Links -->
-            <div>
-                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Quick Links</h3>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">FAQ's</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Returns</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms & Conditions</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Privacy Policy</a></li>
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Contact Info -->
-            <div>
-                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Contact Info</h3>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center">
-                        <i data-lucide="mail" class="h-5 w-5 text-yellow-500 mr-3"></i>
-                        <a href="mailto:Support@Scentify.com" class="text-gray-400 hover:text-white transition duration-200">Support@Scentify.com</a>
-                    </li>
-                    <li class="flex items-center">
-                        <i data-lucide="phone" class="h-5 w-5 text-yellow-500 mr-3"></i>
-                        <a href="tel:+923001234567" class="text-gray-400 hover:text-white transition duration-200">+92 300 1234567</a>
-                    </li>
-                    <li class="flex items-center">
-                        <i data-lucide="map-pin" class="h-5 w-5 text-yellow-500 mr-3"></i>
-                        <span class="text-gray-400">Islamabad, Pakistan</span>
-                    </li>
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> Support@Scentify.Com</li>
+                    <li><i class="fas fa-phone"></i> +92 300 1234567</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</li>
                 </ul>
-                
-                <!-- Follow Us (Mobile/Tablet) -->
-                <div class="mt-8 md:hidden">
-                    <h3 class="text-lg font-bold text-yellow-500 mb-3 uppercase tracking-wider">Follow Us</h3>
-                    <div class="flex space-x-4 text-white">
-                        <a href="#" aria-label="Facebook" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="facebook"></i></a>
-                        <a href="#" aria-label="Instagram" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="instagram"></i></a>
-                        <a href="#" aria-label="Twitter" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="linkedin"></i></a>
-                    </div>
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
 
-            <!-- Column 4: Customer Services & Follow Us -->
-            <div>
-                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Customer Services</h3>
-                <ul class="space-y-2 text-sm mb-8">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About Us</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Scentify Media Page</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms Of Service</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Refund And Exchange Policy</a></li>
+            <!-- Customer Services Section -->
+            <div class="footer-section">
+                <h3>Customer Services</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Scentify Media Page</a></li>
+                    <li><a href="#">Terms Of Service</a></li>
+                    <li><a href="#">Refund And Exchange Policy</a></li>
                 </ul>
-
-                <!-- Follow Us (Desktop) -->
-                <div class="hidden md:block">
-                    <h3 class="text-lg font-bold text-yellow-500 mb-3 uppercase tracking-wider">Follow Us</h3>
-                    <div class="flex space-x-4 text-white">
-                        <a href="#" aria-label="Facebook" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="facebook"></i></a>
-                        <a href="#" aria-label="Instagram" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="instagram"></i></a>
-                        <a href="#" aria-label="Twitter" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="linkedin"></i></a>
-                    </div>
-                </div>
+            </div>
+            
+            <!-- Address Section -->
+            <div class="footer-section address-section">
+                <h3>Address</h3>
+                <p>Shop G-179, Musk Al Mahal, Opp Rex Centre, Next To Meezan Bank, Panorama Centre, Saddar, Karachi.</p>
             </div>
         </div>
-    </div>
-
-    <!-- Copyright Bar -->
-    <div class="mt-8 pt-6 border-t border-gray-900 text-center">
-        <p class="text-sm text-gray-500">
-            &copy; <span id="current-year">2025</span> Scentify. All rights reserved.
-        </p>
-    </div>
-</footer>
-    <!-- ========================================
-    FOOTER END
-    ======================================== -->
+        
+        <!-- Footer Bottom Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Scentify</p>
+        </div>
+    </footer>
 
 </body>
 </html>

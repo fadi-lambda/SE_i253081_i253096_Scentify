@@ -1,209 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scentify - Sultan E Ameer Detail</title>
-    <!-- External CSS for styling -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="Sultan_Ameer_Detail_Page.css">
-    <script src="Sultan_Ameer_Detail_Page.js"></script>
+    <title>Sultan E Ameer | Attar Oil</title>
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Sultan_Ameer_Detail_Page.css" integrity="sha512-...snipped-for-example..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-    <!-- ========================================
-    HEADER START (Fixed Navigation)
-    ======================================== -->
-    <header class="main-header-fixed">
-        <!-- 1. Top Bar -->
+    <!-- Header Section -->
+    <header class="main-header">
         <div class="top-bar">
-            <span>Free Shipping Above Rs.1999</span>
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <span>7 Days Easy Return & Exchange Policy</span>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-
-        <!-- 2. Main Header (Logo, Search, Actions) -->
-        <div class="main-header">
+        <div class="navbar">
+            <div class="search-box">
+                <input type="text" placeholder="Search">
+                <button><i class="fas fa-search"></i></button>
+            </div>
             <div class="logo">
-                <a href="index.html">
-                    <!-- Placeholder used since local image path won't load in this environment -->
-                    <img src="https://placehold.co/100x40/000/ffc107?text=SCENTIFY" alt="Scentify Logo" class="logo-image">
-                </a>
+                <h1>Scentify</h1>
             </div>
-
-            <!-- Search Bar -->
-            <div class="search-container">
-                <form class="search-form">
-                    <button type="submit" class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
-                    <input type="search" placeholder="Search by name, category or mood..." class="search-input">
-                    <button type="button" class="voice-search-button" aria-label="Voice Search"><i class="fas fa-microphone"></i></button>
-                </form>
-            </div>
-            
-            <!-- User Actions -->
-            <div class="user-actions">
-                <a href="#"><i class="fas fa-user"></i> Account</a>
-                <a href="cart.html"><i class="fas fa-shopping-bag"></i> Cart (0)</a>
+            <div class="nav-icons">
+                <!-- Icons added for Account and Cart -->
+                <a href="#"><i class="fas fa-user"></i> ACCOUNT</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> CART</a>
             </div>
         </div>
-
-        <!-- 3. Main Navigation -->
         <nav class="main-nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">ATTARS <span class="nav-arrow">&#9662;</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link">PERFUMES <span class="nav-arrow">&#9662;</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link">BEST SELLERS</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">SHOP <i class="fas fa-caret-down"></i></a></li>
+                <li><a href="#">BEST SELLERS</a></li>
+                <li><a href="#">DEALS</a></li>
+                <li><a href="#">TESTERS</a></li>
+                <li><a href="#">OUR OUTLETS</a></li>
+                <li><a href="#">BLOGS</a></li>
             </ul>
         </nav>
     </header>
-    <!-- CONTENT SPACER to offset fixed header -->
-    <div class="content-spacer"></div>
-    <!-- ========================================
-    HEADER END
-    ======================================== -->
 
-    <!-- ========================================
-    MAIN CONTENT: PRODUCT DETAIL PAGE
-    ======================================== -->
-    <div id="main-content-area">
-        <section id="product-detail-page" class="content-page">
-            <main class="product-page-container container">
-                <section class="product-info-grid">
-                    <div class="product-gallery">
-                        <div class="thumbnail-selector">
-                            <!-- Thumbnails - added data-large-src for JS -->
-                            <img src="https://placehold.co/100x100/A08537/FFFFFF?text=PIC+1" class="thumbnail-image active" onclick="changeMainImage(this)" data-large-src="https://placehold.co/600x600/A08537/FFFFFF?text=SULTAN+A+1" alt="Product Image 1">
-                            <img src="https://placehold.co/100x100/5E17EB/FFFFFF?text=PIC+2" class="thumbnail-image" onclick="changeMainImage(this)" data-large-src="https://placehold.co/600x600/5E17EB/FFFFFF?text=SULTAN+A+2" alt="Product Image 2">
-                            <img src="https://placehold.co/100x100/404040/FFFFFF?text=PIC+3" class="thumbnail-image" onclick="changeMainImage(this)" data-large-src="https://placehold.co/600x600/404040/FFFFFF?text=SULTAN+A+3" alt="Product Image 3">
-                            <img src="https://placehold.co/100x100/f7b731/000000?text=PIC+4" class="thumbnail-image" onclick="changeMainImage(this)" data-large-src="https://placehold.co/600x600/f7b731/000000?text=SULTAN+A+4" alt="Product Image 4">
-                        </div>
-                        <div class="main-image-wrapper">
-                            <img src="https://placehold.co/600x600/A08537/FFFFFF?text=SULTAN+A+1" id="main-product-image" class="main-product-image" alt="Main Product View">
-                        </div>
+    <!-- Main Content Area -->
+    <main class="product-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="#">Home</a> / <a href="#">Attar Oils</a> / Sultan E Ameer
+        </div>
+
+        <!-- Product Detail Section -->
+        <section class="product-details">
+            <!-- Image Gallery -->
+            <div class="image-gallery">
+                <div class="thumbnails">
+                    <img src="Images/Sultan A1.webp"
+                         alt="Thumbnail 1"
+                         class="thumbnail active"
+                         data-image="https://placehold.co/500x750/d7d1e8/726e84?text=Sultan+E+Ameer+Attar">
+                    <img src="Images/Sultan A 2.webp"
+                         alt="Thumbnail 2"
+                         class="thumbnail"
+                         data-image="Images/Sultan A 2.webp">
+                    <img src="Images/Sultan A3.png"
+                         alt="Thumbnail 3"
+                         class="thumbnail"
+                         data-image="Images/Sultan A3.png">
+                    <img src="Images/Sultan A4.png"
+                         alt="Thumbnail 4"
+                         class="thumbnail"
+                         data-image="Images/Sultan A4.png">
+                </div>
+                <div class="main-image-wrapper">
+                    <img id="main-product-image"
+                         src="Images/Sultan A1.webp"
+                         alt="Sultan E Ameer Attar Oil">
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <h1 class="product-title">Sultan E Ameer | Concentrated Perfume | Attar Oil | 16ml</h1>
+                <p class="tag">Addition To Arabia <i class="fas fa-fire" style="color: #ef4444;"></i></p>
+
+                <div class="price-section">
+                    <span class="old-price">Rs.2,500.00</span>
+                    <span class="current-price">Rs.2,199.00</span>
+                </div>
+
+                <!-- Quantity Selector -->
+                <div class="quantity-selector-container">
+                    <label for="quantity">Quantity:</label>
+                    <div class="quantity-selector">
+                        <button id="qty-minus" class="qty-btn" aria-label="Decrease quantity">-</button>
+                        <input type="text" id="quantity" value="1" min="1" readonly>
+                        <button id="qty-plus" class="qty-btn" aria-label="Increase quantity">+</button>
                     </div>
+                </div>
 
-                    <div class="product-details">
-                        <h1 class="product-title">Sultan E Ameer | Concentrated Perfume | Attar Oil | 16ml</h1>
-                        <div class="price-section">
-                            <span class="old-price">Rs.2,500.00</span>
-                            <span class="current-price">Rs.2,199.00</span>
-                        </div>
-                        
-                        <!-- Quantity Control -->
-                        <div class="quantity-control-wrapper">
-                            <label for="quantity" class="quantity-label">Quantity</label>
-                            <div class="quantity-input-group">
-                                <button class="qty-btn minus-btn" onclick="updateQuantity(-1)" aria-label="Decrease Quantity">-</button>
-                                <input type="number" id="quantity" value="1" min="1" class="qty-input" aria-label="Product Quantity">
-                                <button class="qty-btn plus-btn" onclick="updateQuantity(1)" aria-label="Increase Quantity">+</button>
-                            </div>
-                        </div>
+                <div class="shipping-info">
+                    <p><i class="fas fa-truck"></i> 7 Days Easy Return & Exchange</p>
+                    <p><i class="fas fa-heart"></i> 500,000+ Happy Customers</p>
+                    <p><i class="fas fa-circle-check"></i> Celebrities Most Loved Brand</p>
+                </div> 
 
-                        <!-- Action Buttons -->
-                        <div class="action-buttons">
-                            <button class="add-to-cart-btn" onclick="window.location.href='cart.html';">Add To Cart</button>
-                            <button class="buy-now-btn" onclick="window.location.href='cart.html';">Buy It Now</button>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- DESCRIPTION & SPECIFICATIONS TABS -->
-                <section class="details-section">
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="buy-now-btn">Buy It Now</button>
+                </div>
+
+                <!-- Description/Specification Tabs -->
+                <div class="product-tabs">
                     <div class="tab-header">
-                        <button class="tab-button active" onclick="openTab(event, 'Description')">Description</button>
-                        <button class="tab-button" onclick="openTab(event, 'Specifications')">Specifications</button>
+                        <button class="tab-button active" data-tab="description">Description</button>
+                        <button class="tab-button" data-tab="specifications">Specifications</button>
                     </div>
-                    <div id="Description" class="tab-content">
-                        <p>Here is Sultan e Ameer with floral-woody accords, this fragrance is enhanced by subtle undertones of musk and citrus, creating an enchanting and captivating scent.</p>
-                        <p><strong>Top Note:</strong> Bergamot</p>
-                        <p><strong>Middle Note:</strong> Jasmine, Rose</p>
-                        <p><strong>Base Notes:</strong> Sandalwood, Amber, Oakmoss, Musk</p>
+                    <div class="tab-content" id="description-content">
+                        <!-- Filled by JS -->
                     </div>
-                    <div id="Specifications" class="tab-content">
-                        <p><strong>Variants:</strong> We offer this attar in one format:</p>
-                        <ul>
-                            <li>Roll-On Attar: Available in one size: 16ml.</li>
-                        </ul>
-                        <p><strong>Concentration:</strong></p>
-                        <ul>
-                            <li>Roll-On Attar: 100% Concentrated</li>
-                        </ul>
-                        <p><strong>Sillage & Lasting:</strong></p>
-                        <ul>
-                            <li>Sillage: High</li>
-                            <li>Lasting Up To: 8 to 10 hours (measured in a standard atmosphere)</li>
-                        </ul>
+                    <div class="tab-content hidden" id="specifications-content">
+                        <!-- Filled by JS -->
                     </div>
-                </section>
-            </main>
+                </div>
+
+            </div>
         </section>
-    </div>
-    <!-- ========================================
-    MAIN CONTENT END
-    ======================================== -->
 
-
-    <!-- ========================================
-    FOOTER START
-    ======================================== -->
-    <footer class="main-footer">
-        <div class="footer-content-container container">
-            <!-- 1. Logo Section -->
-            <div class="footer-section logo-section">
-                <!-- Placeholder used since local image path won't load in this environment -->
-                <img src="https://placehold.co/120x60/000/ffc107?text=SCENTIFY" alt="Scentify Logo" class="footer-logo-image">
-            </div>
-
-            <!-- 2. Quick Links -->
-            <div class="footer-section">
-                <h4>QUICK LINKS</h4>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Shop</a>
-            </div>
-
-            <!-- 3. Customer Services -->
-            <div class="footer-section">
-                <h4>CUSTOMER SERVICES</h4>
-                <a href="#">Track Order</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">FAQs</a>
-            </div>
-
-            <!-- 4. Contact Info -->
-            <div class="footer-section contact-info-section">
-                <h4>CONTACT INFO</h4>
-                <p class="contact-detail"><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
-                <p class="contact-detail"><i class="fa-solid fa-envelope"></i> support@scentify.com</p>
-                
-                <div class="follow-us-section">
-                    <h4>FOLLOW US</h4>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <!-- Suggested Products -->
+        <section class="suggested-products">
+            <h2>You Might Also Like</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="suggested-card">
+                    <img src="Images/Black & Silver Oud.webp"
+                         alt="Black & Silver Oud">
+                    <div class="card-body">
+                        <h3>Black & Silver Oudh | Concentrated Perfume | Attar Oil</h3>
+                        <p class="price">Rs. 1,899.00</p>
+                        <p class="qty">12ml</p>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="suggested-card">
+                    <img src="Images/Ameer Al Oud.webp"
+                         alt="Ameer Al Oud">
+                    <div class="card-body">
+                        <h3>Ameer Al Oud | Concentrated Perfume Attar Oil</h3>
+                        <p class="price">Rs. 936.00</p>
+                        <p class="qty">12ml</p>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="suggested-card">
+                    <img src="Images/Black & Silver Platinum.webp"
+                         alt="Black N Silver Platinum">
+                    <div class="card-body">
+                        <h3>Black N Gold | Premium Attar | 12ml</h3>
+                        <p class="price">Rs. 2,500.00</p>
+                        <p class="qty">12ml</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Copyright -->
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>SCENTIFY FRAGRANCES</h2>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> Support@Scentify.Com</li>
+                    <li><i class="fas fa-phone"></i> +92 300 1234567</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</li>
+                </ul>
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Services</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Scentify Media Page</a></li>
+                    <li><a href="#">Terms Of Service</a></li>
+                    <li><a href="#">Refund And Exchange Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section address-section">
+                <h3>Address</h3>
+                <p>Shop G-179, Musk Al Mahal, Opp Rex Centre, Next To Meezan Bank, Panorama Centre, Saddar, Karachi.</p>
+            </div>
+        </div>
         <div class="footer-bottom">
-            <p>© 2025 SCENTIFY - All Rights Reserved.</p>
+            <p>&copy; 2025 Scentify</p>
         </div>
     </footer>
-    <!-- ========================================
-    FOOTER END
-    ======================================== -->
 
-    <!-- External JavaScript for interactivity -->
+    <!-- External JS -->
     <script src="Sultan_Ameer_Detail_Page.js"></script>
 </body>
 </html>
