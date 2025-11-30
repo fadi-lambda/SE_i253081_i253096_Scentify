@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scentify Products</title>
-    <link rel="stylesheet" href="productlistingpage.css">
+    <link rel="stylesheet" href="productlistingpage.css"> 
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="main-header">
+    <header class="main-header" id="mainHeader">
         <div class="header-content">
             <div class="search-bar">
                 <i class="fas fa-search"></i>
@@ -24,11 +24,14 @@
             </div>
             
             <div class="user-actions">
-                <a href="#" class="header-action-text"><i class="fas fa-user"></i> ACCOUNT</a>
-                <a href="#" class="header-action-text"><i class="fas fa-shopping-cart"></i> CART</a>
+                <a href="loginpage.html" class="header-action-text"><i class="fas fa-user"></i> ACCOUNT</a>
+                
+                <a href="checkoutpage.html" class="header-action-text" id="cartLink"><i class="fas fa-shopping-cart"></i> CART (<span id="cartItemCount">0</span>)</a>
             </div>
         </div>
     </header>
+
+    <div id="cartNotification" class="cart-notification"></div>
 
     <main class="product-listing-page">
         
@@ -60,7 +63,9 @@
                                 <span class="price-label">Price</span>
                                 <span class="price">Rs.1,499.00</span>
                             </span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-btn" data-id="p1" data-name="Sultan E Ameer Attar" data-price="1499.00">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -81,7 +86,9 @@
                                 <span class="price-label">Price</span>
                                 <span class="price">Rs.1,499.00</span>
                             </span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-btn" data-id="p2" data-name="Black & Silver Platinum Attar" data-price="1499.00">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -102,7 +109,9 @@
                                 <span class="price-label">Price</span>
                                 <span class="price">Rs.1,899.00</span>
                             </span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-btn" data-id="p3" data-name="Mysterious Oudh" data-price="1899.00">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -123,7 +132,9 @@
                                 <span class="price-label">Price</span>
                                 <span class="price">Rs.999.00</span>
                             </span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-btn" data-id="p4" data-name="White Oudh" data-price="999.00">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -144,7 +155,9 @@
                                 <span class="price-label">Price</span>
                                 <span class="price">Rs.2,500.00</span>
                             </span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-btn" data-id="p5" data-name="Black N Gold" data-price="2500.00">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -165,7 +178,9 @@
                                 <span class="price-label">Price</span>
                                 <span class="price">Rs.1,600.00</span>
                             </span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-btn" data-id="p6" data-name="Soule of Arabia set" data-price="1600.00">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -186,7 +201,9 @@
                                 <span class="price-label">Price</span>
                                 <span class="price">Rs.1,600.00</span>
                             </span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-btn" data-id="p7" data-name="Mysterious bundle" data-price="1600.00">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -207,7 +224,9 @@
                                 <span class="price-label">Price</span>
                                 <span class="price">Rs.3,000.00</span>
                             </span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-btn" data-id="p8" data-name="Black & Silver Platinum" data-price="3000.00">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -215,6 +234,8 @@
             </div>
         </div>
     </main>
+    
+    <script src="productpage.js" defer></script> 
 
 </body>
 </html>

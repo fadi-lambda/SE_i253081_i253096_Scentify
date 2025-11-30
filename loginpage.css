@@ -17,14 +17,14 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100vh; /* Poori height cover kare */
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
 }
 
 /* --- Header Styling (Top Bar) --- */
 .main-header {
-    background-color: #000; /* Black Header */
+    background-color: #000; 
     padding: 15px 0;
     border-bottom: 5px solid #E8C100;
 }
@@ -79,24 +79,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 150px; /* Do blocks ke beech ki jagah (aap isse adjust kar sakte hain) */
+    gap: 150px; 
     padding: 50px 20px;
-    flex-grow: 1; /* Jagah bharne ke liye */
+    flex-grow: 1; 
+    /* ✅ Zaroori: Choti screens ke liye blocks ko wrap karne ki ijazat deta hai */
+    flex-wrap: wrap; 
 }
 
 /* Auth Blocks (Login / Create Account) */
 .auth-block {
-    background-color: rgba(255, 255, 255, 0.9); /* Halka transparent white background */
+    background-color: rgba(255, 255, 255, 0.9); 
     padding: 40px 30px;
-    border-radius: 20px; /* Gol kinare */
+    border-radius: 20px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    width: 450px; /* Har block ki width */
-    min-height: 550px; /* Barabar height maintain karne ke liye */
+    width: 450px; 
+    min-height: 550px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-    /* ➡️ Note: min-height: 550px; se dono blocks ki height barabar ho jayegi */
+}
+
+/* ✅ JAVASCRIPT SE CONTROL HONE WALI CLASS */
+.auth-block.hidden-block {
+    display: none;
 }
 
 .auth-block h2 {
@@ -113,22 +118,21 @@ body {
     padding: 10px 0;
     margin-bottom: 25px;
     border: none;
-    border-bottom: 1px solid #ccc; /* Bottom line input */
+    border-bottom: 1px solid #ccc; 
     background: transparent;
     font-size: 16px;
     outline: none;
 }
 .auth-block form {
-    /* Login button ko neeche dhakelne ke liye */
     display: flex;
     flex-direction: column;
     flex-grow: 1; 
-    justify-content: flex-end; /* Inputs ko upar, button ko neeche */
+    justify-content: flex-end; 
 }
 
 /* Blue Buttons */
 .blue-btn {
-    background-color: #4A89F5; /* Blue color */
+    background-color: #4A89F5; 
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -137,8 +141,8 @@ body {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
-    width: 100%; /* Full width button */
-    margin-top: 15px; /* Alignment ke liye */
+    width: 100%; 
+    margin-top: 15px; 
 }
 .blue-btn:hover {
     background-color: #3876e0;
@@ -194,4 +198,13 @@ body {
 }
 .login-link a:hover, .signup-link a:hover {
     text-decoration: underline;
+}
+
+/* ✅ JAVASCRIPT KE LIYE ERROR MESSAGE STYLING */
+.form-error-message {
+    color: #cc0000;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: bold;
 }

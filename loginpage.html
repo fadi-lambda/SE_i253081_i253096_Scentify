@@ -34,18 +34,19 @@
 
         <main class="auth-forms-wrapper">
             
-            <div class="auth-block login-block">
+            <div class="auth-block login-block" id="loginBlock">
                 <h2>Login</h2>
-                <form>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                <form id="loginForm" novalidate> 
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
                     
                     <button type="submit" class="blue-btn login-btn">Login</button>
+                    <div id="loginError" class="form-error-message"></div>
                 </form>
-                <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+                <p class="signup-link">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
             </div>
 
-            <div class="auth-block create-account-block">
+            <div class="auth-block create-account-block hidden-block" id="signupBlock">
                 <h2>Create Account</h2>
                 
                 <div class="social-login-buttons">
@@ -55,17 +56,20 @@
                 
                 <div class="separator-or">OR</div>
 
-                <form>
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                <form id="signupForm" novalidate> 
+                    <input type="text" id="signupFullname" placeholder="Full Name" required>
+                    <input type="email" id="signupEmail" placeholder="Email" required>
+                    <input type="password" id="signupPassword" placeholder="Password" required>
                     
                     <button type="submit" class="blue-btn create-btn">Create Account</button>
+                    <div id="signupError" class="form-error-message"></div>
                 </form>
-                <p class="login-link">Already have an account? <a href="#">Login</a></p>
+                <p class="login-link">Already have an account? <a href="#" id="showLogin">Login</a></p>
             </div>
         </main>
     </div>
+    
+    <script src="loginpage.js"></script>
 
 </body>
 </html>

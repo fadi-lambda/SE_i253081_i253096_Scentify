@@ -7,193 +7,252 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #000; /* Page ka background black hai */
-    color: #333;
-    line-height: 1.6;
+    background-color: #000000; /* Entire page background is BLACK */
+    color: #ffffff; /* Default text color is white */
 }
 
-/* Headings Font (Playfair Display) */
-h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
-}
-
-/* --- Header Styling --- */
+/* --- Header Styling (Sticky Functionality) --- */
 .main-header {
-    background-color: #000; /* Black background */
-    padding: 15px 0;
-    border-bottom: 5px solid #E8C100;
+    width: 100%;
+    background-color: #111111; /* Darker black for header */
+    border-bottom: 1px solid #333333;
+    padding: 15px 50px; 
+    z-index: 1000; 
+    transition: all 0.3s ease;
+}
+
+/* STICKY HEADER CLASS */
+.sticky-header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* White/light shadow */
+    padding: 10px 50px; 
 }
 
 .header-content {
-    max-width: 1200px; 
-    margin: 0 auto; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; 
+    max-width: 1400px; 
+    margin: 0 auto;
 }
 
-/* Search Bar (Left Side) - White Background */
 .search-bar {
     display: flex;
     align-items: center;
-    background-color: #fff;
-    padding: 8px 15px;
-    border-radius: 50px; 
-    border: 1px solid #ccc;
-    width: 250px;
+    border: 1px solid #555;
+    background-color: #222;
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: 300px;
 }
-.search-bar i { color: #333; margin-right: 10px; }
-.search-bar input { border: none; outline: none; width: 100%; font-size: 16px; }
 
-/* Logo (Center) - Golden Color */
-.logo { text-align: center; color: #E8C100; }
-.logo img { 
-    max-width: 180px; 
-    height: auto;
-    display: block; 
+.search-bar i {
+    color: #aaa;
+    margin-right: 8px;
 }
-.logo-fragrances { font-size: 10px; letter-spacing: 2px; color: #E8C100; }
 
-/* User Actions (Right Side) - White Icons/Text */
-.user-actions { display: flex; align-items: center; }
-.user-actions a {
-    text-decoration: none;
-    color: #fff; /* White Text */
+.search-bar input {
+    border: none;
+    outline: none;
     font-size: 14px;
-    font-weight: bold;
-    margin-left: 20px;
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
+    width: 100%;
+    background-color: transparent; /* Input field background transparent */
+    color: #fff; /* Input text is white */
+}
+.search-bar input::placeholder {
+    color: #888;
+}
+
+
+.logo img {
+    height: 40px; 
+}
+
+.user-actions {
+    display: flex;
+    gap: 20px;
+    position: relative; 
+    z-index: 9999;
+}
+
+.header-action-text {
+    text-decoration: none;
+    color: #ffffff; /* Header links are white */
+    font-size: 14px;
     display: flex;
     align-items: center;
+    transition: color 0.2s;
 }
-.user-actions a i {
-    font-size: 16px;
+
+.header-action-text:hover {
+    color: #FFD700; /* Gold color on hover */
+}
+
+.header-action-text i {
     margin-right: 5px;
-    color: #fff; /* White Icon */
 }
-.user-actions a:hover { color: #E8C100; }
 
+/* --- Cart Notification Styling --- */
+.cart-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #FFD700; /* Gold */
+    color: #000; /* Black text on gold notification */
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1001;
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
 
-/* --- Product Listing Main Wrapper --- */
+.cart-notification.show {
+    opacity: 1; 
+}
+
+/* --- Main Content and Product Listing Styling --- */
+
 .product-listing-page {
-    /* Product listing area ko header ke barabar width dein */
-    max-width: 1200px;
-    margin: 20px auto; 
-    background-color: #fff; /* White background */
-    border-radius: 15px; /* Gol kinare */
     padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding-top: 80px; 
 }
 
 .product-wrapper {
-    padding: 0 20px; /* Andar ki taraf padding */
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* Listing Header (Title and Sort) */
 .listing-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    padding-top: 10px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #555; /* Dark gray line */
 }
+
 .listing-header h2 {
-    font-size: 24px;
-    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #FFD700; /* Header text is Gold */
 }
+
 .sort-option {
     display: flex;
     align-items: center;
-    font-size: 18px;
-    font-weight: bold;
     cursor: pointer;
-}
-.sort-option i {
-    margin-left: 5px;
-    font-size: 20px;
+    font-size: 14px;
+    color: #aaa;
 }
 
-/* --- Product Grid --- */
+.sort-option i {
+    margin-left: 5px;
+    font-size: 16px;
+}
+
 .product-grid {
     display: grid;
-    /* 4 columns (char products ek row mein) */
     grid-template-columns: repeat(4, 1fr); 
-    gap: 20px;
+    gap: 30px;
 }
 
 .product-card {
-    border: 1px solid #eee;
-    border-radius: 10px;
+    border: 1px solid #333; /* Darker border */
+    border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: #1a1a1a; /* Dark gray for cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.08);
 }
 
 .product-card img {
     width: 100%;
-    height: auto;
-    display: block;
-    /* Image ke edges gol kar dein */
-    border-radius: 10px 10px 0 0; 
+    height: 300px; 
+    object-fit: cover;
 }
 
 .product-details {
-    padding: 10px 15px;
+    padding: 15px;
 }
 
-.title {
-    font-size: 15px;
+.product-details .title {
+    font-family: Arial, sans-serif;
     font-weight: bold;
-    margin-bottom: 2px;
-}
-.subtitle {
-    font-size: 13px;
-    color: #555;
+    font-size: 16px;
     margin-bottom: 5px;
+    color: #ffffff; /* White text */
 }
 
-/* Rating and Reviews */
+.product-details .subtitle {
+    font-size: 13px;
+    color: #ccc; /* Lighter text */
+    margin-bottom: 10px;
+}
+
 .rating-reviews {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
+
 .stars i {
-    color: gold;
-    font-size: 14px;
-}
-.reviews {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    margin-left: 5px;
+    color: gold; 
+    font-size: 12px;
 }
 
-/* Price and Add to Cart */
+.reviews {
+    font-size: 12px;
+    color: #aaa;
+    margin-left: 8px;
+}
+
 .price-add-to-cart {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 10px;
 }
+
+.price-info {
+    display: flex;
+    flex-direction: column;
+}
+
 .price-label {
-    display: block;
-    font-size: 12px;
-    color: #555;
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 600;
 }
+
 .price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #E8C100; /* Golden price color */
+    font-size: 20px;
+    font-weight: 900;
+    color: #FFD700; /* Price in Gold color */
 }
+
 .add-btn {
-    background-color: #000;
-    color: #fff;
+    background-color: #FFD700; /* Button background Gold */
+    color: #000; /* Button text Black */
     border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: background-color 0.2s;
 }
-.add-btn:hover { background-color: #E8C100; color: #000; }
+
+.add-btn:hover {
+    background-color: #e6c200; /* Darker gold on hover */
+}
