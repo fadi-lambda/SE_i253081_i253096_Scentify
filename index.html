@@ -7,67 +7,89 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Load Global Styling -->
-    <link rel="stylesheet" href="index.css"> 
-    <!-- Load Product Detail Page Styling (Naye Page Ki Styling) -->
-    <link rel="stylesheet" href="Sultan_Ameer_Detail Page.css">
-    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
 
     <!-- ========================================
     HEADER START (Yeh Hamesha Fix Rahega)
     ======================================== -->
-    <header class="main-header-fixed">
-        <!-- 1. Top Bar -->
-        <div class="top-bar">
-            <span>Free Shipping Above Rs.1999</span>
-            <div class="social-icons">
-                <a href="#" class="visually-hidden">Facebook</a><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="visually-hidden">Instagram</a><i class="fab fa-instagram"></i></a>
-                <a href="#" class="visually-hidden">Twitter</a><i class="fab fa-twitter"></i></a>
-                <a href="#" class="visually-hidden">WhatsApp</a><i class="fab fa-whatsapp"></i></a>
-            </div>
+    <header id="fixed-header" class="fixed top-0 left-0 right-0 z-50 bg-black shadow-xl">
+    <!-- 1. Top Announcement Bar (Gold/Yellow) -->
+    <div class="bg-yellow-500 py-1 text-center text-sm font-semibold text-gray-900 relative">
+        7 Days Easy Return & Exchange Policy
+        <!-- Social Icons (Desktop Only) -->
+        <div class="absolute right-4 top-1 hidden md:flex items-center space-x-3 text-gray-900">
+            <a href="#" aria-label="Facebook" class="hover:text-black/70 transition"><i data-lucide="facebook" class="h-4 w-4"></i></a>
+            <a href="#" aria-label="Instagram" class="hover:text-black/70 transition"><i data-lucide="instagram" class="h-4 w-4"></i></a>
+            <a href="#" aria-label="YouTube" class="hover:text-black/70 transition"><i data-lucide="youtube" class="h-4 w-4"></i></a>
         </div>
+    </div>
 
-        <!-- 2. Main Header (Logo, Search, Actions) -->
-        <div class="main-header">
-            <div class="logo">
-                <!-- LOGO - CLICK KARNE PAR HOME PAGE WAPAS AAYEGA -->
-                <a href="#" onclick="showPage('home-page'); return false;">
-                    <img src="Logo-removebg-preview_crop.png" alt="Scentify Logo" class="logo-image">
-                </a>
-            </div>
-
-            <!-- Search Bar -->
-            <div class="search-container">
-                <form class="search-form">
-                    <button type="submit" class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
-                    <input type="search" placeholder="Search by name, category or mood..." class="search-input">
-                    <button type="button" class="voice-search-button" aria-label="Voice Search"><i class="fas fa-microphone"></i></button>
-                </form>
-            </div>
+    <!-- 2. Main Navigation Bar (Logo, Search, Icons) -->
+    <div class="bg-black py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             
-            <!-- User Actions -->
-            <div class="user-actions">
-                <a href="#"><i class="fas fa-user"></i> Account</a>
-                <a href="#"><i class="fas fa-shopping-bag"></i> Cart (0)</a>
+            <!-- Search Bar (Left - Visible on Desktop) -->
+            <div class="hidden lg:block w-1/4">
+                <div class="relative">
+                    <input type="text" placeholder="Search products..." class="w-full bg-white text-gray-900 rounded-full py-2 px-6 pl-12 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-150 shadow-inner">
+                    <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500"></i>
+                </div>
+            </div>
+
+            <!-- Logo (Center) -->
+            <div class="flex justify-center flex-grow lg:flex-none">
+                <!-- Placeholder for the main brand logo/text -->
+                <h1 class="text-3xl font-extrabold text-white tracking-widest">
+                    <span class="text-yellow-500">SCENTIFY</span>
+                </h1>
+            </div>
+
+            <!-- Icons (Right) -->
+            <div class="flex items-center space-x-5 text-white text-base">
+                <!-- Search Icon (Mobile Only) -->
+                <button class="lg:hidden text-white hover:text-yellow-500 transition duration-150 p-1" aria-label="Open Search">
+                    <i data-lucide="search" class="h-6 w-6"></i>
+                </button>
+                
+                <!-- Account Icon -->
+                <a href="#" class="flex items-center space-x-1 hover:text-yellow-500 transition duration-150 rounded-full p-1">
+                    <i data-lucide="user" class="h-6 w-6"></i>
+                    <span class="hidden sm:inline text-sm uppercase font-medium">Account</span>
+                </a>
+                
+                <!-- Cart Icon -->
+                <a href="#" class="flex items-center space-x-1 hover:text-yellow-500 transition duration-150 rounded-full p-1 relative">
+                    <i data-lucide="shopping-cart" class="h-6 w-6"></i>
+                    <!-- Cart count badge -->
+                    <span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold w-4 h-4 flex items-center justify-center rounded-full">3</span>
+                </a>
+                
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button class="lg:hidden text-white hover:text-yellow-500 transition duration-150 p-1" aria-label="Open Menu">
+                    <i data-lucide="menu" class="h-6 w-6"></i>
+                </button>
             </div>
         </div>
+    </div>
 
-        <!-- 3. Main Navigation -->
-        <nav class="main-nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#" class="nav-link active">HOME</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">ATTARS <span class="nav-arrow">&#9662;</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link">PERFUMES <span class="nav-arrow">&#9662;</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link">BEST SELLERS</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
+    <!-- 3. Navigation Links (Desktop Only - Wide Menu Bar) -->
+    <nav class="bg-black text-white text-sm font-semibold uppercase tracking-wider hidden lg:block border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <ul class="flex justify-center space-x-10 py-3">
+                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">HOME</a></li>
+                <li><a href="#" class="flex items-center hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">SHOP <i data-lucide="chevron-down" class="ml-1 h-3 w-3"></i></a></li>
+                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">BEST SELLERS</a></li>
+                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">DEALS</a></li>
+                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">TESTERS</a></li>
+                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">OUR OUTLETS</a></li>
+                <li><a href="#" class="hover:text-yellow-500 transition duration-150 border-b-2 border-transparent hover:border-yellow-500 pb-1">BLOGS</a></li>
             </ul>
-        </nav>
-    </header>
-    <!-- CONTENT SPACER -->
-    <div class="content-spacer"></div>
+        </div>
+    </nav>
+</header>
     <!-- ========================================
     HEADER END
     ======================================== -->
@@ -245,61 +267,104 @@
     <!-- ========================================
     FOOTER START (Yeh Hamesha Fix Rahega)
     ======================================== -->
-    <footer class="main-footer">
-        <div class="footer-content-container">
-            <!-- 1. Logo Section -->
-            <div class="footer-section logo-section">
-                <img src="Logo-removebg-preview_crop.png" alt="Scentify Logo" class="footer-logo-image">
-            </div>
-
-            <!-- 2. Quick Links -->
-            <div class="footer-section quick-links-section">
-                <h4>QUICK LINKS</h4>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Shop</a>
-                <a href="#">Returns & Exchange</a>
-            </div>
-
-            <!-- 3. Customer Services -->
-            <div class="footer-section customer-services-section">
-                <h4>CUSTOMER SERVICES</h4>
-                <a href="#">Track Order</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">FAQs</a>
-            </div>
-
-            <!-- 4. Contact Info -->
-            <div class="footer-section contact-info-section">
-                <h4>CONTACT INFO</h4>
-                <p class="contact-detail"><i class="fa-solid fa-map-marker-alt"></i> 123 Luxury Lane, Perfume City, PK</p>
-                <p class="contact-detail"><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
-                <p class="contact-detail"><i class="fa-solid fa-envelope"></i> support@scentify.com</p>
+<footer class="bg-black text-white pt-12 pb-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Column 1: Logo and Address -->
+            <div>
+                <div class="mb-6">
+                    <!-- Placeholder for Scentify Logo -->
+                    <h2 class="text-3xl font-extrabold text-white tracking-widest">
+                        <span class="text-yellow-500">SCENTIFY</span>
+                    </h2>
+                    <p class="text-sm text-gray-400">FRAGRANCES</p>
+                </div>
                 
-                <div class="follow-us-section">
-                    <h4>FOLLOW US</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                <h3 class="text-lg font-bold text-white mb-2 uppercase tracking-wider">Address</h3>
+                <address class="text-sm text-gray-400 not-italic leading-relaxed">
+                    Shop G-179, Musk Al Mahal,
+                    <br>
+                    Opp Rex Centre, Next To Meezan Bank,
+                    <br>
+                    Panorama Centre, Saddar,
+                    <br>
+                    Karachi.
+                </address>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">FAQ's</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Returns</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div>
+                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Contact Info</h3>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center">
+                        <i data-lucide="mail" class="h-5 w-5 text-yellow-500 mr-3"></i>
+                        <a href="mailto:Support@Scentify.com" class="text-gray-400 hover:text-white transition duration-200">Support@Scentify.com</a>
+                    </li>
+                    <li class="flex items-center">
+                        <i data-lucide="phone" class="h-5 w-5 text-yellow-500 mr-3"></i>
+                        <a href="tel:+923001234567" class="text-gray-400 hover:text-white transition duration-200">+92 300 1234567</a>
+                    </li>
+                    <li class="flex items-center">
+                        <i data-lucide="map-pin" class="h-5 w-5 text-yellow-500 mr-3"></i>
+                        <span class="text-gray-400">Islamabad, Pakistan</span>
+                    </li>
+                </ul>
+                
+                <!-- Follow Us (Mobile/Tablet) -->
+                <div class="mt-8 md:hidden">
+                    <h3 class="text-lg font-bold text-yellow-500 mb-3 uppercase tracking-wider">Follow Us</h3>
+                    <div class="flex space-x-4 text-white">
+                        <a href="#" aria-label="Facebook" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Instagram" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="Twitter" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 4: Customer Services & Follow Us -->
+            <div>
+                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Customer Services</h3>
+                <ul class="space-y-2 text-sm mb-8">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Scentify Media Page</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms Of Service</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Refund And Exchange Policy</a></li>
+                </ul>
+
+                <!-- Follow Us (Desktop) -->
+                <div class="hidden md:block">
+                    <h3 class="text-lg font-bold text-yellow-500 mb-3 uppercase tracking-wider">Follow Us</h3>
+                    <div class="flex space-x-4 text-white">
+                        <a href="#" aria-label="Facebook" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Instagram" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="Twitter" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="linkedin"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Middle Address Row -->
-        <div class="address-row-container">
-            <div class="address-section">
-                <p>Corporate Office: Scentify (Pvt) Ltd, 1st Floor, Building A, Main Boulevard, Perfume City, Lahore, Pakistan.</p>
-            </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="footer-bottom">
-            <p>© 2025 SCENTIFY - All Rights Reserved.</p>
-        </div>
-    </footer>
+    <!-- Copyright Bar -->
+    <div class="mt-8 pt-6 border-t border-gray-900 text-center">
+        <p class="text-sm text-gray-500">
+            &copy; <span id="current-year">2025</span> Scentify. All rights reserved.
+        </p>
+    </div>
+</footer>
     <!-- ========================================
     FOOTER END
     ======================================== -->

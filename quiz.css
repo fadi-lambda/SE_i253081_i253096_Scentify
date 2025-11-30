@@ -172,7 +172,7 @@ body {
 
 .image-card img {
     width: 100%;
-    height: 100px; /* Image ki height set karein */
+    height: 180px; /* Image ki height set karein */
     display: block;
     object-fit: cover;
 }

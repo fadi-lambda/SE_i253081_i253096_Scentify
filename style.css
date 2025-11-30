@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scentify Luxury Fragrances</title>
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Load Lucide icons for clean UI elements -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom CSS Styles (Combined Header and Footer Styles) -->
+    <style>
+        /* ==================================================
+        Custom CSS for Header and Footer Components
+        ================================================== */
+        
+        /* Global Base Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000; /* Dark background for the overall site theme */
+            /* Mandatory padding to prevent content from being hidden under the fixed header */
+            padding-top: 140px; 
+            min-height: 100vh; /* Ensure full page height */
+        }
+
+        /* --------------------------------------------------
+        1. Header Specific Customizations
+        -------------------------------------------------- */
+        /* Custom color definition for the top announcement bar */
+        .bg-yellow-500 {
+            background-color: #f7b731; /* Specific gold/yellow shade */
+        }
+
+        /* Fixed Header positioning and stacking is handled by Tailwind classes (fixed, top-0, z-50) */
+
+        /* Search Input Customization (Improves focus ring appearance) */
+        .header-search input:focus {
+            border-color: #f7b731; /* Focus ring color */
+            box-shadow: 0 0 0 1px #f7b731; 
+        }
+
+        /* Ensures Lucide icons render sharply */
+        [data-lucide] {
+            stroke-width: 2;
+        }
+
+        /* --------------------------------------------------
+        2. Footer Specific Customizations
+        -------------------------------------------------- */
+        .footer-link-list a {
+            transition: color 0.2s ease;
+        }
+
+        .footer-link-list a:hover {
+            color: #f7b731; /* Gold hover color */
+        }
+        
+        /* Optional: Social Icons hover */
+        .footer-social a:hover {
+            color: #f7b731; 
+        }
+
+        /* Address and Info Text color */
+        .footer address, .footer ul li span {
+            color: #a0a0a0; 
+        }
+
+        /* Copyright section separator */
+        .footer .copyright-bar {
+            border-top-color: #1a1a1a;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====================================================================================== -->
+<!-- HEADER START (Fixed component) -->
+<!-- ====================================================================================== -->
+/* ==================================================
+Custom CSS for SCENTIFY Header Component
+(Note: Most styling is handled by Tailwind utility classes in the HTML)
+================================================== */
+
+/* 1. Global Body/Page Setup */
+body {
+    /* Set the primary font for the page */
+    font-family: 'Inter', sans-serif;
+    /* Dark background to match the theme */
+    background-color: #000;
+    /* CRITICAL: Add padding to push main content below the FIXED header (approx. 140px) */
+    padding-top: 140px; 
+}
+
+/* 2. Custom Color Definition */
+/* Define the specific gold/yellow color used for the announcement bar and accents 
+   (This overrides the default Tailwind yellow-500 for a more specific shade if needed) */
+.bg-yellow-500 {
+    background-color: #f7b731;
+}
+.text-yellow-500 {
+    color: #f7b731;
+}
+.hover\:text-yellow-500:hover {
+    color: #f7b731;
+}
+
+/* 3. Icon Styling Enhancement */
+/* Ensures Lucide icons (used for search, user, cart, menu) render sharply */
+[data-lucide] {
+    stroke-width: 2; /* Bolder look for better visibility */
+    transition: color 0.2s;
+}
+
+/* 4. Search Input Focus Style (Already handled by Tailwind, but defined here for completeness) */
+.header-search .relative input:focus {
+    border-color: #f7b731; 
+    box-shadow: 0 0 0 1px #f7b731;
+}
+
+/* 5. Navigation Link Hover Effect Enhancement (Using the pb-1 for the bottom border effect) */
+.border-transparent:hover {
+    border-color: #f7b731;
+}
+<!-- HEADER END -->
+
+<!-- ====================================================================================== -->
+<!-- MAIN CONTENT START (Placeholder for Hero Section) -->
+<!-- ====================================================================================== -->
+<main>
+    <section id="hero-banner" class="relative w-full overflow-hidden bg-cover bg-center h-[500px] md:h-[600px] border-b border-gray-800" 
+        style="background-image: url('https://placehold.co/1200x600/1e1e1e/8a6b18?text=LUXURY+FRAGRANCE+BANNER'); background-attachment: fixed;">
+        
+        <!-- Optional Overlay to make text readable -->
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <!-- Content for the Hero Section -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center p-4">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4">
+                DISCOVER YOUR SIGNATURE SCENT
+            </h2>
+            <p class="text-lg md:text-xl text-yellow-300 font-medium mb-8 max-w-2xl">
+                Explore our exquisite collection of premium concentrated perfumes and attar oils.
+            </p>
+            <a href="#" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full shadow-lg uppercase tracking-wider transition duration-300 transform hover:scale-105">
+                Shop The Collection
+            </a>
+        </div>
+    </section>
+    
+    <!-- Placeholder for other sections to allow scrolling -->
+    <section class="min-h-[500px] p-8 text-center text-gray-500">
+        <h2 class="text-3xl font-bold text-white mb-4">Featured Products Placeholder</h2>
+        <p class="text-gray-400">Content for the product grids and quiz section will go here.</p>
+    </section>
+</main>
+<!-- MAIN CONTENT END -->
+
+<!-- ====================================================================================== -->
+<!-- FOOTER START -->
+<!-- ====================================================================================== -->
+<footer class="bg-black text-white pt-12 pb-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Column 1: Logo and Address -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <div class="mb-6">
+                    <!-- Placeholder for Scentify Logo -->
+                    <h2 class="text-3xl font-extrabold text-white tracking-widest">
+                        <span class="text-yellow-500">SCENTIFY</span>
+                    </h2>
+                    <p class="text-sm text-gray-400">FRAGRANCES</p>
+                </div>
+                
+                <h3 class="text-lg font-bold text-yellow-500 mb-2 uppercase tracking-wider">Address</h3>
+                <address class="text-sm text-gray-400 not-italic leading-relaxed">
+                    Shop G-179, Musk Al Mahal,
+                    <br>
+                    Opp Rex Centre, Next To Meezan Bank,
+                    <br>
+                    Panorama Centre, Saddar,
+                    <br>
+                    Karachi.
+                </address>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="text-center md:text-left footer-link-list">
+                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">FAQ's</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Returns</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms & Conditions</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div class="text-center md:text-left">
+                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Contact Info</h3>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center justify-center md:justify-start">
+                        <i data-lucide="mail" class="h-5 w-5 text-yellow-500 mr-3"></i>
+                        <a href="mailto:Support@Scentify.com" class="text-gray-400 hover:text-white transition duration-200">Support@Scentify.com</a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <i data-lucide="phone" class="h-5 w-5 text-yellow-500 mr-3"></i>
+                        <a href="tel:+923001234567" class="text-gray-400 hover:text-white transition duration-200">+92 300 1234567</a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <i data-lucide="map-pin" class="h-5 w-5 text-yellow-500 mr-3"></i>
+                        <span class="text-gray-400">Islamabad, Pakistan</span>
+                    </li>
+                </ul>
+                
+                <!-- Follow Us (Mobile/Tablet) -->
+                <div class="mt-8 md:hidden footer-social">
+                    <h3 class="text-lg font-bold text-yellow-500 mb-3 uppercase tracking-wider">Follow Us</h3>
+                    <div class="flex justify-center space-x-4 text-white">
+                        <a href="#" aria-label="Facebook" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Instagram" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="Twitter" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 4: Customer Services & Follow Us -->
+            <div class="text-center md:text-left">
+                <h3 class="text-lg font-bold text-yellow-500 mb-4 uppercase tracking-wider">Customer Services</h3>
+                <ul class="space-y-2 text-sm mb-8 footer-link-list">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Scentify Media Page</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Terms Of Service</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition duration-200">Refund And Exchange Policy</a></li>
+                </ul>
+
+                <!-- Follow Us (Desktop) -->
+                <div class="hidden md:block footer-social">
+                    <h3 class="text-lg font-bold text-yellow-500 mb-3 uppercase tracking-wider">Follow Us</h3>
+                    <div class="flex space-x-4 text-white">
+                        <a href="#" aria-label="Facebook" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="facebook"></i></a>
+                        <a href="#" aria-label="Instagram" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="Twitter" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="text-xl hover:text-yellow-500 transition duration-200"><i data-lucide="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright Bar -->
+    <div class="mt-8 pt-6 border-t border-gray-900 text-center">
+        <p class="text-sm text-gray-500">
+            &copy; <span id="current-year">2025</span> Scentify. All rights reserved.
+        </p>
+    </div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+        // Dynamically set the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    });
+</script>
+</body>
+</html>

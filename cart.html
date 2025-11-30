@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scentify - Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <!-- ========================================
+    HEADER START (Har Page Par Copy Hoga)
+    ======================================== -->
+    <header class="main-header-fixed">
+        <!-- 1. Top Bar -->
+        <div class="top-bar">
+            <span>Free Shipping Above Rs.1999</span>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- 2. Main Header (Logo, Search, Actions) -->
+        <div class="main-header">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://placehold.co/100x80/000/ffc107?text=SCENTIFY" alt="Scentify Logo" class="logo-image">
+                </a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <form class="search-form">
+                    <button type="submit" class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+                    <input type="search" placeholder="Search by name, category or mood..." class="search-input">
+                    <button type="button" class="voice-search-button" aria-label="Voice Search"><i class="fas fa-microphone"></i></button>
+                </form>
+            </div>
+            
+            <!-- User Actions -->
+            <div class="user-actions">
+                <a href="#"><i class="fas fa-user"></i> Account</a>
+                <a href="cart.html"><i class="fas fa-shopping-bag"></i> Cart (0)</a>
+            </div>
+        </div>
+
+        <!-- 3. Main Navigation -->
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">ATTARS <span class="nav-arrow">&#9662;</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link">PERFUMES <span class="nav-arrow">&#9662;</span></a></li>
+                <li class="nav-item"><a href="#" class="nav-link">BEST SELLERS</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- CONTENT SPACER -->
+    <div class="content-spacer"></div>
+    <!-- ========================================
+    HEADER END
+    ======================================== -->
+
+    <!-- ========================================
+    MAIN CONTENT: CART PAGE
+    ======================================== -->
+    <div id="main-content-area">
+        <section id="cart-page" class="content-page">
+            <div class="container cart-container">
+                <h1 class="page-title">Shopping Cart</h1>
+                <div class="cart-grid">
+                    <div class="cart-items">
+                        <!-- Example Cart Item 1 -->
+                        <div class="cart-item">
+                            <img src="https://placehold.co/100x100/A08537/FFFFFF?text=PIC+1" alt="Product 1" class="cart-item-image">
+                            <div class="item-details">
+                                <h4 class="item-title">Sultan E Ameer | 16ml</h4>
+                                <p class="item-price">Rs.2,199.00</p>
+                                <!-- updateQuantityInCart() function script.js mein hai -->
+                                <div class="quantity-control-wrapper small-qty">
+                                    <button class="qty-btn minus-btn" onclick="updateQuantityInCart(this, -1)">-</button>
+                                    <input type="number" value="1" min="1" class="qty-input">
+                                    <button class="qty-btn plus-btn" onclick="updateQuantityInCart(this, 1)">+</button>
+                                </div>
+                                <button class="remove-btn">Remove</button>
+                            </div>
+                        </div>
+                        <!-- Example Cart Item 2 -->
+                        <div class="cart-item">
+                            <img src="https://placehold.co/100x100/404040/FFFFFF?text=PIC+3" alt="Product 2" class="cart-item-image">
+                            <div class="item-details">
+                                <h4 class="item-title">Black N Gold | 12ml</h4>
+                                <p class="item-price">Rs.2,500.00</p>
+                                <div class="quantity-control-wrapper small-qty">
+                                    <button class="qty-btn minus-btn" onclick="updateQuantityInCart(this, -1)">-</button>
+                                    <input type="number" value="1" min="1" class="qty-input">
+                                    <button class="qty-btn plus-btn" onclick="updateQuantityInCart(this, 1)">+</button>
+                                </div>
+                                <button class="remove-btn">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Summary (Right Side) -->
+                    <div class="cart-summary">
+                        <h3>Order Summary</h3>
+                        <div class="summary-line">
+                            <span>SubTotal</span>
+                            <span>Rs.4,699.00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Shipping Charges</span>
+                            <span>Rs.199.00</span>
+                        </div>
+                        <div class="summary-line total-line">
+                            <span>Total</span>
+                            <span>Rs.4,898.00</span>
+                        </div>
+                        <button class="checkout-btn">Check Out</button>
+                        <!-- Home Page se link karein -->
+                        <button class="continue-btn" onclick="window.location.href='index.html';">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- ========================================
+    MAIN CONTENT END
+    ======================================== -->
+
+
+    <!-- ========================================
+    FOOTER START (Har Page Par Copy Hoga)
+    ======================================== -->
+    <footer class="main-footer">
+        <div class="footer-content-container container">
+            <!-- 1. Logo Section -->
+            <div class="footer-section logo-section">
+                <img src="https://placehold.co/120x90/000/ffc107?text=SCENTIFY" alt="Scentify Logo" class="footer-logo-image">
+            </div>
+
+            <!-- 2. Quick Links -->
+            <div class="footer-section">
+                <h4>QUICK LINKS</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Shop</a>
+            </div>
+
+            <!-- 3. Customer Services -->
+            <div class="footer-section">
+                <h4>CUSTOMER SERVICES</h4>
+                <a href="#">Track Order</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">FAQs</a>
+            </div>
+
+            <!-- 4. Contact Info -->
+            <div class="footer-section contact-info-section">
+                <h4>CONTACT INFO</h4>
+                <p class="contact-detail"><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
+                <p class="contact-detail"><i class="fa-solid fa-envelope"></i> support@scentify.com</p>
+                
+                <div class="follow-us-section">
+                    <h4>FOLLOW US</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>© 2025 SCENTIFY - All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- ========================================
+    FOOTER END
+    ======================================== -->
+
+    <script src="script.js"></script>
+</body>
+</html>
