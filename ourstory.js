@@ -4,40 +4,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainHeader = document.querySelector('.main-header');
     
     if (mainHeader) {
+        // 'sticky' class ko CSS mein define kiya ja sakta hai agar header ko style karna ho.
         const handleScroll = () => {
-            // Header ko 'sticky' banane ka threshold (misal ke taur par 50px scroll hone par)
             const stickyThreshold = 50; 
-            
             if (window.scrollY > stickyThreshold) {
-                // Agar user 50px se zyada scroll karta hai, toh 'sticky' class lagao
                 mainHeader.classList.add('sticky');
             } else {
-                // Warna 'sticky' class hata do
                 mainHeader.classList.remove('sticky');
             }
         };
 
-        // Scroll event listener joda
         window.addEventListener('scroll', handleScroll);
-        
-        // Page load hone par bhi check karo (agar user ne page reload kiya aur woh beech mein hai)
+        // Page load par bhi check karein agar user ne scroll kiya ho
         handleScroll(); 
     }
 
-    // --- 2. Search Bar Interaction ---
-    // Jab user search bar par click kare, toh use highlight karo
-    const searchBar = document.querySelector('.search-bar');
+    // --- 2. Login Form Submission Handling (Dummy) ---
+    const loginForm = document.getElementById('loginForm');
     
-    if (searchBar) {
-        searchBar.addEventListener('click', (e) => {
-            // 'active' class lagana/hatana (CSS mein define kiya gaya hai)
-            searchBar.classList.toggle('active');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
             
-            // Agar aap chaho toh input par focus bhi kar sakte ho
-            const searchInput = searchBar.querySelector('input');
-            if (searchBar.classList.contains('active')) {
-                searchInput.focus();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            if (email.length < 5 || password.length < 6) {
+                alert("Please enter a valid email and password (minimum 6 characters).");
+                return;
             }
+            
+            // In a real application, AJAX request for login would go here
+            console.log(`Attempting login for: ${email}`);
+            
+            // Success message (dummy)
+            alert(`Login successful for ${email}! Redirecting...`);
+            
+            // Optional: Redirect to user dashboard
+            // window.location.href = 'dashboard.html';
         });
     }
+
 });

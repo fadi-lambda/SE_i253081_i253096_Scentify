@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scentify - Our Story</title>
+    <title>Scentify - Login</title> 
     <link rel="stylesheet" href="ourstory.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
@@ -26,102 +26,88 @@
             
            <div class="user-actions">
                 <a href="loginpage.html" class="header-action-text"><i class="fas fa-user"></i> ACCOUNT</a>
-                <a href="#" class="header-action-text"><i class="fas fa-shopping-cart"></i> CART</a>
+                <a href="cart.html" class="header-action-text"><i class="fas fa-shopping-cart"></i> CART (0)</a> 
             </div>
         </div>
     </header>
-
-    <main class="about-us-wrapper">
+    <main class="login-wrapper" style="background-image: url('login_background.jpg');">
         
-        <div class="page-frame">
-
-            <section class="story-title-section">
-                <h1 class="main-title"><i class="fas fa-star"></i> Our Story <i class="fas fa-star"></i></h1>
-            </section>
-
-            <section class="info-section">
-                <h2>Company story, mission & Values</h2>
-                
-                <div class="info-grid">
-                    
-                    <div class="info-card story-card">
-                        <h3>Company Story</h3>
-                        <p>Scentify Fragrances was created to blend the timeless art of Middle Eastern perfumery with modern craftsmanship. Our goal is simple: to make exquisite, high-quality fragrances accessible and affordable for everyone.</p>
-                    </div>
-
-                    <div class="info-card mission-card">
-                        <h3>Our Mission</h3>
-                        <p>Our mission is to empower every customer to express their unique identity and confidence through a lasting scent. We meticulously source the finest ingredients globally to craft a truly luxurious fragrance experience.</p>
-                    </div>
-
-                    <div class="info-card values-card">
-                        <h3>Our Values</h3>
-                        <ol>
-                            <li>Quality</li>
-                            <li>Integrity</li>
-                            <li>Innovation</li>
-                            <li>Customer Focus</li>
-                        </ol>
-                    </div>
-
-                </div>
-            </section>
+        <div class="login-container">
+            <h1>Login</h1>
             
-            <section class="team-milestones-section">
+            <form id="loginForm" class="login-form">
                 
-                <div class="team-dedication-area">
-                    <h2>Our Team & Dedication</h2>
-                    
-                    <div class="team-image-grid">
-                        
-                        <div class="team-box">
-                            <img src="teamwork.jpg" alt="Team working in the lab">
-                            <p>Crafting the magic of Attar: Our team pours passion, precision, and craftsmanship into every single bottle.</p>
-                        </div>
-                        
-                        <div class="team-box">
-                            <img src="testlab.jpg" alt="Quality check of perfume bottle">
-                            <p>Ensuring excellence: Every Scentify bottle undergoes rigorous quality inspection before reaching you.</p>
-                        </div>
-                    </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email" required>
                 </div>
                 
-                <div class="achievements-area">
-                    <h2>Achivements & Milestones</h2>
-                    
-                    <div class="milestones-grid">
-                        
-                        <div class="milestone-card dark-card">
-                            <p class="stat-type">Costmers</p>
-                            <p class="stat-value">50,000+</p>
-                        </div>
-
-                        <div class="milestone-card dark-card">
-                            <p class="stat-type">Product range</p>
-                            <p class="stat-value">150+</p>
-                        </div>
-
-                        <div class="milestone-card dark-card rating-card">
-                            <div class="stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="stat-value yellow-text">95% Product</p>
-                            <p class="stat-value yellow-text">4.5 Stars of Above</p>
-                        </div>
-
-                        <div class="milestone-card award-card">
-                            <i class="fas fa-trophy"></i>
-                            <p class="stat-type">Best New Perfume</p>
-                            <p class="stat-value">Brand 2024</p>
-                        </div>
-                        
-                    </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
                 </div>
-            </section>
+                
+                <div class="forgot-link">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
             
+            <p class="signup-prompt">
+                Don't have an account? <a href="signuppage.html">Create account</a>
+            </p>
         </div>
     </main>
     
-    <script src="ourstory.js"></script> 
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4 class="logo-footer-text">Scentify Fragrances</h4>
+            </div>
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="ourstory.html">About</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT INFO</h4>
+                <p><i class="fas fa-envelope"></i> Support@Scentify.Com</p>
+                <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                <p><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</p>
+            </div>
+            <div class="footer-col">
+                <h4>CUSTOMER SERVICES</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Scentify Media Page</a></li>
+                    <li><a href="#">Terms Of Service</a></li>
+                    <li><a href="#">Refund And Exchange Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col address-col">
+                <h4>ADDRESS</h4>
+                <p>Shop G-179, Musk Al Mahal, Opp Rex Centre, Next To Meezan Bank, Panorama Centre, Saddar, Karachi.</p>
+            </div>
+        </div>
+        
+        <div class="footer-follow-us">
+            <h4>FOLLOW US</h4>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Scentify</p>
+        </div>
+    </footer>
+    <script src="ourstory.js"></script>
 </body>
 </html>
