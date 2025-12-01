@@ -3,189 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scentify - Shopping Cart</title>
+    <title>Scentify Luxury - Shopping Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css"> 
+    <!-- We are using only internal CSS and JS as requested -->
+    <link rel="stylesheet" href="cart.css">
+    <script src="cart.js"></script>
+
 </head>
 <body>
+    <!-- HEADER START -->
+    <header id="fixed-header" class="fixed-header">
+        <!-- 1. Top Announcement Bar (Gold/Yellow) -->
+        <div class="announcement-bar">
+            7 Days Easy Return & Exchange Policy
+            <!-- Social Icons (Desktop Only) -->
+            <div class="social-icons-desktop">
+                <a href="#" aria-label="Facebook" class="transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" class="transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube" class="transition"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+;
+        <!-- 2. Main Navigation Bar (Logo, Search, Icons) -->
+        <div class="header-main">
+            <div class="header-container">
+                
+                <!-- Search Bar (Desktop) -->
+                <div class="search-bar-desktop">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Search products...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
 
-    <!-- ========================================
-    HEADER START (Har Page Par Copy Hoga)
-    ======================================== -->
-    <header class="main-header-fixed">
-        <!-- 1. Top Bar -->
-        <div class="top-bar">
-            <span>Free Shipping Above Rs.1999</span>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <!-- Logo (Center) -->
+                <div class="logo-wrapper">
+                   <img src="Images/Logo remove crop.png" alt="Scentify Logo">
+                </div>
+
+                <!-- Icons (Right) -->
+                <div class="header-icons">
+                    
+                    <!-- Search Icon (Mobile Only) -->
+                    <button class="search-mobile-icon" aria-label="Open Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <!-- Account Icon -->
+                    <a href="#" class="icon-link">
+                        <i class="fas fa-user"></i>
+                        <span class="icon-label">Account</span>
+                    </a>
+                    
+                    <!-- Cart Icon -->
+                    <a href="#" class="icon-link cart-icon-wrapper">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="icon-label">Cart</span>
+                    </a>
+                    
+                    <!-- Mobile Menu Button (Hamburger) -->
+                    <button class="menu-mobile-icon" aria-label="Open Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- 2. Main Header (Logo, Search, Actions) -->
-        <div class="main-header">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="https://placehold.co/100x80/000/ffc107?text=SCENTIFY" alt="Scentify Logo" class="logo-image">
-                </a>
+        <!-- 3. Navigation Links (Desktop Only - Wide Menu Bar) -->
+        <nav class="nav-links-desktop">
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li><a href="#" onclick="showPage('home-page'); return false;">HOME</a></li>
+                    <li><a href="#" class="dropdown-link">SHOP <i class="fas fa-chevron-down"></i></a></li>
+                    <li><a href="#">BEST SELLERS</a></li>
+                    <li><a href="#">DEALS</a></li>
+                    <li><a href="#">TESTERS</a></li>
+                    <li><a href="#">OUR OUTLETS</a></li>
+                    <li><a href="#">BLOGS</a></li>
+                </ul>
             </div>
-
-            <!-- Search Bar -->
-            <div class="search-container">
-                <form class="search-form">
-                    <button type="submit" class="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
-                    <input type="search" placeholder="Search by name, category or mood..." class="search-input">
-                    <button type="button" class="voice-search-button" aria-label="Voice Search"><i class="fas fa-microphone"></i></button>
-                </form>
-            </div>
-            
-            <!-- User Actions -->
-            <div class="user-actions">
-                <a href="#"><i class="fas fa-user"></i> Account</a>
-                <a href="cart.html"><i class="fas fa-shopping-bag"></i> Cart (0)</a>
-            </div>
-        </div>
-
-        <!-- 3. Main Navigation -->
-        <nav class="main-nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="index.html" class="nav-link">HOME</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">ATTARS <span class="nav-arrow">&#9662;</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link">PERFUMES <span class="nav-arrow">&#9662;</span></a></li>
-                <li class="nav-item"><a href="#" class="nav-link">BEST SELLERS</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">CONTACT</a></li>
-            </ul>
         </nav>
     </header>
-    <!-- CONTENT SPACER -->
-    <div class="content-spacer"></div>
-    <!-- ========================================
-    HEADER END
-    ======================================== -->
+    <!-- HEADER END -->
 
-    <!-- ========================================
-    MAIN CONTENT: CART PAGE
-    ======================================== -->
-    <div id="main-content-area">
-        <section id="cart-page" class="content-page">
-            <div class="container cart-container">
-                <h1 class="page-title">Shopping Cart</h1>
-                <div class="cart-grid">
-                    <div class="cart-items">
-                        <!-- Example Cart Item 1 -->
-                        <div class="cart-item">
-                            <img src="https://placehold.co/100x100/A08537/FFFFFF?text=PIC+1" alt="Product 1" class="cart-item-image">
-                            <div class="item-details">
-                                <h4 class="item-title">Sultan E Ameer | 16ml</h4>
-                                <p class="item-price">Rs.2,199.00</p>
-                                <!-- updateQuantityInCart() function script.js mein hai -->
-                                <div class="quantity-control-wrapper small-qty">
-                                    <button class="qty-btn minus-btn" onclick="updateQuantityInCart(this, -1)">-</button>
-                                    <input type="number" value="1" min="1" class="qty-input">
-                                    <button class="qty-btn plus-btn" onclick="updateQuantityInCart(this, 1)">+</button>
-                                </div>
-                                <button class="remove-btn">Remove</button>
-                            </div>
-                        </div>
-                        <!-- Example Cart Item 2 -->
-                        <div class="cart-item">
-                            <img src="https://placehold.co/100x100/404040/FFFFFF?text=PIC+3" alt="Product 2" class="cart-item-image">
-                            <div class="item-details">
-                                <h4 class="item-title">Black N Gold | 12ml</h4>
-                                <p class="item-price">Rs.2,500.00</p>
-                                <div class="quantity-control-wrapper small-qty">
-                                    <button class="qty-btn minus-btn" onclick="updateQuantityInCart(this, -1)">-</button>
-                                    <input type="number" value="1" min="1" class="qty-input">
-                                    <button class="qty-btn plus-btn" onclick="updateQuantityInCart(this, 1)">+</button>
-                                </div>
-                                <button class="remove-btn">Remove</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Cart Summary (Right Side) -->
-                    <div class="cart-summary">
-                        <h3>Order Summary</h3>
-                        <div class="summary-line">
-                            <span>SubTotal</span>
-                            <span>Rs.4,699.00</span>
-                        </div>
-                        <div class="summary-line">
-                            <span>Shipping Charges</span>
-                            <span>Rs.199.00</span>
-                        </div>
-                        <div class="summary-line total-line">
-                            <span>Total</span>
-                            <span>Rs.4,898.00</span>
-                        </div>
-                        <button class="checkout-btn">Check Out</button>
-                        <!-- Home Page se link karein -->
-                        <button class="continue-btn" onclick="window.location.href='index.html';">Continue Shopping</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <!-- ========================================
-    MAIN CONTENT END
-    ======================================== -->
+    <!-- MAIN CONTENT - CART PAGE -->
+    <main class="container">
+        
+        <h1 class="cart-title">Your Shopping Bag</h1>
 
+        <div class="cart-content">
+            
+            <!-- CART ITEMS LIST (Left Column) -->
+            <section class="cart-items" id="cart-items-container">
+                <!-- Cart items will be generated here by JavaScript -->
+            </section>
 
-    <!-- ========================================
-    FOOTER START (Har Page Par Copy Hoga)
-    ======================================== -->
-    <footer class="main-footer">
-        <div class="footer-content-container container">
-            <!-- 1. Logo Section -->
-            <div class="footer-section logo-section">
-                <img src="https://placehold.co/120x90/000/ffc107?text=SCENTIFY" alt="Scentify Logo" class="footer-logo-image">
-            </div>
-
-            <!-- 2. Quick Links -->
-            <div class="footer-section">
-                <h4>QUICK LINKS</h4>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Shop</a>
-            </div>
-
-            <!-- 3. Customer Services -->
-            <div class="footer-section">
-                <h4>CUSTOMER SERVICES</h4>
-                <a href="#">Track Order</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">FAQs</a>
-            </div>
-
-            <!-- 4. Contact Info -->
-            <div class="footer-section contact-info-section">
-                <h4>CONTACT INFO</h4>
-                <p class="contact-detail"><i class="fa-solid fa-phone"></i> +92 300 1234567</p>
-                <p class="contact-detail"><i class="fa-solid fa-envelope"></i> support@scentify.com</p>
+            <!-- CART SUMMARY (Right Column) -->
+            <aside class="cart-summary">
+                <h2 class="summary-title">Order Summary</h2>
                 
-                <div class="follow-us-section">
-                    <h4>FOLLOW US</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal-display">$0.00</span>
                 </div>
+                
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="shipping-display">$25.00</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Tax (10%):</span>
+                    <span id="tax-display">$0.00</span>
+                </div>
+
+                <div class="summary-row total">
+                    <span>Grand Total:</span>
+                    <span id="grand-total-display">$0.00</span>
+                </div>
+
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER START -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <!-- Logo/Branding Section -->
+            <div class="footer-logo">
+                <!-- Placeholder for Scentify Logo/Branding -->
+                <img src="Images/Logo-removebg-preview.png" alt="Scentify Fragrances Logo" style="filter: brightness(2); width: 150px; height: 50px;">
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> Support@Scentify.Com</li>
+                    <li><i class="fas fa-phone"></i> +92 300 1234567</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</li>
+                </ul>
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Customer Services Section -->
+            <div class="footer-section">
+                <h3>Customer Services</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Scentify Media Page</a></li>
+                    <li><a href="#">Terms Of Service</a></li>
+                    <li><a href="#">Refund And Exchange Policy</a></li>
+                </ul>
+            </div>
+            
+            <!-- Address Section -->
+            <div class="footer-section address-section">
+                <h3>Address</h3>
+                <p>Shop G-179, Musk Al Mahal, Opp Rex Centre, Next To Meezan Bank, Panorama Centre, Saddar, Karachi.</p>
             </div>
         </div>
-
-        <!-- Copyright -->
+        
+        <!-- Footer Bottom Copyright -->
         <div class="footer-bottom">
-            <p>© 2025 SCENTIFY - All Rights Reserved.</p>
+            <p>&copy; 2025 Scentify</p>
         </div>
     </footer>
-    <!-- ========================================
-    FOOTER END
-    ======================================== -->
+    <!-- FOOTER END -->
 
-    <script src="script.js"></script>
 </body>
 </html>
