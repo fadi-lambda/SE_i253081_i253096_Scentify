@@ -1,118 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scent Personality Quiz</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
->>>>>>> Stashed changes
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="quiz.css">
+    <script src="quiz.js"></script>
 
-    </head>
+</head>
+
 <body>
 
-    <div class="quiz-container">
-        
-        <header class="quiz-header">
-            <h1>Scent Personality Quiz</h1>
-            
-            <div class="progress-bar-container">
-                <div class="progress-bar-line">
-                    <span class="progress-indicator current"></span>
-                    <span class="progress-indicator"></span>
-                    <span class="progress-indicator"></span>
-                </div>
-                <p class="progress-text">Progress: Q1/3</p>
+    <header id="fixed-header" class="fixed-header">
+        <div class="announcement-bar">
+            7 Days Easy Return & Exchange Policy
+            <div class="social-icons-desktop">
+                <a href="#" aria-label="Facebook" class="transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" class="transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube" class="transition"><i class="fab fa-youtube"></i></a>
             </div>
-        </header>
-
-        <form class="quiz-form">
-
-            <section class="question-block" id="q1">
-                <h2 class="question-title">1. Which Is Your Favorite Season?</h2>
-                <div class="options-grid season-options">
-                    
-                    <label class="option-card season-card">
-                        <input type="radio" name="season" value="spring">
-                        <img src="Images/spring.png" alt="">
-                        <span>Spring (Bahar)</span>
-                    </label>
-                    
-                    <label class="option-card season-card">
-                        <input type="radio" name="season" value="summer">
-                        <img src="Images/summer.png" alt="">
-                        <span>Summer (Garmi)</span>
-                    </label>
-                    
-                    <label class="option-card season-card">
-                        <input type="radio" name="season" value="winter">
-                        <img src="Images/winter.png" alt="">
-                        <span>Winter (Sardi)</span>
-                    </label>
-                    
-                    <label class="option-card season-card">
-                        <input type="radio" name="season" value="autumn">
-                        <img src="Images/autumn.png" alt="">
-                        <span>Autumn (Khizan)</span>
-                    </label>
-
-                </div>
-            </section>
-
-            <section class="question-block" id="q2">
-                <h2 class="question-title">2. How Do You Start Day?</h2>
-                <div class="options-grid lifestyle-options">
-                    
-                    <label class="option-card image-card">
-                        <input type="radio" name="start_day" value="calm">
-                        <img src="Images/Yoga.png" alt="Yoga/Meditation">
-                        <p>Energetic and Calm</p>
-                    </label>
-                    
-                    <label class="option-card image-card">
-                        <input type="radio" name="start_day" value="active">
-                        <img src="Images/Jogging.png" alt="Running/Jogging">
-                        <p>Active and Focused</p>
-                    </label>
-                    
-                    <label class="option-card image-card">
-                        <input type="radio" name="start_day" value="refined">
-                        <img src="Images/Office.png" alt="Confident Professional">
-                        <p>Confident and Refined</p>
-                    </label>
-                    
-                    <label class="option-card image-card">
-                        <input type="radio" name="start_day" value="cozy">
-                        <img src="Images/BED.png" alt="Relaxed Morning in Bed">
-                        <p>Relaxed and Cozy</p>
-                    </label>
-
-                </div>
-            </section>
-
-            <section class="question-block" id="q3">
-                <h2 class="question-title">3. How Is Your Personality Best Described?</h2>
-                <div class="options-grid personality-options">
-                    
-                    <label class="option-card personality-card">
-                        <input type="radio" name="personality" value="fresh">
-                        <span>Fresh and Clean</span>
-                    </label>
-                    
-                    <label class="option-card personality-card">
-                        <input type="radio" name="personality" value="cheerful">
-                        <span>Cheerful and Confident</span>
-                    </label>
-                    
+        </div>
+        <div class="header-main">
+            <div class="header-container">
+                <div class="search-bar-desktop">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Search products...">
+                        <i class="fas fa-search"></i>
                     </div>
-            </section>
-            
-            <div class="quiz-navigation">
-                <button type="submit" class="next-button">Next Question</button>
+                </div>
+                <div class="logo-wrapper">
+                    <h1 class="logo-text">
+                        <span>SCENTIFY</span>
+                    </h1>
+                </div>
+                <div class="header-icons">
+                    <button class="search-mobile-icon" aria-label="Open Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="#" class="icon-link">
+                        <i class="fas fa-user"></i>
+                        <span class="icon-label">Account</span>
+                    </a>
+                    <a href="#" class="icon-link cart-icon-wrapper">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="icon-label">Cart</span>
+                    </a>
+                    <button class="menu-mobile-icon" aria-label="Open Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-links-desktop">
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li><a href="#" onclick="showPage('home-page'); return false;">HOME</a></li>
+                    <li><a href="#" class="dropdown-link">SHOP <i class="fas fa-chevron-down"></i></a></li>
+                    <li><a href="#">BEST SELLERS</a></li>
+                    <li><a href="#">DEALS</a></li>
+                    <li><a href="#">TESTERS</a></li>
+                    <li><a href="#">OUR OUTLETS</a></li>
+                    <li><a href="#">BLOGS</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="quiz-wrapper">
+        <div class="quiz-container">
+
+            <header class="quiz-header">
+                <h1>Scent Personality Quiz</h1>
+
+                <div class="progress-bar-container">
+                    <div class="progress-bar-line">
+                        <span class="progress-indicator answered" id="progress-1"></span>
+                        <span class="progress-indicator" id="progress-2"></span>
+                        <span class="progress-indicator" id="progress-3"></span>
+                    </div>
+                    <p class="progress-text" id="progress-text">Progress: Q1/3</p>
+                </div>
+            </header>
+
+            <form class="quiz-form">
+                <section class="question-block active" id="q1">
+                    <h2 class="question-title">1. Which Is Your Favorite Season?</h2>
+                    <div class="options-grid season-options">
+
+                        <label class="option-card season-card">
+                            <input type="radio" name="season" value="spring" data-question="1">
+                            <img src="Images/spring.png" alt="Spring Icon">
+                            <span>Spring (Bahar)</span>
+                        </label>
+
+                        <label class="option-card season-card">
+                            <input type="radio" name="season" value="summer" data-question="1">
+                            <img src="Images/summer.png" alt="Summer Icon">
+                            <span>Summer (Garmi)</span>
+                        </label>
+
+                        <label class="option-card season-card">
+                            <input type="radio" name="season" value="winter" data-question="1">
+                            <img src="Images/winter.png" alt="Winter Icon">
+                            <span>Winter (Sardi)</span>
+                        </label>
+
+                        <label class="option-card season-card">
+                            <input type="radio" name="season" value="autumn" data-question="1">
+                            <img src="Images/autumn.png" alt="Autumn Icon">
+                            <span>Autumn (Khizan)</span>
+                        </label>
+
+                    </div>
+                </section>
+
+                <section class="question-block" id="q2">
+                    <h2 class="question-title">2. How Do You Start Your Day?</h2>
+                    <div class="options-grid lifestyle-options">
+
+                        <label class="option-card image-card">
+                            <input type="radio" name="start_day" value="calm" data-question="2">
+                            <img src="Images/Yoga.png" alt="Yoga/Meditation">
+                            <p>Energetic and Calm</p>
+                        </label>
+
+                        <label class="option-card image-card">
+                            <input type="radio" name="start_day" value="active" data-question="2">
+                            <img src="Images/Jogging.png" alt="Running/Jogging">
+                            <p>Active and Focused</p>
+                        </label>
+
+                        <label class="option-card image-card">
+                            <input type="radio" name="start_day" value="refined" data-question="2">
+                            <img src="Images/Office.png" alt="Confident Professional">
+                            <p>Confident and Refined</p>
+                        </label>
+
+                        <label class="option-card image-card">
+                            <input type="radio" name="start_day" value="cozy" data-question="2">
+                            <img src="Images/BED.png" alt="Relaxed Morning in Bed">
+                            <p>Relaxed and Cozy</p>
+                        </label>
+
+                    </div>
+                </section>
+
+                <section class="question-block" id="q3">
+                    <h2 class="question-title">3. How Is Your Personality Best Described?</h2>
+                    <div class="options-grid personality-options">
+
+                        <label class="option-card personality-card">
+                            <input type="radio" name="personality" value="fresh" data-question="3">
+                            <span>Fresh and Clean</span>
+                        </label>
+
+                        <label class="option-card personality-card">
+                            <input type="radio" name="personality" value="cheerful" data-question="3">
+                            <span>Cheerful and Confident</span>
+                        </label>
+
+                        <label class="option-card personality-card">
+                            <input type="radio" name="personality" value="mysterious" data-question="3">
+                            <span>Mysterious and Bold</span>
+                        </label>
+
+                        <label class="option-card personality-card">
+                            <input type="radio" name="personality" value="warm" data-question="3">
+                            <span>Warm and Inviting</span>
+                        </label>
+
+                    </div>
+                </section>
+
+                <div class="quiz-navigation">
+                    <button type="submit" class="next-button" disabled>Next Question</button>
                 </div>
 
-        </form>
+            </form>
+
+            <section id="result-section">
+                <h2>Your Scent Personality Match!</h2>
+                <p id="result-description">Based on your choices, we recommend a fragrance that perfectly matches your
+                    unique style.</p>
+
+                <div class="perfume-suggestion">
+                    <img id="perfume-image" src="https://placehold.co/150x150/f7a01d/333333?text=Perfume"
+                        alt="Suggested Perfume">
+                    <h3 id="perfume-title">Recommended Fragrance Title</h3>
+                    <p id="perfume-notes">Fresh citrus notes with a warm, woody base.</p>
+                    <a id="perfume-link" href="#" target="_blank">View Product</a>
+                </div>
+            </section>
+        </div>
     </div>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="Images/Logo remove.png" alt="Scentify Fragrances Logo">
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> Support@Scentify.Com</li>
+                    <li><i class="fas fa-phone"></i> +92 300 1234567</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</li>
+                </ul>
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Customer Services</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Scentify Media Page</a></li>
+                    <li><a href="#">Terms Of Service</a></li>
+                    <li><a href="#">Refund And Exchange Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section address-section">
+                <h3>Address</h3>
+                <p>Shop G-179, Musk Al Mahal, Opp Rex Centre, Next To Meezan Bank, Panorama Centre, Saddar, Karachi.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Scentify</p>
+        </div>
+    </footer>
 </body>
+
 </html>
