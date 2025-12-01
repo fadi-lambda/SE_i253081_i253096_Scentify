@@ -1,0 +1,433 @@
+/* ============================================== */
+/*               1. GLOBAL & RESET STYLES         */
+/* ============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff; 
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Global Link/Hover Style --- */
+a, .header-action-text {
+    color: inherit; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* === HEADER HOVER EFFECT (Yellow) === */
+.header-action-text:hover { 
+    color: #E8C100 !important; /* Yellow/Golden on hover */
+    text-decoration: none; 
+}
+.header-action-text:hover i {
+    color: #E8C100 !important; /* Icon ko bhi yellow karein */
+}
+
+
+/* ============================================== */
+/*               2. HEADER STYLES (Black, Sticky, Aligned)               */
+/* ============================================== */
+.main-header {
+    background-color: #000; 
+    padding: 15px 0 0; 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.header-separator {
+    width: 100%;
+    height: 5px;
+    background-color: #E8C100; /* Yellow bottom line */
+}
+
+.header-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 20px 15px; 
+}
+
+/* --- Search Bar (Left) --- */
+.search-bar-wrapper {
+    flex-basis: 33.33%; 
+    display: flex;
+    justify-content: flex-start;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px 15px;
+    border-radius: 50px; 
+    max-width: 250px; 
+    width: 100%;
+}
+.search-bar i { color: #333; margin-right: 10px; }
+.search-bar input { border: none; outline: none; width: 100%; font-size: 16px; }
+
+/* --- Logo (Center) --- */
+.logo { 
+    text-align: center; 
+    color: #E8C100; 
+    flex-basis: 33.33%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+.logo img { max-width: 150px; height: auto; display: block; } 
+.logo-fragrances { 
+    font-size: 10px; 
+    letter-spacing: 2px; 
+    color: #E8C100; 
+    margin-top: -5px; 
+}
+
+/* --- User Actions (Right) --- */
+.user-actions { 
+    flex-basis: 33.33%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-end; /* Right side alignment */
+}
+.user-actions a {
+    color: #fff; 
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 20px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; 
+}
+.user-actions a i {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #fff; 
+}
+
+
+/* ============================================== */
+/*             3. OUR STORY CONTENT STYLES        */
+/* ============================================== */
+.story-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- Story Header (Title & Subtitle) --- */
+.story-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.story-title {
+    font-size: 38px;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.story-title .gold {
+    color: #E8C100;
+    font-size: 28px;
+    margin: 0 10px;
+}
+
+.story-subtitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 50px; 
+    margin-bottom: 30px;
+    text-align: left;
+    max-width: 1200px; 
+    margin: 50px auto 30px;
+    padding: 0 20px;
+}
+
+/* --- Story Intro Section (3 Columns) --- */
+.story-intro-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 30px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 50px;
+}
+
+.story-card {
+    flex-basis: 33.33%;
+}
+
+.story-card h3 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.story-card p, .value-list {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.value-list {
+    list-style: none;
+    padding: 0;
+}
+.value-list li {
+    margin-bottom: 5px;
+}
+
+/* --- Team & Milestones Section (Two Major Columns) --- */
+.team-milestones-section {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+.team-section {
+    flex-basis: 60%; 
+}
+
+.milestones-section {
+    flex-basis: 40%;
+}
+
+.team-section h2, .milestones-section h2 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 25px;
+    margin-top: 0; 
+}
+
+/* Team Images */
+.team-images-row {
+    display: flex;
+    gap: 20px;
+}
+
+.team-image-box {
+    flex: 1;
+}
+
+.team-image-box img {
+    width: 100%;
+    height: auto; 
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.team-image-box p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+    text-align: left; 
+    padding-right: 15px;
+     border-radius: 5px;
+}
+
+
+/* Milestones Grid */
+.milestone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.milestone-box {
+    padding: 20px 10px; 
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.black-box {
+    background-color: #333; 
+    color: #fff;
+}
+
+.milestone-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 5px;
+    color: #E8C100;
+}
+
+.milestone-value {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #E8C100;
+}
+
+.milestone-value.small {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.rating {
+    margin-bottom: 8px;
+}
+
+.rating i {
+    color: #E8C100;
+    font-size: 18px;
+}
+
+.trophy-icon {
+    font-size: 30px;
+    color: #E8C100;
+    margin-bottom: 5px;
+}
+
+
+/* ============================================== */
+/*             4. FOOTER STYLES (Black & Gold)        */
+/* ============================================== */
+.main-footer {
+    background-color: #000; 
+    color: #fff;
+    padding-top: 40px; 
+    margin-top: 50px; 
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    gap: 20px 10px; 
+}
+
+/* Base column sizing for 5 main columns */
+.footer-col {
+    flex-basis: calc(20% - 20px); 
+    min-width: 180px; 
+    margin-bottom: 20px;
+}
+
+/* Adjusting specific columns based on screenshot layout */
+.brand-col {
+    flex-basis: 12%; 
+    min-width: 120px;
+}
+
+.address-col {
+    flex-basis: 22%;
+    min-width: 220px;
+}
+
+/* Footer Logo Styling */
+.footer-logo { 
+    color: #E8C100; /* Golden Color */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em; 
+    font-weight: 900;
+    margin-bottom: 3px;
+}
+.footer-fragrances {
+    font-size: 0.7em; 
+    letter-spacing: 2px; 
+    color: #E8C100; /* Golden Color */
+    display: block;
+    margin-bottom: 30px; 
+}
+
+/* Footer Headings */
+.footer-col h4 {
+    font-size: 1em; 
+    color: #E8C100; /* Golden Headings */
+    text-transform: uppercase;
+    margin-bottom: 15px; 
+    font-weight: bold;
+}
+.follow-heading {
+    margin-top: 25px; 
+}
+
+/* Contact Info Text */
+.footer-col p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.footer-col p i {
+    color: #fff; /* Icons are white in the screenshot */
+    margin-right: 8px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-col ul li a {
+    color: white !important; 
+    font-size: 0.9em; 
+    line-height: 1.8; 
+}
+.footer-col ul li a:hover {
+    color: #E8C100 !important; /* Golden Hover */
+    text-decoration: none;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.social-links a {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.social-links a:hover {
+    background-color: #E8C100; 
+    border-color: #E8C100;
+    color: #000;
+}
+
+.footer-bottom {
+    background-color: #000;
+    text-align: center;
+    padding: 15px 0; 
+    font-size: 0.8em; 
+    color: #777; 
+    border-top: 1px solid #333; 
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scentify - Login / Create Account</title>
+    <link rel="stylesheet" href="loginpage.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-page-container">
+        
+        <header class="main-header">
+            <div class="header-content">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search">
+                    <i class="fas fa-microphone"></i> 
+                </div>
+                
+                <div class="logo">
+                    <img src="logopic.png" alt="Scentify Logo">
+                    <span class="logo-fragrances"></span>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="#" class="header-action-text"><i class="fas fa-user"></i> ACCOUNT</a>
+                    <a href="cart.html" class="header-action-text"><i class="fas fa-shopping-cart"></i> CART</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="auth-forms-wrapper">
+            
+            <div class="auth-block login-block" id="loginBlock">
+                <h2>Login</h2>
+                <form id="loginForm" novalidate> 
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    
+                    <button type="submit" class="blue-btn login-btn">Login</button>
+                    <div id="loginError" class="form-error-message"></div>
+                </form>
+                <p class="signup-link">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+            </div>
+
+            <div class="auth-block create-account-block hidden-block" id="signupBlock">
+                <h2>Create Account</h2>
+                
+                <div class="social-login-buttons">
+                    <button class="social-btn google-btn">Sign up with Google</button>
+                    <button class="social-btn facebook-btn">Sign up with facebook</button>
+                </div>
+                
+                <div class="separator-or">OR</div>
+
+                <form id="signupForm" novalidate> 
+                    <input type="text" id="signupFullname" placeholder="Full Name" required>
+                    <input type="email" id="signupEmail" placeholder="Email" required>
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                    
+                    <button type="submit" class="blue-btn create-btn">Create Account</button>
+                    <div id="signupError" class="form-error-message"></div>
+                </form>
+                <p class="login-link">Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </div>
+        </main>
+    </div>
+    
+    <script src="loginpage.js"></script>
+
+</body>
+</html>

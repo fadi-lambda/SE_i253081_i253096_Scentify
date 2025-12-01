@@ -1,0 +1,178 @@
+/* ============================================== */
+/* CHECKOUT PAGE STYLING */
+/* ============================================== */
+
+/* Base Styles */
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f8f8f8; 
+    margin: 0;
+    padding: 0;
+    padding-top: 75px; 
+}
+
+/* --- Global Link Styling Fix (Header/Footer Links) --- */
+/* Linking words ka default color white rakha */
+.header-action-text, 
+.footer-col ul li a {
+    color: white !important; 
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+/* Hover effect: Jab mouse link par jaye to yellow ho jaye aur underline bhi ho jaye */
+.header-action-text:hover, 
+.footer-col ul li a:hover {
+    color: gold !important; 
+    text-decoration: underline;
+}
+
+
+/* --- STICKY HEADER STYLES (No Change) --- */
+#mainHeader {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+.header-left { flex-basis: 35%; display: flex; justify-content: flex-start; }
+.logo-center { flex-basis: 30%; text-align: center; }
+.header-right { flex-basis: 35%; display: flex; justify-content: flex-end; align-items: center; gap: 20px;}
+.scentify-logo-img { max-height: 55px; width: auto; max-width: 100%; vertical-align: middle; }
+.search-box {
+    display: flex; align-items: center; background-color: white; padding: 8px 15px; border-radius: 20px; width: 100%; max-width: 300px; 
+}
+.search-box input {
+    border: none; outline: none; padding: 0 10px; font-size: 1em; flex-grow: 1; background: transparent; color: #333;
+}
+
+
+/* --- CHECKOUT CONTAINER & EQUAL BOX HEIGHT FIX (No Change) --- */
+.checkout-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    gap: 30px;
+    align-items: stretch; 
+    min-height: 80vh;
+}
+.checkout-form-section,
+.order-summary-section {
+    flex: 1; 
+    padding: 25px;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    min-height: 100%; 
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+.checkout-form-section { background-color: white; }
+.order-summary-section { background-color: #f7f7f7; position: static; }
+.place-order-btn {
+    width: 100%; padding: 15px; background-color: black; color: white; border: none; border-radius: 5px; font-size: 1.1em; font-weight: bold; cursor: pointer; margin-top: 30px; transition: background-color 0.3s;
+}
+.place-order-btn:hover { background-color: #333; }
+.cart-item-img { max-width: 50px; max-height: 50px; object-fit: cover; border-radius: 4px; }
+
+
+/* ============================================== */
+/* --- FOOTER STYLES FIX --- */
+/* ============================================== */
+.main-footer {
+    background-color: #000;
+    color: #fff;
+    padding-top: 40px;
+    margin-top: 50px;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.footer-col {
+    flex-basis: 18%; 
+    min-width: 150px;
+}
+.logo-footer-text { 
+    color: gold; 
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.footer-col h4 {
+    font-size: 1.0em;
+    color: gold; /* Headings ka color golden rakha */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+}
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+/* Footer links are controlled by global section */
+
+
+/* FOLLOW US Center Alignment and Border Fix */
+.footer-follow-us {
+    text-align: center; /* Heading aur social links ko center kiya */
+    padding: 20px 0 30px; /* Neeche ki taraf zyada padding */
+    border-top: 1px solid gold; /* Top border ko golden kiya jaisa image mein hai */
+}
+.footer-follow-us h4 {
+    color: gold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+.social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: #333;
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+.social-links a:hover {
+    background-color: gold;
+    color: black;
+}
+
+.footer-bottom {
+    background-color: #111;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.8em;
+    color: #777; /* Copyright text ka color dark grey */
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .checkout-container {
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+    .order-summary-section {
+        position: static; 
+        width: 100%;
+    }
+    /* ... Rest of Mobile Styles ... */
+}
