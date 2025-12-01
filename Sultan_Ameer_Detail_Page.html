@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scentify Product Detail - Pure CSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Sultan_Ameer_Detail_Page.css">
+    <script src="Sultan_Ameer_Detail_Page.js"></script>
+
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="top-bar">
+            <span>7 Days Easy Return & Exchange Policy</span>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="container header-content">
+            <div class="search-container">
+                <input type="text" placeholder="Search products...">
+                <i class="fas fa-search"></i>
+            </div>
+            <h1 class="logo">SCENTIFY</h1>
+
+            <div class="account-cart">
+                <a href="#" class="hidden-sm">
+                    <i class="fas fa-user"></i>
+                    <span>ACCOUNT</span>
+                </a>
+                <a href="#" class="hidden-sm">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>CART</span>
+                </a>
+                <button class="mobile-search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">SHOP <i class="fas fa-chevron-down"
+                                style="font-size: 0.6rem; margin-left: 4px;"></i></a></li>
+                    <li><a href="#">BEST SELLERS</a></li>
+                    <li><a href="#">DEALS</a></li>
+                    <li><a href="#">TESTERS</a></li>
+                    <li><a href="#">OUR OUTLETS</a></li>
+                    <li><a href="#">BLOGS</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container product-section">
+        <div class="product-card">
+            <div class="product-grid">
+
+                <div class="image-gallery">
+                    <div id="thumbnail-gallery" class="thumbnail-gallery">
+                        <img src="Images/Sultan A1.webp" alt="Thumbnail 1" data-image="Images/Sultan A1.webp"
+                            class="thumbnail active">
+                        <img src="Images/Sultan A 2.webp" alt="Thumbnail 2" data-image="Images/Sultan A 2.webp"
+                            class="thumbnail">
+                        <img src="Images/Sultan A3.png" alt="Thumbnail 3" data-image="Images/Sultan A3.png"
+                            class="thumbnail">
+                        <img src="Images/Sultan A4.png" alt="Thumbnail 4" data-image="Images/Sultan A4.png"
+                            class="thumbnail">
+                    </div>
+
+                    <div class="main-image-container">
+                        <img id="main-product-image" src="Images/Sultan A1.webp" alt="Sultan E Ameer Product Image">
+                    </div>
+                </div>
+
+                <div class="product-details">
+                    <h2>Sultan E Ameer | Concentrated Perfume | Attar Oil | 16ml</h2>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>(124 Reviews)</span>
+                    </div>
+
+                    <div class="price-info">
+                        <span class="line-through-price">Rs. 2,500.00</span>
+                        <span class="current-price">Rs. 2,199.00</span>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <div class="qty-control">
+                            <button id="qty-minus">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button id="qty-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="buy-now-btn">BUY IT NOW</button>
+                    </div>
+
+                    <ul class="feature-list">
+                        <li><i class="fas fa-box-open"></i> 7 Days Easy Return & Exchange</li>
+                        <li><i class="fas fa-users"></i> 500,000+ Happy Customers</li>
+                        <li><i class="fas fa-star-half-alt"></i> Celebrities Most Loved Brand</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="tab-section">
+                <div class="tab-buttons">
+                    <button id="desc-tab" class="tab-button active"
+                        onclick="switchTab('description')">Description</button>
+                    <button id="spec-tab" class="tab-button"
+                        onclick="switchTab('specifications')">Specifications</button>
+                </div>
+
+                <div id="description-content" class="tab-content active">
+                    <p>Here is Sultan E Ameer With Floral-Woody Accords, This Fragrance Is Enhanced By Subtle Undertones
+                        Of Musk And Citrus, Creating An Enchanting And Captivating Scent.</p>
+                    <p><span style="font-weight: bold;">Top Note:</span> Bergamot; <span
+                            style="font-weight: bold;">Middle Note:</span> Jasmine, Rose; <span
+                            style="font-weight: bold;">Base Notes:</span> Sandalwood, Amber, Oakmoss, Musk.</p>
+                </div>
+
+                <div id="specifications-content" class="tab-content">
+                    <ul style="list-style: disc; padding-left: 20px;">
+                        <li>Product Type: Concentrated Perfume/Attar Oil</li>
+                        <li>Volume: 16ml</li>
+                        <li>Application: Roll-on or Dab</li>
+                        <li>Longevity: Up to 8-10 hours</li>
+                        <li>Ideal For: Men and Women (Unisex)</li>
+                        <li>Packaging: Luxury Velvet Box & Glass Bottle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="explore-section">
+            <h3>More To Explore</h3>
+            <div class="related-products-grid">
+                <div class="related-product-card">
+                    <img src="Images/Black & Silver Oud.webp" alt="Related Product 1">
+                    <p>Black & Silver Oudh | Attar Oil</p>
+                    <p>Rs. 1,899.00</p>
+                </div>
+                <div class="related-product-card">
+                    <img src="Images/Ameer Al Oud.webp" alt="Related Product 2">
+                    <p>Ameer Al Oud | Perfume Attar Oil</p>
+                    <p>Rs. 936.00</p>
+                </div>
+                <div class="related-product-card">
+                    <img src="Images/Black & Silver Platinum.webp" alt="Related Product 3">
+                    <p>Black & Silver Platinum | Luxury</p>
+                    <p>Rs. 1,499.00</p>
+                </div>
+                <div class="related-product-card">
+                    <img src="Images/White Oud.webp" alt="Related Product 4">
+                    <p>White Oudh | Attar Oil</p>
+                    <p>Rs. 999.00</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h4>SCENTIFY FRAGRANCES</h4>
+            </div>
+            <div>
+                <h5>QUICK LINKS</h5>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>CONTACT INFO</h5>
+                <ul>
+                    <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> Support@Scentify.Com</li>
+                    <li><i class="fas fa-phone-alt" style="margin-right: 8px;"></i> +92 300 1234567</li>
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Islamabad, Pakistan</li>
+                </ul>
+                <h5>FOLLOW US</h5>
+                <div class="footer-social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5>CUSTOMER SERVICES</h5>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Scentify Media Page</a></li>
+                    <li><a href="#">Terms Of Service</a></li>
+                    <li><a href="#">Refund And Exchange Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>ADDRESS</h5>
+                <p style="font-size: 0.875rem; color: #9ca3af;">Shop G-179, Musk Al Mahal, Opp Rex Centre, Next To
+                    Meezan Bank, Panorama Centre, Saddar, Karachi.</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            &copy; 2025 Scentify. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>
