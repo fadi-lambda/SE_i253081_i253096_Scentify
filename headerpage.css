@@ -1,0 +1,150 @@
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #333;
+}
+
+/* Headings Font (Playfair Display) */
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+/* headerpage.css mein add karein */
+.main-header.sticky {
+    position: fixed; /* Header ko top par fix kar dega */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Aap ismein background-color: #000; ya koi shadow bhi de sakte hain */
+}
+
+/* --- Hero Section (Background Image) --- */
+.hero-section {
+    /* *** YAHAN APNI BACKGROUND IMAGE KA PATH BADLEN *** */
+    background-image: url('headaerpageb.jpg'); 
+    background-size: cover;
+    background-position: center top; /* Center aur top se shuru ho */
+    background-repeat: no-repeat;
+    height: 100vh; /* Poori viewport height cover kare */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1; /* Taaki dusre elements iske upar rahen */
+}
+
+/* Header Styling (Top Bar) */
+.main-header {
+    background-color: rgba(0, 0, 0, 0.8); /* Thoda sa transparent black */
+    padding: 15px 0;
+    /* Is page par header ke neeche koi border nahi hai jaisa tasveer mein hai */
+}
+
+.header-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; 
+}
+
+/* Search Bar (Left Side) - White Background */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px 15px;
+    border-radius: 50px; 
+    border: 1px solid #ccc;
+    width: 250px;
+}
+.search-bar i { color: #333; margin-right: 10px; }
+.search-bar input { border: none; outline: none; width: 100%; font-size: 16px; }
+
+/* Logo (Center) - Golden Color */
+.logo { text-align: center; color: #E8C100; }
+.logo img { 
+    max-width: 180px; 
+    height: auto;
+    display: block; 
+}
+.logo-fragrances { font-size: 10px; letter-spacing: 2px; color: #E8C100; }
+
+/* User Actions (Right Side) - White Icons/Text */
+.user-actions { display: flex; align-items: center; }
+.user-actions a {
+    text-decoration: none;
+    color: #fff; /* White Text */
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 20px;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+.user-actions a i {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #fff; /* White Icon */
+}
+.user-actions a:hover { color: #E8C100; }
+
+
+/* --- Main Navigation Links --- */
+.main-nav {
+    width: 100%;
+    margin-top: 50px; /* Header se thoda neeche */
+    text-align: center;
+}
+
+.nav-links {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #fff; /* White links */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+/* Hover effect: Gold line neeche aayegi */
+.nav-item:hover, .nav-item.active {
+    color: #E8C100; /* Golden text on hover/active */
+}
+.nav-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #E8C100;
+    transform: scaleX(0); /* Shuru mein line chhupi hui */
+    transition: transform 0.3s ease-in-out;
+}
+.nav-item:hover::after, .nav-item.active::after {
+    transform: scaleX(1); /* Hover par line poori dikhegi */
+}
+
+/* --- Product Display (Jahan bottles hain) --- */
+.hero-products-display {
+    /* Isse background image mein bottles ki position theek rahegi */
+    flex-grow: 1; 
+}

@@ -1,0 +1,210 @@
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* --- Main Container & Background --- */
+.login-page-container {
+    /* *** YAHAN APNI BACKGROUND IMAGE KA PATH BADLEN *** */
+    background-image: url('loginpagebackground.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header Styling (Top Bar) --- */
+.main-header {
+    background-color: #000; 
+    padding: 15px 0;
+    border-bottom: 5px solid #E8C100;
+}
+
+.header-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; 
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px 15px;
+    border-radius: 50px; 
+    border: 1px solid #ccc;
+    width: 250px;
+}
+.search-bar i { color: #333; margin-right: 10px; }
+.search-bar input { border: none; outline: none; width: 100%; font-size: 16px; }
+
+/* Logo */
+.logo { text-align: center; color: #E8C100; }
+.logo img { max-width: 180px; height: auto; display: block; }
+.logo-fragrances { font-size: 10px; letter-spacing: 2px; color: #E8C100; }
+
+/* User Actions */
+.user-actions { display: flex; align-items: center; }
+.user-actions a {
+    text-decoration: none;
+    color: #fff; 
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 20px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
+.user-actions a i {
+    font-size: 16px;
+    margin-right: 5px;
+    color: #fff;
+}
+
+/* --- Main Forms Wrapper --- */
+.auth-forms-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px; 
+    padding: 50px 20px;
+    flex-grow: 1; 
+    /* ✅ Zaroori: Choti screens ke liye blocks ko wrap karne ki ijazat deta hai */
+    flex-wrap: wrap; 
+}
+
+/* Auth Blocks (Login / Create Account) */
+.auth-block {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 40px 30px;
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 450px; 
+    min-height: 550px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ✅ JAVASCRIPT SE CONTROL HONE WALI CLASS */
+.auth-block.hidden-block {
+    display: none;
+}
+
+.auth-block h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* Form Inputs */
+.auth-block input[type="email"],
+.auth-block input[type="password"],
+.auth-block input[type="text"] {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 25px;
+    border: none;
+    border-bottom: 1px solid #ccc; 
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+}
+.auth-block form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    justify-content: flex-end; 
+}
+
+/* Blue Buttons */
+.blue-btn {
+    background-color: #4A89F5; 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%; 
+    margin-top: 15px; 
+}
+.blue-btn:hover {
+    background-color: #3876e0;
+}
+
+/* Create Account Specific Styles */
+.social-login-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.social-btn {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+.social-btn:hover { background-color: #f0f0f0; }
+
+.separator-or {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #555;
+    position: relative;
+}
+.separator-or::before, .separator-or::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+}
+.separator-or::before { left: 0; }
+.separator-or::after { right: 0; }
+
+/* Bottom Links */
+.login-link, .signup-link {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.login-link a, .signup-link a {
+    color: #4A89F5;
+    text-decoration: none;
+    font-weight: bold;
+}
+.login-link a:hover, .signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* ✅ JAVASCRIPT KE LIYE ERROR MESSAGE STYLING */
+.form-error-message {
+    color: #cc0000;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: bold;
+}

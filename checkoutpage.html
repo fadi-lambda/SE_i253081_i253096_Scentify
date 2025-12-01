@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scentify Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="checkoutpage.css"> 
+</head>
+<body>
+
+    <header id="mainHeader">
+        <div class="header-content">
+            <div class="logo">Scentify FRAGRANCES</div>
+            <div class="user-actions">
+                <a href="loginpage.html" class="header-action-text"><i class="fas fa-user"></i> ACCOUNT</a>
+                <a href="checkoutpage.html" class="header-action-text" id="cartlink">
+                    <i class="fas fa-shopping-cart"></i> CART (<span id="cartItemCount">0</span>) 
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="checkout-container">
+        
+        <div class="checkout-form-section">
+            <form id="checkoutForm">
+                <h2>Contact</h2>
+                <div class="form-group">
+                    <input type="email" placeholder="Email or mobile phone number" required>
+                </div>
+
+                <h2 style="margin-top: 30px;">Shipping</h2>
+                
+                <div class="form-group">
+                    <select required>
+                        <option value="">Country/Region</option>
+                        <option value="pakistan">Pakistan</option>
+                        <option value="india">India</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><input type="text" placeholder="First Name" required></div>
+                    <div class="form-group"><input type="text" placeholder="Last Name" required></div>
+                </div>
+                <div class="form-group"><input type="text" placeholder="Address" required></div>
+                <div class="form-row">
+                    <div class="form-group"><input type="text" placeholder="City" required></div>
+                    <div class="form-group"><input type="tel" placeholder="Phone" pattern="[0-9]{10,15}" required></div>
+                </div>
+
+                <h3 style="margin-top: 30px;">Shipping Method</h3>
+                <div class="shipping-method">
+                    <label><input type="radio" name="shipping_method" value="free" checked> Free Shipping</label>
+                    <label><input type="radio" name="shipping_method" value="standard"> Standard <span id="shippingStandardCost">Rs. 200.00</span></label>
+                </div>
+
+                <h3 style="margin-top: 30px;">Payment</h3>
+                <div class="payment-method">
+                    <p style="font-size: 0.9em; margin-bottom: 10px;">All transactions are secure and encrypted</p>
+                    <label><input type="radio" name="payment_method" value="card" checked> Debit - Credit Card</label>
+                    <label><input type="radio" name="payment_method" value="cod"> Cash On Delivery (COD)</label>
+                </div>
+
+                <h3 style="margin-top: 30px;">Billing Address</h3>
+                <div class="billing-address">
+                    <label><input type="radio" name="billing_address" value="same" checked> Same as shipping address</label>
+                    <label><input type="radio" name="billing_address" value="different"> Use a different billing address</label>
+                </div>
+                
+                <button id="placeOrderBtn" type="submit" class="place-order-btn">Place Order</button>
+            </form>
+        </div>
+
+        <div class="order-summary-section">
+            
+            <p id="emptyCartMessage" style="text-align: center; font-size: 1.2em; padding: 40px 0; display: none;">Your cart is currently empty. Please add items.</p> 
+
+            <table id="cartItemsTable" class="item-details-table" style="display: none;">
+                <tbody id="cartTableBody">
+                    </tbody>
+            </table>
+            
+            <div class="summary-totals">
+                <p>Subtotal: <span id="subtotalDisplay">Rs. 0.00</span></p>
+                <p>Shipping: <span id="shippingDisplay">Rs. 0.00</span></p>
+                <hr>
+                <h4>Total: <span id="orderTotalDisplay" class="order-total-amount">Rs. 0.00</span></h4>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="checkout.js" defer></script> 
+</body>
+</html>
