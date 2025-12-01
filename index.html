@@ -39,9 +39,7 @@
 
                 <!-- Logo (Center) -->
                 <div class="logo-wrapper">
-                    <h1 class="logo-text">
-                        <span>SCENTIFY</span>
-                    </h1>
+                    <a href="Images/Logo remove crop.png"></a>
                 </div>
 
                 <!-- Icons (Right) -->
@@ -106,152 +104,11 @@
                 <p>The essence of luxury captured in a bottle. Explore our latest collection.</p>
                 
                 <!-- HOME PAGE PRODUCT IMAGE (Clickable to go to Product Detail Page) -->
-                <a href="#" onclick="showPage('product-detail-page'); return false;">
-                    <img src="Images/HP image.png" 
-                             alt="Main Product Placeholder" 
-                             class="hero-placeholder-image">
+                <a href="#">
+                    <img src="Images/HP image.png" alt="Main Product Placeholder" class="hero-placeholder-image">
                 </a>
             </div>
             <!-- Yahan Home Page Ke Baqi Sections Aayenge (e.g., Featured Products, Reviews) -->
-        </section>
-
-
-        <!-- +++++++++++++++++++++++++++++++++++++++
-        PAGE 2: PRODUCT DETAIL PAGE (Initially hidden)
-        +++++++++++++++++++++++++++++++++++++++ -->
-        <section id="product-detail-page" class="content-page">
-            <!-- Product Detail Page Ka Content (Jo Pichli Bar Banaya Tha) -->
-            <main class="product-page-container">
-                <section class="product-info-grid">
-                    <div class="product-gallery">
-                        <div class="thumbnail-selector">
-                            <!-- Image 1 -->
-                            <img src="Images/Sultan A1.webp" 
-                                 alt="Product View 1" 
-                                 class="thumbnail-image active" 
-                                 onclick="changeMainImage(this)">
-                            <!-- Image 2 -->
-                            <img src="Images/Sultan A 2.webp" 
-                                 alt="Product View 2" 
-                                 class="thumbnail-image" 
-                                 onclick="changeMainImage(this)">
-                            <!-- Image 3 -->
-                            <img src="Images/Sultan A3.png" 
-                                 alt="Product View 3" 
-                                 class="thumbnail-image" 
-                                 onclick="changeMainImage(this)">
-                            <!-- Image 4 (Optional) -->
-                            <img src="Images/Sultan A4.png" 
-                                 alt="Product View 4" 
-                                 class="thumbnail-image" 
-                                 onclick="changeMainImage(this)">
-                        </div>
-                        <div class="main-image-wrapper">
-                            <img src="Images/Sultan A1.webp" 
-                                 alt="Sultan E Ameer Attar" 
-                                 id="main-product-image" 
-                                 class="main-product-image">
-                        </div>
-                    </div>
-
-                    <div class="product-details">
-                        <h1 class="product-title">Sultan E Ameer | Concentrated Perfume | Attar Oil | 16ml</h1>
-                        <p class="product-tag">Addition To Arabia <i class="fa-solid fa-star gold-star"></i></p>
-                        <div class="price-section">
-                            <span class="old-price">Rs.2,500.00</span>
-                            <span class="current-price">Rs.2,199.00</span>
-                        </div>
-                        <div class="quantity-control-wrapper">
-                            <label for="quantity" class="quantity-label">Quantity</label>
-                            <div class="quantity-input-group">
-                                <button class="qty-btn minus-btn" onclick="updateQuantity(-1)">-</button>
-                                <input type="number" id="quantity" value="1" min="1" class="qty-input">
-                                <button class="qty-btn plus-btn" onclick="updateQuantity(1)">+</button>
-                            </div>
-                        </div>
-                        <div class="product-features">
-                            <p><i class="fa-solid fa-truck-fast icon-gold"></i> 7 Days Easy Return & Exchange</p>
-                            <p><i class="fa-solid fa-users icon-gold"></i> 500,000+ Happy Customers</p>
-                            <p><i class="fa-solid fa-trophy icon-gold"></i> Celebrities Most Loved Brand</p>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="add-to-cart-btn">Add To Cart</button>
-                            <button class="buy-now-btn">Buy It Now</button>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- DESCRIPTION & SPECIFICATIONS TABS -->
-                <section class="details-section">
-                    <div class="tab-header">
-                        <!-- Ensure these tabs call the correct function -->
-                        <button class="tab-button active" onclick="openTab(event, 'Description')">Description</button>
-                        <button class="tab-button" onclick="openTab(event, 'Specifications')">Specifications</button>
-                    </div>
-
-                    <div id="Description" class="tab-content active">
-                        <p>
-                            Here is Sultan E Ameer With Floral-Woody Accords, This Fragrance Is Enhanced By Subtle 
-                            Undertones Of Musk And Citrus, Creating An Enchanting And Captivating Scent.
-                        </p>
-                        <p>
-                            <strong>Top Note:</strong> Bergamot; <strong>Middle Note:</strong> Jasmine, Rose; <strong>Base Notes:</strong> Sandalwood, Amber, Oakmoss, Musk.
-                        </p>
-                        <p class="long-description-placeholder">
-                            [Aap yahan mukammal description daal sakte hain. Ye text Sirf placeholder hai.]
-                        </p>
-                    </div>
-
-                    <div id="Specifications" class="tab-content">
-                        <ul>
-                            <li>
-                                <strong>Variants:</strong> We offer this attar in one format.
-                                <ul>
-                                    <li><strong>Roll-On Attar:</strong> Available in one size: 16ml.</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Concentration:</strong>
-                                <ul>
-                                    <li><strong>Roll-On Attar:</strong> 100% Concentrated</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Sillage & Lasting:</strong>
-                                <ul>
-                                    <li><strong>Sillage:</strong> High</li>
-                                    <li><strong>Lasting Up To:</strong> 8 to 10 hours (measured in a standard atmosphere)</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <!-- RELATED PRODUCTS -->
-                <section class="related-products">
-                    <h2 class="section-heading">More To Explore</h2>
-                    <div class="related-products-grid">
-                        <div class="related-product-card">
-                            <img src="Images/Black & Silver Oud.webp" alt="Black & Silver Oud" class="related-product-image">
-                            <p class="related-product-title">Black & Silver Oud | Concentrated Perfume | Attar Oil</p>
-                            <p class="related-product-price">Rs.1,899.00</p>
-                            <p class="related-product-qty">Qty: 1</p>
-                        </div>
-                        <div class="related-product-card">
-                            <img src="images/Ameer Al Oud.webp" alt="Ameer Al Oud" class="related-product-image">
-                            <p class="related-product-title">Ameer Al Oud | Concentrated Perfume Attar Oil</p>
-                            <p class="related-product-price">Rs.936.00</p>
-                            <p class="related-product-qty">Qty: 1</p>
-                        </div>
-                        <div class="related-product-card">
-                            <img src="Images/Black & Silver Platinum.webp" alt="Placeholder Product 3" class="related-product-image">
-                            <p class="related-product-title">Black & Silver Platinum | Luxury Attar Collection</p>
-                            <p class="related-product-price">Rs.1,499.00</p>
-                            <p class="related-product-qty">Qty: 1</p>
-                        </div>
-                    </div>
-                </section>
-            </main>
         </section>
         
     </div>
@@ -259,7 +116,7 @@
         <div class="suggestion-grid">
                 
                 <!-- Product 1: Sultan E Ameer (Clickable to Detail Page) -->
-                <a href="#" class="product-card" onclick="showPage('product-detail-page'); return false;">
+                <a href="Sultan_Ameer_Detail_Page.html">
                     <img src="Images/Sultan A1.webp" alt="Sultan E Ameer">
                     <div class="card-details">
                         <h4>Sultan E Ameer | Attar Oil</h4>
@@ -301,9 +158,9 @@
 
             <!-- Quiz Button (Hover effect wala) -->
             <div class="quiz-button-container">
-                <button class="quiz-button" onclick="showPage('quiz-page');">
+                <a href="quiz.html" class="quiz-button">
                     Take The Quiz
-                </button>
+                </a>
             </div>
 
     <!-- ========================================
@@ -319,7 +176,7 @@
             <!-- Logo/Branding Section -->
             <div class="footer-logo">
                 <!-- Placeholder for Scentify Logo/Branding -->
-                <img src="https://placehold.co/150x50/000000/F7B322?text=Scentify+Fragrances" alt="Scentify Fragrances Logo" style="filter: brightness(2); width: 150px; height: 50px;">
+                <img src="Images/Logo remove.png" alt="Scentify Fragrances Logo" style="filter: brightness(2); width: 150px; height: 50px;">
             </div>
 
             <!-- Quick Links Section -->
