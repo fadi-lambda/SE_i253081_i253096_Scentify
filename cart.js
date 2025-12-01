@@ -1,17 +1,9 @@
-/* ======================================================
-   SAMPLE CART DATA (You can replace with real backend)
-====================================================== */
 let cartItems = [
-    
+
 ];
 
-// Fixed shipping amount
 const SHIPPING = 15;
 
-
-/* ======================================================
-   RENDER CART ITEMS
-====================================================== */
 function renderCart() {
     const container = document.getElementById("cart-items");
     container.innerHTML = "";
@@ -43,10 +35,6 @@ function renderCart() {
     updateSummary();
 }
 
-
-/* ======================================================
-   QUANTITY UPDATE FUNCTIONS
-====================================================== */
 function increaseQty(id) {
     const item = cartItems.find(i => i.id === id);
     item.quantity++;
@@ -61,19 +49,11 @@ function decreaseQty(id) {
     }
 }
 
-
-/* ======================================================
-   REMOVE ITEM
-====================================================== */
 function removeItem(id) {
     cartItems = cartItems.filter(i => i.id !== id);
     renderCart();
 }
 
-
-/* ======================================================
-   UPDATE ORDER SUMMARY
-====================================================== */
 function updateSummary() {
     let subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
@@ -86,6 +66,4 @@ function updateSummary() {
     document.getElementById("grand-total").innerText = `$${grandTotal.toFixed(2)}`;
 }
 
-
-/* Initialize Cart Rendering */
 renderCart();

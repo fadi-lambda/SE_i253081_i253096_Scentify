@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scentify Luxury - Shopping Cart</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- We are using only internal CSS and JS as requested -->
     <link rel="stylesheet" href="cart.css">
     <script src="cart.js"></script>
 
 </head>
+
 <body>
     <!-- HEADER START -->
     <header id="fixed-header" class="fixed-header">
-        <!-- 1. Top Announcement Bar (Gold/Yellow) -->
         <div class="announcement-bar">
             7 Days Easy Return & Exchange Policy
-            <!-- Social Icons (Desktop Only) -->
             <div class="social-icons-desktop">
                 <a href="#" aria-label="Facebook" class="transition"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="Instagram" class="transition"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="YouTube" class="transition"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-;
-        <!-- 2. Main Navigation Bar (Logo, Search, Icons) -->
+
         <div class="header-main">
             <div class="header-container">
-                
-                <!-- Search Bar (Desktop) -->
                 <div class="search-bar-desktop">
                     <div class="search-input-wrapper">
                         <input type="text" placeholder="Search products...">
@@ -36,32 +32,27 @@
                     </div>
                 </div>
 
-                <!-- Logo (Center) -->
                 <div class="logo-wrapper">
-                   <img src="Images/Logo remove crop.png" alt="Scentify Logo">
+                    <h1 class="logo-text">
+                        <span>SCENTIFY</span>
+                    </h1>
                 </div>
 
-                <!-- Icons (Right) -->
                 <div class="header-icons">
-                    
-                    <!-- Search Icon (Mobile Only) -->
                     <button class="search-mobile-icon" aria-label="Open Search">
                         <i class="fas fa-search"></i>
                     </button>
-                    
-                    <!-- Account Icon -->
+
                     <a href="#" class="icon-link">
                         <i class="fas fa-user"></i>
                         <span class="icon-label">Account</span>
                     </a>
-                    
-                    <!-- Cart Icon -->
+
                     <a href="#" class="icon-link cart-icon-wrapper">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="icon-label">Cart</span>
                     </a>
-                    
-                    <!-- Mobile Menu Button (Hamburger) -->
+
                     <button class="menu-mobile-icon" aria-label="Open Menu">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -69,7 +60,6 @@
             </div>
         </div>
 
-        <!-- 3. Navigation Links (Desktop Only - Wide Menu Bar) -->
         <nav class="nav-links-desktop">
             <div class="nav-container">
                 <ul class="nav-list">
@@ -86,32 +76,28 @@
     </header>
     <!-- HEADER END -->
 
-    <!-- MAIN CONTENT - CART PAGE -->
     <main class="container">
-        
+
         <h1 class="cart-title">Your Shopping Bag</h1>
 
         <div class="cart-content">
-            
-            <!-- CART ITEMS LIST (Left Column) -->
+
             <section class="cart-items" id="cart-items-container">
-                <!-- Cart items will be generated here by JavaScript -->
             </section>
 
-            <!-- CART SUMMARY (Right Column) -->
             <aside class="cart-summary">
                 <h2 class="summary-title">Order Summary</h2>
-                
+
                 <div class="summary-row">
                     <span>Subtotal:</span>
                     <span id="subtotal-display">$0.00</span>
                 </div>
-                
+
                 <div class="summary-row">
                     <span>Shipping:</span>
                     <span id="shipping-display">$25.00</span>
                 </div>
-                
+
                 <div class="summary-row">
                     <span>Tax (10%):</span>
                     <span id="tax-display">$0.00</span>
@@ -130,13 +116,11 @@
     <!-- FOOTER START -->
     <footer class="main-footer">
         <div class="footer-content">
-            <!-- Logo/Branding Section -->
             <div class="footer-logo">
-                <!-- Placeholder for Scentify Logo/Branding -->
-                <img src="Images/Logo-removebg-preview.png" alt="Scentify Fragrances Logo" style="filter: brightness(2); width: 150px; height: 50px;">
+                <img src="Images/Logo remove.png" alt="Scentify Fragrances Logo"
+                    style="filter: brightness(2); width: 150px; height: 50px;">
             </div>
 
-            <!-- Quick Links Section -->
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
@@ -148,7 +132,6 @@
                 </ul>
             </div>
 
-            <!-- Contact Info Section -->
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <ul>
@@ -165,7 +148,6 @@
                 </div>
             </div>
 
-            <!-- Customer Services Section -->
             <div class="footer-section">
                 <h3>Customer Services</h3>
                 <ul>
@@ -175,15 +157,13 @@
                     <li><a href="#">Refund And Exchange Policy</a></li>
                 </ul>
             </div>
-            
-            <!-- Address Section -->
+
             <div class="footer-section address-section">
                 <h3>Address</h3>
                 <p>Shop G-179, Musk Al Mahal, Opp Rex Centre, Next To Meezan Bank, Panorama Centre, Saddar, Karachi.</p>
             </div>
         </div>
-        
-        <!-- Footer Bottom Copyright -->
+
         <div class="footer-bottom">
             <p>&copy; 2025 Scentify</p>
         </div>
@@ -191,4 +171,5 @@
     <!-- FOOTER END -->
 
 </body>
+
 </html>

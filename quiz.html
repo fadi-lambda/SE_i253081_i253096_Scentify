@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,73 +11,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="quiz.css">
     <script src="quiz.js"></script>
-    
+
 </head>
+
 <body>
 
-    <!-- ========================================================= -->
-    <!-- HEADER START (DARK THEME) -->
-    <!-- ========================================================= -->
     <header id="fixed-header" class="fixed-header">
-         <!-- 1. Top Announcement Bar (Gold/Yellow) -->
         <div class="announcement-bar">
             7 Days Easy Return & Exchange Policy
-            <!-- Social Icons (Desktop Only) -->
             <div class="social-icons-desktop">
                 <a href="#" aria-label="Facebook" class="transition"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="Instagram" class="transition"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="YouTube" class="transition"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-
-        <!-- 2. Main Navigation Bar (Logo, Search, Icons) -->
         <div class="header-main">
             <div class="header-container">
-                
-                <!-- Search Bar (Desktop) -->
                 <div class="search-bar-desktop">
                     <div class="search-input-wrapper">
                         <input type="text" placeholder="Search products...">
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
-
-                <!-- Logo (Center) -->
                 <div class="logo-wrapper">
                     <h1 class="logo-text">
                         <span>SCENTIFY</span>
                     </h1>
                 </div>
-
-                <!-- Icons (Right) -->
                 <div class="header-icons">
-                    
-                    <!-- Search Icon (Mobile Only) -->
                     <button class="search-mobile-icon" aria-label="Open Search">
                         <i class="fas fa-search"></i>
                     </button>
-                    
-                    <!-- Account Icon -->
                     <a href="#" class="icon-link">
                         <i class="fas fa-user"></i>
                         <span class="icon-label">Account</span>
                     </a>
-                    
-                    <!-- Cart Icon -->
                     <a href="#" class="icon-link cart-icon-wrapper">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="icon-label">Cart</span>
                     </a>
-                    
-                    <!-- Mobile Menu Button (Hamburger) -->
                     <button class="menu-mobile-icon" aria-label="Open Menu">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
         </div>
-
-        <!-- 3. Navigation Links (Desktop Only - Wide Menu Bar) -->
         <nav class="nav-links-desktop">
             <div class="nav-container">
                 <ul class="nav-list">
@@ -91,19 +70,13 @@
             </div>
         </nav>
     </header>
-    <!-- ========================================================= -->
-    <!-- HEADER END -->
-    <!-- ========================================================= -->
 
-    <!-- ========================================================= -->
-    <!-- QUIZ CONTENT START (LIGHT THEME) -->
-    <!-- ========================================================= -->
     <div class="quiz-wrapper">
         <div class="quiz-container">
-            
+
             <header class="quiz-header">
                 <h1>Scent Personality Quiz</h1>
-                
+
                 <div class="progress-bar-container">
                     <div class="progress-bar-line">
                         <span class="progress-indicator answered" id="progress-1"></span>
@@ -115,36 +88,30 @@
             </header>
 
             <form class="quiz-form">
-                
-                <!-- Question 1: Season -->
                 <section class="question-block active" id="q1">
                     <h2 class="question-title">1. Which Is Your Favorite Season?</h2>
                     <div class="options-grid season-options">
-                        
+
                         <label class="option-card season-card">
                             <input type="radio" name="season" value="spring" data-question="1">
-                            <!-- Placeholder Icon: Spring -->
                             <img src="Images/spring.png" alt="Spring Icon">
                             <span>Spring (Bahar)</span>
                         </label>
-                        
+
                         <label class="option-card season-card">
                             <input type="radio" name="season" value="summer" data-question="1">
-                            <!-- Placeholder Icon: Summer -->
                             <img src="Images/summer.png" alt="Summer Icon">
                             <span>Summer (Garmi)</span>
                         </label>
-                        
+
                         <label class="option-card season-card">
                             <input type="radio" name="season" value="winter" data-question="1">
-                            <!-- Placeholder Icon: Winter -->
                             <img src="Images/winter.png" alt="Winter Icon">
                             <span>Winter (Sardi)</span>
                         </label>
-                        
+
                         <label class="option-card season-card">
                             <input type="radio" name="season" value="autumn" data-question="1">
-                            <!-- Placeholder Icon: Autumn -->
                             <img src="Images/autumn.png" alt="Autumn Icon">
                             <span>Autumn (Khizan)</span>
                         </label>
@@ -152,29 +119,28 @@
                     </div>
                 </section>
 
-                <!-- Question 2: Start Day -->
                 <section class="question-block" id="q2">
                     <h2 class="question-title">2. How Do You Start Your Day?</h2>
                     <div class="options-grid lifestyle-options">
-                        
+
                         <label class="option-card image-card">
                             <input type="radio" name="start_day" value="calm" data-question="2">
                             <img src="Images/Yoga.png" alt="Yoga/Meditation">
                             <p>Energetic and Calm</p>
                         </label>
-                        
+
                         <label class="option-card image-card">
                             <input type="radio" name="start_day" value="active" data-question="2">
                             <img src="Images/Jogging.png" alt="Running/Jogging">
                             <p>Active and Focused</p>
                         </label>
-                        
+
                         <label class="option-card image-card">
                             <input type="radio" name="start_day" value="refined" data-question="2">
                             <img src="Images/Office.png" alt="Confident Professional">
                             <p>Confident and Refined</p>
                         </label>
-                        
+
                         <label class="option-card image-card">
                             <input type="radio" name="start_day" value="cozy" data-question="2">
                             <img src="Images/BED.png" alt="Relaxed Morning in Bed">
@@ -184,26 +150,25 @@
                     </div>
                 </section>
 
-                <!-- Question 3: Personality -->
                 <section class="question-block" id="q3">
                     <h2 class="question-title">3. How Is Your Personality Best Described?</h2>
                     <div class="options-grid personality-options">
-                        
+
                         <label class="option-card personality-card">
                             <input type="radio" name="personality" value="fresh" data-question="3">
                             <span>Fresh and Clean</span>
                         </label>
-                        
+
                         <label class="option-card personality-card">
                             <input type="radio" name="personality" value="cheerful" data-question="3">
                             <span>Cheerful and Confident</span>
                         </label>
-                        
+
                         <label class="option-card personality-card">
                             <input type="radio" name="personality" value="mysterious" data-question="3">
                             <span>Mysterious and Bold</span>
                         </label>
-                        
+
                         <label class="option-card personality-card">
                             <input type="radio" name="personality" value="warm" data-question="3">
                             <span>Warm and Inviting</span>
@@ -211,20 +176,21 @@
 
                     </div>
                 </section>
-                
+
                 <div class="quiz-navigation">
                     <button type="submit" class="next-button" disabled>Next Question</button>
                 </div>
 
             </form>
-            
-            <!-- Result Section -->
+
             <section id="result-section">
                 <h2>Your Scent Personality Match!</h2>
-                <p id="result-description">Based on your choices, we recommend a fragrance that perfectly matches your unique style.</p>
-                
+                <p id="result-description">Based on your choices, we recommend a fragrance that perfectly matches your
+                    unique style.</p>
+
                 <div class="perfume-suggestion">
-                    <img id="perfume-image" src="https://placehold.co/150x150/f7a01d/333333?text=Perfume" alt="Suggested Perfume">
+                    <img id="perfume-image" src="https://placehold.co/150x150/f7a01d/333333?text=Perfume"
+                        alt="Suggested Perfume">
                     <h3 id="perfume-title">Recommended Fragrance Title</h3>
                     <p id="perfume-notes">Fresh citrus notes with a warm, woody base.</p>
                     <a id="perfume-link" href="#" target="_blank">View Product</a>
@@ -232,22 +198,12 @@
             </section>
         </div>
     </div>
-    <!-- ========================================================= -->
-    <!-- QUIZ CONTENT END -->
-    <!-- ========================================================= -->
-
-    <!-- ========================================================= -->
-    <!-- FOOTER START (DARK THEME) -->
-    <!-- ========================================================= -->
     <footer class="main-footer">
         <div class="footer-content">
-            <!-- Logo/Branding Section -->
             <div class="footer-logo">
-                <!-- Placeholder for Scentify Logo/Branding -->
                 <img src="Images/Logo remove.png" alt="Scentify Fragrances Logo">
             </div>
 
-            <!-- Quick Links Section -->
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
@@ -259,7 +215,6 @@
                 </ul>
             </div>
 
-            <!-- Contact Info Section -->
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <ul>
@@ -276,7 +231,6 @@
                 </div>
             </div>
 
-            <!-- Customer Services Section -->
             <div class="footer-section">
                 <h3>Customer Services</h3>
                 <ul>
@@ -286,23 +240,15 @@
                     <li><a href="#">Refund And Exchange Policy</a></li>
                 </ul>
             </div>
-            
-            <!-- Address Section -->
             <div class="footer-section address-section">
                 <h3>Address</h3>
                 <p>Shop G-179, Musk Al Mahal, Opp Rex Centre, Next To Meezan Bank, Panorama Centre, Saddar, Karachi.</p>
             </div>
         </div>
-        
-        <!-- Footer Bottom Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2025 Scentify</p>
         </div>
     </footer>
-    <!-- ========================================================= -->
-    <!-- FOOTER END -->
-    <!-- ========================================================= -->
-
-    
 </body>
+
 </html>
