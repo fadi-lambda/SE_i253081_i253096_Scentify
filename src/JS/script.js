@@ -31,6 +31,102 @@ function changeMainImage(thumbnail) {
   thumbnail.classList.add('active');
 }
 
+const PRODUCT_SEARCH_INDEX = [
+  { id: 'sultan-e-ameer', name: 'Sultan E Ameer', aliases: ['sultan', 'ameer', 'sultan e ameer', 'addition to arabia'] },
+  { id: 'black-silver-platinum', name: 'Black & Silver Platinum', aliases: ['black silver platinum', 'platinum'] },
+  { id: 'black-silver-oudh', name: 'Black & Silver Oudh', aliases: ['black silver oudh', 'mysterious oudh', 'oudh'] },
+  { id: 'white-oudh', name: 'White Oudh', aliases: ['white oudh'] },
+  { id: 'ameer-oudh', name: 'Ameer Al Oud', aliases: ['ameer al oud', 'ameer oud', 'ameer al oudh'] },
+  { id: 'black-n-gold', name: 'Black N Gold', aliases: ['black n gold', 'black and gold'] },
+  { id: 'mysterious-oudh', name: 'Mysterious Oudh', aliases: ['mysterious oudh', 'mysterious'] }
+];
+
+function normalizeSearchText(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function findProductForSearch(query) {
+  const normalizedQuery = normalizeSearchText(query);
+  if (!normalizedQuery) return null;
+
+  const exactMatch = PRODUCT_SEARCH_INDEX.find(product => {
+    if (normalizeSearchText(product.id) === normalizedQuery) return true;
+    if (normalizeSearchText(product.name) === normalizedQuery) return true;
+    return product.aliases.some(alias => normalizeSearchText(alias) === normalizedQuery);
+  });
+
+  if (exactMatch) return exactMatch;
+
+  return PRODUCT_SEARCH_INDEX.find(product => {
+    if (normalizeSearchText(product.id).includes(normalizedQuery)) return true;
+    if (normalizeSearchText(product.name).includes(normalizedQuery)) return true;
+    return product.aliases.some(alias => normalizeSearchText(alias).includes(normalizedQuery));
+  }) || null;
+}
+
+function openSearchResults(query) {
+  const trimmedQuery = String(query || '').trim();
+  if (!trimmedQuery) return;
+
+  const match = findProductForSearch(trimmedQuery);
+  if (match && normalizeSearchText(match.name) === normalizeSearchText(trimmedQuery)) {
+    window.location.href = `product-detail.html?id=${match.id}`;
+    return;
+  }
+
+  if (match && normalizeSearchText(match.id) === normalizeSearchText(trimmedQuery)) {
+    window.location.href = `product-detail.html?id=${match.id}`;
+    return;
+  }
+
+  window.location.href = `productlisting.html?query=${encodeURIComponent(trimmedQuery)}`;
+}
+
+function bindSearchControls() {
+  const searchInputs = Array.from(document.querySelectorAll('#desktop-search'));
+  const searchButtons = Array.from(document.querySelectorAll('.search-mobile-icon'));
+  const searchIcons = Array.from(document.querySelectorAll('.search-input-wrapper .fa-search'));
+
+  searchInputs.forEach(input => {
+    input.addEventListener('keydown', event => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        openSearchResults(input.value);
+      }
+    });
+  });
+
+  searchIcons.forEach(icon => {
+    icon.style.cursor = 'pointer';
+    icon.addEventListener('click', () => {
+      const wrapper = icon.closest('.search-input-wrapper');
+      const input = wrapper ? wrapper.querySelector('#desktop-search') : null;
+      if (input) openSearchResults(input.value);
+    });
+  });
+
+  searchButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      const header = button.closest('.header-main') || document;
+      const input = header.querySelector('#desktop-search');
+
+      if (input && input.value.trim()) {
+        openSearchResults(input.value);
+        return;
+      }
+
+      if (input) {
+        input.focus();
+        input.select();
+      }
+    });
+  });
+}
+
 // Global cart count sync on every page
 document.addEventListener('DOMContentLoaded', () => {
   const cartCountEl = document.querySelector('.cart-count');
@@ -49,6 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const firstTabContent = document.getElementById('Description');
   if (firstTabBtn) firstTabBtn.classList.add('active');
   if (firstTabContent) firstTabContent.classList.add('active');
+
+  bindSearchControls();
 
   // Homepage "Add to Cart" buttons (.card-cart-btn)
   document.querySelectorAll('.card-cart-btn').forEach(btn => {

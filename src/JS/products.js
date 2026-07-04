@@ -13,10 +13,10 @@ const products = {
     rating: 4.5,
     reviews: 124,
     images: [
-      "../Images/sultan-e-ameer/1.webp",
-      "../Images/sultan-e-ameer/2.webp",
-      "../Images/sultan-e-ameer/3.webp",
-      "../Images/sultan-e-ameer/4.webp"
+      "../../Images/Products/sultan-e-ameer/1.webp",
+      "../../Images/Products/sultan-e-ameer/2.webp",
+      "../../Images/Products/sultan-e-ameer/3.png",
+      "../../Images/Products/sultan-e-ameer/4.png"
     ],
     description: "Sultan E Ameer opens with Floral-Woody accords, layered over subtle undertones of Musk and Citrus — creating an enchanting, long-lasting scent worthy of its name.",
     notes: {
@@ -32,7 +32,11 @@ const products = {
       "Ideal For: Men and Women (Unisex)",
       "Packaging: Luxury Velvet Box & Glass Bottle"
     ],
-    category: "attar-oil"
+    category: "attar-oil",
+    scent_family: ["woody", "floral", "musky"],
+    occasion: ["evening", "special"],
+    intensity: "8+",
+    ideal_for: "unisex"
   },
 
   "black-silver-platinum": {
@@ -45,8 +49,7 @@ const products = {
     rating: 3.5,
     reviews: 78,
     images: [
-      "../Images/black-silver-platinum/1.webp",
-      "../Images/black-silver-platinum/2.webp"
+      "../../Images/Products/black-silver-platinum/1.webp"
     ],
     description: "Black & Silver Platinum blends sharp metallic freshness with a warm musky base — a modern, versatile attar for everyday luxury.",
     notes: {
@@ -62,7 +65,11 @@ const products = {
       "Ideal For: Men",
       "Packaging: Luxury Box & Glass Bottle"
     ],
-    category: "attar-oil"
+    category: "attar-oil",
+    scent_family: ["musky", "citrus"],
+    occasion: ["daily", "evening"],
+    intensity: "4-6",
+    ideal_for: "male"
   },
 
   "black-silver-oudh": {
@@ -75,8 +82,7 @@ const products = {
     rating: 5,
     reviews: 56,
     images: [
-      "../Images/black-silver-oudh/1.webp",
-      "../Images/black-silver-oudh/2.webp"
+      "../../Images/Products/black-silver-oudh/1.webp"
     ],
     description: "Black & Silver Oudh is bold and mysterious, layering deep oud wood with smoky incense for a rich, long-lasting evening fragrance.",
     notes: {
@@ -92,7 +98,11 @@ const products = {
       "Ideal For: Men",
       "Packaging: Luxury Box & Glass Bottle"
     ],
-    category: "attar-oil"
+    category: "attar-oil",
+    scent_family: ["woody", "musky"],
+    occasion: ["evening", "special"],
+    intensity: "8+",
+    ideal_for: "male"
   },
 
   "white-oudh": {
@@ -105,7 +115,7 @@ const products = {
     rating: 5,
     reviews: 89,
     images: [
-      "../Images/white-oudh/1.webp"
+      "../../Images/Products/white-oudh/1.webp"
     ],
     description: "White Oudh delivers a dense, heavy scent profile with creamy sandalwood and soft musk — a classy fragrance for men who like to stand out.",
     notes: {
@@ -121,7 +131,11 @@ const products = {
       "Ideal For: Men",
       "Packaging: Standard Box & Glass Bottle"
     ],
-    category: "attar-oil"
+    category: "attar-oil",
+    scent_family: ["woody", "musky", "citrus"],
+    occasion: ["daily"],
+    intensity: "4-6",
+    ideal_for: "male"
   },
 
   "ameer-oudh": {
@@ -134,7 +148,7 @@ const products = {
     rating: 4.5,
     reviews: 63,
     images: [
-      "../Images/ameer-oudh/1.webp"
+      "../../Images/Products/ameer-oudh/1.webp"
     ],
     description: "Ameer Al Oud combines warm oud accords with a touch of sweetness, making it a versatile daily-wear attar for both men and women.",
     notes: {
@@ -150,7 +164,11 @@ const products = {
       "Ideal For: Unisex",
       "Packaging: Standard Box & Glass Bottle"
     ],
-    category: "attar-oil"
+    category: "attar-oil",
+    scent_family: ["floral", "woody"],
+    occasion: ["daily", "evening"],
+    intensity: "4-6",
+    ideal_for: "unisex"
   },
 
   "black-n-gold": {
@@ -163,7 +181,7 @@ const products = {
     rating: 5,
     reviews: 119,
     images: [
-      "../Images/black-n-gold/1.webp"
+      "../../Images/Products/black-n-gold/1.webp"
     ],
     description: "Black N Gold is a rich, regal fragrance built around deep amber and warm spice — designed for those who wear luxury boldly.",
     notes: {
@@ -179,7 +197,11 @@ const products = {
       "Ideal For: Men",
       "Packaging: Luxury Velvet Box & Glass Bottle"
     ],
-    category: "attar-oil"
+    category: "attar-oil",
+    scent_family: ["musky", "woody"],
+    occasion: ["special", "evening"],
+    intensity: "8+",
+    ideal_for: "male"
   },
 
   "mysterious-oudh": {
@@ -192,7 +214,7 @@ const products = {
     rating: 5,
     reviews: 95,
     images: [
-      "../Images/mysterious-oudh/1.webp"
+      "../../Images/Products/mysterious-oudh/1.webp"
     ],
     description: "Mysterious Oudh is a dark, smoky fragrance combining aged oud with deep patchouli — an intense scent for confident personalities.",
     notes: {
@@ -208,7 +230,11 @@ const products = {
       "Ideal For: Men",
       "Packaging: Luxury Box & Glass Bottle"
     ],
-    category: "attar-oil"
+    category: "attar-oil",
+    scent_family: ["woody", "musky"],
+    occasion: ["evening", "special"],
+    intensity: "8+",
+    ideal_for: "male"
   }
 
 };

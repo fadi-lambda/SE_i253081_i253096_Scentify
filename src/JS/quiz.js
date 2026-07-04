@@ -1,4 +1,6 @@
-// quiz.js — Fragrance Finder Quiz
+// quiz.js — Fragrance Finder Quiz (AI-Powered)
+// Sends quiz answers to the Flask recommendation API instead of using
+// hardcoded lookup logic. Renders loading/error states while waiting.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -6,31 +8,33 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentStep = 1;
   const answers = {};
 
+  // Change this to your deployed API URL once hosted (Render/Railway/etc.)
+  const API_URL = 'http://127.0.0.1:5000/recommend';
+
   const progressFill  = document.getElementById('progressFill');
   const progressLabel = document.getElementById('progressLabel');
   const backBtn       = document.getElementById('backBtn');
   const retakeBtn     = document.getElementById('retakeBtn');
-
-  // Product recommendations keyed by budget then scent
-  const recommendations = {
-    'under1000': {
-      default:  { name: 'White Oudh', desc: 'A classy, dense fragrance at an accessible price point.', price: 'Rs. 999', img: '../Images/White Oud.webp', link: '#' }
-    },
-    '1000-2000': {
-      woody:    { name: 'Black & Silver Oud', desc: 'Bold woody-musky attar — long lasting and masculine.', price: 'Rs. 1,899', img: '../Images/Black & Silver Oud.webp', link: '#' },
-      musky:    { name: 'Black & Silver Platinum', desc: 'Rich musky oriental — an upgrade for your collection.', price: 'Rs. 1,499', img: '../Images/Black & Silver Platinum.webp', link: '#' },
-      default:  { name: 'Black & Silver Platinum', desc: 'A versatile concentrated attar for everyday luxury.', price: 'Rs. 1,499', img: '../Images/Black & Silver Platinum.webp', link: '#' }
-    },
-    '2000+': {
-      default:  { name: 'Sultan E Ameer', desc: 'Floral-woody with musk and citrus — the signature of royalty.', price: 'Rs. 2,199', img: '../Images/Sultan A1.webp', link: 'Sultan_Ameer_Detail_Page.html' }
-    }
+  const resultStep    = document.getElementById('stepResult');
+  const LEGACY_PRODUCT_IDS = {
+    p1: 'sultan-e-ameer',
+    p2: 'black-silver-platinum',
+    p3: 'black-silver-oudh',
+    p4: 'white-oudh',
+    p5: 'black-n-gold',
+    p6: 'ameer-oudh',
+    p7: 'mysterious-oudh',
+    'ameer-al-oudh': 'ameer-oudh'
   };
 
-  function getRecommendation() {
-    const budget = answers[5] || '1000-2000';
-    const scent  = answers[2] || 'default';
-    const group  = recommendations[budget] || recommendations['1000-2000'];
-    return group[scent] || group['default'];
+  function normalizeRecommendationId(id) {
+    return LEGACY_PRODUCT_IDS[id] || id || 'sultan-e-ameer';
+  }
+
+  function getRecommendationImage(product) {
+    if (product && product.image) return product.image;
+    const normalizedId = normalizeRecommendationId(product && product.id);
+    return `../../Images/Products/${normalizedId}/1.webp`;
   }
 
   function updateProgress() {
@@ -48,66 +52,185 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProgress();
   }
 
-  function showResult() {
-    if (progressFill)  progressFill.style.width = '100%';
-    if (progressLabel) progressLabel.textContent = 'Your result is ready!';
-    if (backBtn) backBtn.style.display = 'none';
-
-    const rec = getRecommendation();
-    const img  = document.getElementById('resultImage');
-    const name = document.getElementById('resultName');
-    const desc = document.getElementById('resultDesc');
-    const price= document.getElementById('resultPrice');
-    const link = document.getElementById('resultLink');
-
-    if (img)   { img.src = rec.img; img.alt = rec.name; }
-    if (name)  name.textContent  = rec.name;
-    if (desc)  desc.textContent  = rec.desc;
-    if (price) price.textContent = rec.price;
-    if (link)  link.href         = rec.link;
-
-    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
-    const resultEl = document.getElementById('stepResult');
-    if (resultEl) resultEl.classList.add('active');
+  // --- Loading state ---
+  function renderLoading() {
+    if (!resultStep) return;
+    resultStep.innerHTML = `
+      <div class="quiz-result-card">
+        <div class="quiz-loading">
+          <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+          <p>Finding your perfect scent...</p>
+        </div>
+      </div>
+    `;
   }
 
-  // Option click → record answer → auto-advance
+  // --- Error state ---
+  function renderError() {
+    if (!resultStep) return;
+    resultStep.innerHTML = `
+      <div class="quiz-result-card">
+        <div class="quiz-error">
+          <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+          <h2>Something went wrong</h2>
+          <p>We couldn't reach our recommendation engine. Please check your connection and try again.</p>
+          <button class="quiz-retake-btn" id="retryBtn">
+            <i class="fas fa-redo" aria-hidden="true"></i> Try Again
+          </button>
+        </div>
+      </div>
+    `;
+    const retryBtn = document.getElementById('retryBtn');
+    if (retryBtn) retryBtn.addEventListener('click', fetchRecommendations);
+  }
+
+  // --- Success state: render ranked recommendations ---
+  function renderResults(recommendations) {
+    if (!resultStep) return;
+
+    if (!recommendations || recommendations.length === 0) {
+      resultStep.innerHTML = `
+        <div class="quiz-result-card">
+          <div class="quiz-error">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <h2>No Matches Found</h2>
+            <p>Try adjusting your preferences and take the quiz again.</p>
+            <button class="quiz-retake-btn" id="retakeBtn2">
+              <i class="fas fa-redo" aria-hidden="true"></i> Retake Quiz
+            </button>
+          </div>
+        </div>
+      `;
+      const retake2 = document.getElementById('retakeBtn2');
+      if (retake2) retake2.addEventListener('click', resetQuiz);
+      return;
+    }
+
+    const topPick = recommendations[0];
+    const otherPicks = recommendations.slice(1);
+    const topPickId = normalizeRecommendationId(topPick.id);
+    const topPickImage = getRecommendationImage(topPick);
+
+    resultStep.innerHTML = `
+      <div class="quiz-result-card">
+        <div class="quiz-result-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
+        <h2 class="quiz-result-title">Your Perfect Match</h2>
+        <p class="quiz-result-subtitle">Based on your answers, we recommend:</p>
+
+        <a href="product-detail.html?id=${topPickId}" class="quiz-result-product">
+          <img src="${topPickImage}" alt="${topPick.name}" class="quiz-result-product-img">
+          <div class="quiz-result-product-info">
+            <h3>${topPick.name}</h3>
+            <p class="quiz-result-price">Rs. ${topPick.price.toLocaleString()}</p>
+            <span class="btn-primary">View Product</span>
+          </div>
+        </a>
+
+        ${otherPicks.length > 0 ? `
+          <p class="quiz-also-consider">Also worth considering:</p>
+          <div class="quiz-other-picks">
+            ${otherPicks.map(p => `
+              <a href="product-detail.html?id=${normalizeRecommendationId(p.id)}" class="quiz-other-pick-card">
+                <img src="${getRecommendationImage(p)}" alt="${p.name}" class="quiz-other-pick-img">
+                <span class="quiz-other-pick-name">${p.name}</span>
+                <span class="quiz-other-pick-price">Rs. ${p.price.toLocaleString()}</span>
+              </a>
+            `).join('')}
+          </div>
+        ` : ''}
+
+        <button class="quiz-retake-btn" id="retakeBtn2">
+          <i class="fas fa-redo" aria-hidden="true"></i> Retake Quiz
+        </button>
+      </div>
+    `;
+
+    const retake2 = document.getElementById('retakeBtn2');
+    if (retake2) retake2.addEventListener('click', resetQuiz);
+  }
+
+  // --- Map internal answer keys to the API's expected payload shape ---
+  function buildPayload() {
+    return {
+      gender: answers[1] || 'unisex',
+      scent: answers[2] || 'woody',
+      occasion: answers[3] || 'daily',
+      intensity: answers[4] || '4-6',
+      budget: answers[5] || '1000-2000'
+    };
+  }
+
+  // --- Call the Flask API ---
+  async function fetchRecommendations() {
+    renderLoading();
+    if (progressFill)  progressFill.style.width = '100%';
+    if (progressLabel) progressLabel.textContent = 'Analysing your answers...';
+    if (backBtn) backBtn.style.display = 'none';
+
+    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+    if (resultStep) resultStep.classList.add('active');
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(buildPayload())
+      });
+
+      if (!response.ok) {
+        throw new Error(`API responded with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (progressLabel) progressLabel.textContent = 'Here\'s what we found!';
+      renderResults(data.recommendations);
+
+    } catch (err) {
+      console.error('Recommendation API error:', err);
+      renderError();
+    }
+  }
+
+  function resetQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    document.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('selected'));
+
+    // Rebuild the result step back to its original placeholder markup
+    // (it gets overwritten by loading/error/results states)
+    location.reload();
+  }
+
+  // --- Option click → record answer → auto-advance ---
   document.querySelectorAll('.quiz-option').forEach(btn => {
     btn.addEventListener('click', () => {
       const q = parseInt(btn.dataset.q);
       const val = btn.dataset.value;
 
-      // Mark selected
       document.querySelectorAll(`.quiz-option[data-q="${q}"]`).forEach(b => b.classList.remove('selected'));
       btn.classList.add('selected');
 
       answers[q] = val;
 
-      // Auto advance after short delay
       setTimeout(() => {
         if (q < TOTAL_STEPS) {
           showStep(q + 1);
         } else {
-          showResult();
+          fetchRecommendations();
         }
       }, 300);
     });
   });
 
-  // Back button
+  // --- Back button ---
   if (backBtn) {
     backBtn.addEventListener('click', () => {
       if (currentStep > 1) showStep(currentStep - 1);
     });
   }
 
-  // Retake
+  // --- Retake (original button, before results replace the DOM) ---
   if (retakeBtn) {
-    retakeBtn.addEventListener('click', () => {
-      Object.keys(answers).forEach(k => delete answers[k]);
-      document.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('selected'));
-      showStep(1);
-    });
+    retakeBtn.addEventListener('click', resetQuiz);
   }
 
   // Init

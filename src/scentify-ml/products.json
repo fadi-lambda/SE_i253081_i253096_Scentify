@@ -1,0 +1,72 @@
+{
+  "sultan-e-ameer": {
+    "name": "Sultan E Ameer",
+    "price": 2199,
+    "image": "../../Images/Products/sultan-e-ameer/1.webp",
+    "notes": {"top": "Bergamot", "middle": "Jasmine, Rose", "base": "Sandalwood, Amber, Oakmoss, Musk"},
+    "scent_family": ["woody", "floral", "musky"],
+    "occasion": ["evening", "special"],
+    "intensity": "8+",
+    "ideal_for": "unisex"
+  },
+  "black-silver-platinum": {
+    "name": "Black & Silver Platinum",
+    "price": 1499,
+    "image": "../../Images/Products/black-silver-platinum/1.webp",
+    "notes": {"top": "Bergamot, Cardamom", "middle": "Lavender, Geranium", "base": "Musk, Amber, Cedarwood"},
+    "scent_family": ["musky", "citrus"],
+    "occasion": ["daily", "evening"],
+    "intensity": "4-6",
+    "ideal_for": "male"
+  },
+  "black-silver-oudh": {
+    "name": "Black & Silver Oudh",
+    "price": 1899,
+    "image": "../../Images/Products/black-silver-oudh/1.webp",
+    "notes": {"top": "Saffron, Black Pepper", "middle": "Oud Wood, Rose", "base": "Amber, Musk, Incense"},
+    "scent_family": ["woody", "musky"],
+    "occasion": ["evening", "special"],
+    "intensity": "8+",
+    "ideal_for": "male"
+  },
+  "white-oudh": {
+    "name": "White Oudh",
+    "price": 999,
+    "image": "../../Images/Products/white-oudh/1.webp",
+    "notes": {"top": "Citrus, Green Notes", "middle": "White Flowers, Sandalwood", "base": "Musk, Woody Amber"},
+    "scent_family": ["woody", "musky", "citrus"],
+    "occasion": ["daily"],
+    "intensity": "4-6",
+    "ideal_for": "male"
+  },
+  "ameer-oudh": {
+    "name": "Ameer Al Oud",
+    "price": 936,
+    "image": "../../Images/Products/ameer-oudh/1.webp",
+    "notes": {"top": "Orange Blossom", "middle": "Oud, Rose", "base": "Musk, Vanilla"},
+    "scent_family": ["floral", "woody"],
+    "occasion": ["daily", "evening"],
+    "intensity": "4-6",
+    "ideal_for": "unisex"
+  },
+  "black-n-gold": {
+    "name": "Black N Gold",
+    "price": 2500,
+    "image": "../../Images/Products/black-n-gold/1.webp",
+    "notes": {"top": "Saffron, Cinnamon", "middle": "Amber, Oud", "base": "Musk, Sandalwood"},
+    "scent_family": ["musky", "woody"],
+    "occasion": ["special", "evening"],
+    "intensity": "8+",
+    "ideal_for": "male"
+  },
+  "mysterious-oudh": {
+    "name": "Mysterious Oudh",
+    "price": 1600,
+    "image": "../../Images/Products/mysterious-oudh/1.webp",
+    "notes": {"top": "Black Pepper, Bergamot", "middle": "Oud, Patchouli", "base": "Musk, Leather"},
+    "scent_family": ["woody", "musky"],
+    "occasion": ["evening", "special"],
+    "intensity": "8+",
+    "ideal_for": "male"
+  }
+}
