@@ -23,12 +23,17 @@ vector against every product vector, and rank products by similarity score.
 """
 
 import json
+from pathlib import Path
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
 def load_products(path="products.json"):
-    with open(path, "r") as f:
+    file_path = Path(path)
+    if not file_path.is_absolute():
+        file_path = Path(__file__).resolve().parent / file_path
+
+    with file_path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 

@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const AUTH_USERS_KEY = 'scentifyUsers';
-    const AUTH_SESSION_KEY = 'scentifySession';
-
+    // --- 1. Zaroori Elements ko pakadna ---
     const loginBlock = document.getElementById('loginBlock');
     const signupBlock = document.getElementById('signupBlock');
     const showLoginLink = document.getElementById('showLogin');
@@ -12,136 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loginError = document.getElementById('loginError');
     const signupError = document.getElementById('signupError');
-    const loginEmailInput = document.getElementById('loginEmail');
-    const loginPasswordInput = document.getElementById('loginPassword');
-    const signupFullnameInput = document.getElementById('signupFullname');
-    const signupEmailInput = document.getElementById('signupEmail');
-    const signupPasswordInput = document.getElementById('signupPassword');
-    const signupPasswordStrength = document.getElementById('signupPasswordStrength');
-    const signupPasswordStrengthText = document.getElementById('signupPasswordStrengthText');
 
     const passwordToggleButtons = document.querySelectorAll('[data-password-toggle]');
-
-    const isValidEmail = (email) => {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    };
-
-    const normalizeEmail = (email) => String(email || '').trim().toLowerCase();
-    const normalizeName = (name) => String(name || '').trim().replace(/\s+/g, ' ');
-
-    const getStoredUsers = () => {
-        try {
-            const users = JSON.parse(localStorage.getItem(AUTH_USERS_KEY));
-            return Array.isArray(users) ? users : [];
-        } catch {
-            return [];
-        }
-    };
-
-    const saveStoredUsers = (users) => {
-        localStorage.setItem(AUTH_USERS_KEY, JSON.stringify(users));
-    };
-
-    const saveSession = (user) => {
-        localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify({
-            email: user.email,
-            fullName: user.fullName,
-            signedInAt: new Date().toISOString()
-        }));
-    };
-
-    const getRedirectTarget = () => {
-        const params = new URLSearchParams(window.location.search);
-        const returnTo = params.get('returnTo');
-
-        if (!returnTo) return 'index.html';
-        if (returnTo.includes('://') || returnTo.startsWith('//')) return 'index.html';
-        return returnTo;
-    };
-
-    const setMessage = (element, text, kind = 'error') => {
-        if (!element) return;
-        element.textContent = text;
-        element.classList.remove('is-success', 'is-error');
-        element.classList.add(kind === 'success' ? 'is-success' : 'is-error');
-    };
-
-    const clearMessage = (element) => {
-        if (!element) return;
-        element.textContent = '';
-        element.classList.remove('is-success', 'is-error');
-    };
-
-    const evaluatePasswordStrength = (password) => {
-        const value = String(password || '');
-        const checks = [
-            value.length >= 8,
-            /[a-z]/.test(value),
-            /[A-Z]/.test(value),
-            /\d/.test(value),
-            /[^A-Za-z0-9]/.test(value)
-        ];
-        const score = checks.filter(Boolean).length;
-
-        if (!value) {
-            return { score: 0, label: 'Use 8+ characters with upper and lower case letters, a number, and a symbol.', className: 'empty' };
-        }
-
-        if (value.length < 8 || score <= 2) {
-            return { score: 1, label: 'Weak password. Add more length and character variety.', className: 'weak' };
-        }
-
-        if (score <= 4) {
-            return { score: 2, label: 'Medium strength. Add another character type to improve it.', className: 'medium' };
-        }
-
-        return { score: 3, label: 'Strong password.', className: 'strong' };
-    };
-
-    const renderPasswordStrength = () => {
-        if (!signupPasswordStrength || !signupPasswordStrengthText) return;
-
-        const strength = evaluatePasswordStrength(signupPasswordInput ? signupPasswordInput.value : '');
-        const segments = Array.from(signupPasswordStrength.querySelectorAll('.strength-segment'));
-
-        signupPasswordStrength.dataset.state = strength.className;
-        signupPasswordStrengthText.textContent = strength.label;
-
-        segments.forEach((segment, index) => {
-            segment.classList.toggle('active', index < strength.score);
-        });
-    };
-
-    const checkHashAndToggleForm = () => {
-        const hash = window.location.hash;
-
-        if (hash === '#signup') {
-            if (loginBlock && signupBlock) {
-                loginBlock.classList.add('hidden-block');
-                signupBlock.classList.remove('hidden-block');
-                clearMessage(loginError);
-            }
-        } else {
-            if (loginBlock && signupBlock) {
-                loginBlock.classList.remove('hidden-block');
-                signupBlock.classList.add('hidden-block');
-                clearMessage(signupError);
-            }
-        }
-    };
-
-    const updateAuthAfterLogin = (user) => {
-        saveSession(user);
-        window.location.href = getRedirectTarget();
-    };
 
     passwordToggleButtons.forEach((button) => {
         button.addEventListener('click', () => {
             const targetId = button.getAttribute('data-password-toggle');
             const passwordInput = document.getElementById(targetId);
 
-            if (!passwordInput) return;
+            if (!passwordInput) {
+                return;
+            }
 
             const isPasswordHidden = passwordInput.type === 'password';
             passwordInput.type = isPasswordHidden ? 'text' : 'password';
@@ -151,119 +30,114 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- 2. URL Hash Checking (Main functionality) ---
+
+    // Yeh function check karta hai ki URL mein '#signup' hai ya nahi
+    const checkHashAndToggleForm = () => {
+        const hash = window.location.hash;
+        
+        if (hash === '#signup') {
+            // Agar '#signup' hai, toh Sign Up block dikhao
+            if (loginBlock && signupBlock) {
+                loginBlock.classList.add('hidden-block');
+                signupBlock.classList.remove('hidden-block');
+                loginError.textContent = ''; // Error saaf karo
+            }
+        } else {
+            // Agar koi hash nahi hai ya '#login' hai, toh Login block dikhao
+            if (loginBlock && signupBlock) {
+                loginBlock.classList.remove('hidden-block');
+                signupBlock.classList.add('hidden-block');
+                signupError.textContent = ''; // Error saaf karo
+            }
+        }
+    };
+
+    // Page load hone par aur URL hash change hone par check karo
     checkHashAndToggleForm();
     window.addEventListener('hashchange', checkHashAndToggleForm);
 
-    if (signupPasswordInput) {
-        signupPasswordInput.addEventListener('input', renderPasswordStrength);
-        renderPasswordStrength();
-    }
 
+    // --- 3. Internal Form Toggling (Signup/Login Links) ---
+
+    // Login Link -> Signup Form
     if (showSignupLink) {
         showSignupLink.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.hash = 'signup';
+            // Hash ko update karo, jisse checkHashAndToggleForm function automatically run ho
+            window.location.hash = 'signup'; 
         });
     }
 
+    // Signup Link -> Login Form
     if (showLoginLink) {
         showLoginLink.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.hash = 'login';
+            // Hash ko update karo, jisse checkHashAndToggleForm function automatically run ho
+            window.location.hash = 'login'; 
         });
     }
 
+    // --- 4. Validation Logic ---
+    
+    // Basic Email format check
+    const isValidEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    // Login Form Submission
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            clearMessage(loginError);
+            loginError.textContent = '';
 
-            const emailValue = normalizeEmail(loginEmailInput ? loginEmailInput.value : '');
-            const passwordValue = loginPasswordInput ? loginPasswordInput.value : '';
+            const emailInput = document.getElementById('loginEmail');
+            const passwordInput = document.getElementById('loginPassword');
 
-            if (!emailValue || !passwordValue) {
-                setMessage(loginError, 'Please fill out both email and password.');
+            if (!emailInput.value || !passwordInput.value) {
+                loginError.textContent = 'Please fill out all fields.';
                 return;
             }
-
-            if (!isValidEmail(emailValue)) {
-                setMessage(loginError, 'Please enter a valid email address.');
+            if (!isValidEmail(emailInput.value)) {
+                loginError.textContent = 'Please enter a valid email address.';
                 return;
             }
-
-            const users = getStoredUsers();
-            const matchedUser = users.find(user => normalizeEmail(user.email) === emailValue);
-
-            if (!matchedUser) {
-                setMessage(loginError, 'No account found for this email. Please sign up first.');
-                return;
-            }
-
-            if (matchedUser.password !== passwordValue) {
-                setMessage(loginError, 'Incorrect password for this email.');
-                return;
-            }
-
-            setMessage(loginError, 'Sign in successful. Redirecting...', 'success');
-            updateAuthAfterLogin(matchedUser);
+            
+            // Agar validation theek hai, toh yahan aapka server/API call aayega
+            loginError.textContent = 'Login Successful! Redirecting...';
+            // Example: window.location.href = 'homepage.html';
         });
     }
 
+    // Signup Form Submission
     if (signupForm) {
         signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            clearMessage(signupError);
+            signupError.textContent = '';
 
-            const fullNameValue = normalizeName(signupFullnameInput ? signupFullnameInput.value : '');
-            const emailValue = normalizeEmail(signupEmailInput ? signupEmailInput.value : '');
-            const passwordValue = signupPasswordInput ? signupPasswordInput.value : '';
-            const passwordStrength = evaluatePasswordStrength(passwordValue);
+            const fullNameInput = document.getElementById('signupFullname');
+            const emailInput = document.getElementById('signupEmail');
+            const passwordInput = document.getElementById('signupPassword');
 
-            if (!fullNameValue || !emailValue || !passwordValue) {
-                setMessage(signupError, 'Please fill out all fields.');
+            if (!fullNameInput.value || !emailInput.value || !passwordInput.value) {
+                signupError.textContent = 'Please fill out all fields.';
                 return;
             }
-
-            if (fullNameValue.length < 2 || !/[A-Za-z]/.test(fullNameValue)) {
-                setMessage(signupError, 'Please enter a valid full name.');
+            if (!isValidEmail(emailInput.value)) {
+                signupError.textContent = 'Please enter a valid email address.';
                 return;
             }
-
-            if (!isValidEmail(emailValue)) {
-                setMessage(signupError, 'Please enter a valid email address.');
+            if (passwordInput.value.length < 6) {
+                 signupError.textContent = 'Password must be at least 6 characters long.';
                 return;
             }
-
-            if (passwordStrength.score < 2) {
-                setMessage(signupError, 'Use a stronger password before creating the account.');
-                return;
-            }
-
-            const users = getStoredUsers();
-            const duplicateUser = users.find(user => normalizeEmail(user.email) === emailValue);
-
-            if (duplicateUser) {
-                setMessage(signupError, 'An account already exists for this email. Please sign in instead.');
-                return;
-            }
-
-            users.push({
-                fullName: fullNameValue,
-                email: emailValue,
-                password: passwordValue,
-                createdAt: new Date().toISOString()
-            });
-
-            saveStoredUsers(users);
-
-            if (signupPasswordInput) signupPasswordInput.value = '';
-            if (signupFullnameInput) signupFullnameInput.value = fullNameValue;
-            if (signupEmailInput) signupEmailInput.value = emailValue;
-            renderPasswordStrength();
-
-            setMessage(signupError, 'Account created. You can now sign in.', 'success');
-            window.location.hash = 'login';
-            if (loginEmailInput) loginEmailInput.value = emailValue;
+            
+            // Agar validation theek hai, toh yahan aapka server/API call aayega
+            signupError.textContent = 'Account Created! You can now log in.';
+            // Example: window.location.hash = 'login'; // Ya phir redirect karo
         });
     }
+
 });
+   
