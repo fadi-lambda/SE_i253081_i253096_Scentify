@@ -2,6 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const AUTH_SESSION_KEY = 'scentifySession';
+
   const cartItemsList    = document.getElementById('cartItemsList');
   const emptyCartMessage = document.getElementById('emptyCartMessage');
   const subtotalDisplay  = document.getElementById('subtotalDisplay');
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const orderTotalDisplay= document.getElementById('orderTotalDisplay');
   const cartItemCount    = document.getElementById('cartItemCount');
   const checkoutForm     = document.getElementById('checkoutForm');
+  const placeOrderBtn    = document.getElementById('placeOrderBtn');
   const shippingRadios   = document.querySelectorAll('input[name="shipping_method"]');
 
   const FREE_SHIPPING     = 0;
@@ -46,6 +49,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function saveCart() {
     localStorage.setItem('scentifyCart', JSON.stringify(cart));
+  }
+
+  function getCurrentUser() {
+    try {
+      return JSON.parse(localStorage.getItem(AUTH_SESSION_KEY));
+    } catch {
+      return null;
+    }
+  }
+
+  function getLoginUrl() {
+    return 'loginpage.html?returnTo=checkoutpage.html&reason=checkout';
+  }
+
+  function ensureAuthNotice() {
+    if (!checkoutForm || !placeOrderBtn) return;
+
+    let notice = document.getElementById('checkoutAuthNotice');
+    const isSignedIn = Boolean(getCurrentUser());
+
+    if (!isSignedIn) {
+      if (!notice) {
+        notice = document.createElement('p');
+        notice.id = 'checkoutAuthNotice';
+        notice.className = 'checkout-auth-notice';
+        notice.textContent = 'Please sign in to place your order.';
+        checkoutForm.insertBefore(notice, placeOrderBtn);
+      }
+
+      placeOrderBtn.textContent = 'Sign In to Place Order';
+      placeOrderBtn.setAttribute('aria-label', 'Sign in to place order');
+      placeOrderBtn.dataset.requiresAuth = 'true';
+      return;
+    }
+
+    if (notice) notice.remove();
+    placeOrderBtn.textContent = 'Place Order';
+    placeOrderBtn.removeAttribute('aria-label');
+    delete placeOrderBtn.dataset.requiresAuth;
   }
 
   let cart = (JSON.parse(localStorage.getItem('scentifyCart')) || []).map(normalizeCartItem);
@@ -147,6 +189,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (checkoutForm) {
     checkoutForm.addEventListener('submit', e => {
       e.preventDefault();
+
+      const currentUser = getCurrentUser();
+      if (!currentUser) {
+        alert('Please sign in to place your order.');
+        window.location.href = getLoginUrl();
+        return;
+      }
+
       if (cart.length === 0) {
         alert('Your cart is empty. Please add items before placing an order.');
         return;
@@ -158,5 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  ensureAuthNotice();
   renderCart();
 });

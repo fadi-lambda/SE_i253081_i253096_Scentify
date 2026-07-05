@@ -41,6 +41,8 @@ const PRODUCT_SEARCH_INDEX = [
   { id: 'mysterious-oudh', name: 'Mysterious Oudh', aliases: ['mysterious oudh', 'mysterious'] }
 ];
 
+const SEARCH_SUGGESTION_LIMIT = 5;
+
 function normalizeSearchText(value) {
   return String(value || '')
     .toLowerCase()
@@ -67,6 +69,96 @@ function findProductForSearch(query) {
   }) || null;
 }
 
+function getSearchSuggestions(query, limit = SEARCH_SUGGESTION_LIMIT) {
+  const normalizedQuery = normalizeSearchText(query);
+  if (!normalizedQuery) return [];
+
+  return PRODUCT_SEARCH_INDEX
+    .map(product => {
+      const searchableValues = [product.id, product.name, ...(product.aliases || [])]
+        .map(normalizeSearchText);
+
+      const exactMatch = searchableValues.some(value => value === normalizedQuery);
+      const startsWithMatch = searchableValues.some(value => value.startsWith(normalizedQuery));
+      const includesMatch = searchableValues.some(value => value.includes(normalizedQuery));
+
+      let score = Number.POSITIVE_INFINITY;
+      if (exactMatch) score = 0;
+      else if (startsWithMatch) score = 1;
+      else if (includesMatch) score = 2;
+
+      return { product, score };
+    })
+    .filter(entry => Number.isFinite(entry.score))
+    .sort((left, right) => left.score - right.score || left.product.name.localeCompare(right.product.name))
+    .slice(0, limit)
+    .map(entry => entry.product);
+}
+
+function ensureSearchSuggestions(wrapper) {
+  let suggestions = wrapper.querySelector('.search-suggestions');
+
+  if (!suggestions) {
+    suggestions = document.createElement('div');
+    suggestions.className = 'search-suggestions';
+    suggestions.setAttribute('role', 'listbox');
+    wrapper.appendChild(suggestions);
+  }
+
+  return suggestions;
+}
+
+function hideSearchSuggestions(wrapper) {
+  const suggestions = wrapper.querySelector('.search-suggestions');
+  if (!suggestions) return;
+
+  suggestions.classList.remove('is-visible');
+  suggestions.innerHTML = '';
+}
+
+function renderSearchSuggestions(input, wrapper) {
+  const suggestions = ensureSearchSuggestions(wrapper);
+  const matches = getSearchSuggestions(input.value);
+
+  suggestions.innerHTML = '';
+
+  if (!input.value.trim()) {
+    suggestions.classList.remove('is-visible');
+    return;
+  }
+
+  if (!matches.length) {
+    const emptyState = document.createElement('div');
+    emptyState.className = 'search-suggestions-empty';
+    emptyState.textContent = 'No matching products yet';
+    suggestions.appendChild(emptyState);
+    suggestions.classList.add('is-visible');
+    return;
+  }
+
+  matches.forEach(product => {
+    const option = document.createElement('button');
+    option.type = 'button';
+    option.className = 'search-suggestion-item';
+    option.setAttribute('role', 'option');
+    option.dataset.productId = product.id;
+
+    option.innerHTML = `
+      <span class="search-suggestion-name">${product.name}</span>
+      <span class="search-suggestion-meta">View product</span>
+    `;
+
+    option.addEventListener('mousedown', event => {
+      event.preventDefault();
+      openSearchResults(product.name);
+    });
+
+    suggestions.appendChild(option);
+  });
+
+  suggestions.classList.add('is-visible');
+}
+
 function openSearchResults(query) {
   const trimmedQuery = String(query || '').trim();
   if (!trimmedQuery) return;
@@ -91,11 +183,33 @@ function bindSearchControls() {
   const searchIcons = Array.from(document.querySelectorAll('.search-input-wrapper .fa-search'));
 
   searchInputs.forEach(input => {
+    const wrapper = input.closest('.search-input-wrapper');
+    if (!wrapper) return;
+
+    ensureSearchSuggestions(wrapper);
+
+    input.addEventListener('input', () => {
+      renderSearchSuggestions(input, wrapper);
+    });
+
+    input.addEventListener('focus', () => {
+      renderSearchSuggestions(input, wrapper);
+    });
+
     input.addEventListener('keydown', event => {
       if (event.key === 'Enter') {
         event.preventDefault();
         openSearchResults(input.value);
+        hideSearchSuggestions(wrapper);
       }
+
+      if (event.key === 'Escape') {
+        hideSearchSuggestions(wrapper);
+      }
+    });
+
+    input.addEventListener('blur', () => {
+      window.setTimeout(() => hideSearchSuggestions(wrapper), 120);
     });
   });
 
@@ -104,7 +218,10 @@ function bindSearchControls() {
     icon.addEventListener('click', () => {
       const wrapper = icon.closest('.search-input-wrapper');
       const input = wrapper ? wrapper.querySelector('#desktop-search') : null;
-      if (input) openSearchResults(input.value);
+      if (input) {
+        openSearchResults(input.value);
+        hideSearchSuggestions(wrapper);
+      }
     });
   });
 
@@ -116,6 +233,8 @@ function bindSearchControls() {
 
       if (input && input.value.trim()) {
         openSearchResults(input.value);
+        const wrapper = input.closest('.search-input-wrapper');
+        if (wrapper) hideSearchSuggestions(wrapper);
         return;
       }
 
