@@ -1,6 +1,7 @@
 // quiz.js — Fragrance Finder Quiz (AI-Powered)
-// Sends quiz answers to the Flask recommendation API instead of using
-// hardcoded lookup logic. Renders loading/error states while waiting.
+// Sends quiz answers to the Flask recommendation API and renders the
+// ranked results returned by the model. No local/hardcoded scoring —
+// every recommendation comes from recommend_engine.py.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -16,26 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const backBtn       = document.getElementById('backBtn');
   const retakeBtn     = document.getElementById('retakeBtn');
   const resultStep    = document.getElementById('stepResult');
-  const LEGACY_PRODUCT_IDS = {
-    p1: 'sultan-e-ameer',
-    p2: 'black-silver-platinum',
-    p3: 'black-silver-oudh',
-    p4: 'white-oudh',
-    p5: 'black-n-gold',
-    p6: 'ameer-oudh',
-    p7: 'mysterious-oudh',
-    'ameer-al-oudh': 'ameer-oudh'
-  };
-
-  function normalizeRecommendationId(id) {
-    return LEGACY_PRODUCT_IDS[id] || id || 'sultan-e-ameer';
-  }
-
-  function getRecommendationImage(product) {
-    if (product && product.image) return product.image;
-    const normalizedId = normalizeRecommendationId(product && product.id);
-    return `../../Images/Products/${normalizedId}/1.webp`;
-  }
 
   function updateProgress() {
     const pct = ((currentStep - 1) / TOTAL_STEPS) * 100;
@@ -84,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (retryBtn) retryBtn.addEventListener('click', fetchRecommendations);
   }
 
-  // --- Success state: render ranked recommendations ---
+  // --- Success state: render ranked recommendations from the API ---
   function renderResults(recommendations) {
     if (!resultStep) return;
 
@@ -108,8 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const topPick = recommendations[0];
     const otherPicks = recommendations.slice(1);
-    const topPickId = normalizeRecommendationId(topPick.id);
-    const topPickImage = getRecommendationImage(topPick);
 
     resultStep.innerHTML = `
       <div class="quiz-result-card">
@@ -117,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <h2 class="quiz-result-title">Your Perfect Match</h2>
         <p class="quiz-result-subtitle">Based on your answers, we recommend:</p>
 
-        <a href="product-detail.html?id=${topPickId}" class="quiz-result-product">
-          <img src="${topPickImage}" alt="${topPick.name}" class="quiz-result-product-img">
+        <a href="product-detail.html?id=${topPick.id}" class="quiz-result-product">
+          <img src="${topPick.image}" alt="${topPick.name}" class="quiz-result-product-img">
           <div class="quiz-result-product-info">
             <h3>${topPick.name}</h3>
             <p class="quiz-result-price">Rs. ${topPick.price.toLocaleString()}</p>
@@ -130,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="quiz-also-consider">Also worth considering:</p>
           <div class="quiz-other-picks">
             ${otherPicks.map(p => `
-              <a href="product-detail.html?id=${normalizeRecommendationId(p.id)}" class="quiz-other-pick-card">
-                <img src="${getRecommendationImage(p)}" alt="${p.name}" class="quiz-other-pick-img">
+              <a href="product-detail.html?id=${p.id}" class="quiz-other-pick-card">
+                <img src="${p.image}" alt="${p.name}" class="quiz-other-pick-img">
                 <span class="quiz-other-pick-name">${p.name}</span>
                 <span class="quiz-other-pick-price">Rs. ${p.price.toLocaleString()}</span>
               </a>
@@ -160,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // --- Call the Flask API ---
+  // --- Call the Flask API — this is the ONLY source of recommendations ---
   async function fetchRecommendations() {
     renderLoading();
     if (progressFill)  progressFill.style.width = '100%';
@@ -182,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const data = await response.json();
+
       if (progressLabel) progressLabel.textContent = 'Here\'s what we found!';
       renderResults(data.recommendations);
 
@@ -194,9 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function resetQuiz() {
     Object.keys(answers).forEach(k => delete answers[k]);
     document.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('selected'));
-
-    // Rebuild the result step back to its original placeholder markup
-    // (it gets overwritten by loading/error/results states)
     location.reload();
   }
 
@@ -228,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Retake (original button, before results replace the DOM) ---
+  // --- Retake ---
   if (retakeBtn) {
     retakeBtn.addEventListener('click', resetQuiz);
   }
