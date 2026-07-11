@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const answers = {};
 
   // Change this to your deployed API URL once hosted (Render/Railway/etc.)
-  const API_URL = 'http://127.0.0.1:5000/recommend';
+  const API_URL = 'https://scentify-production.up.railway.app/recommend';
 
   const progressFill  = document.getElementById('progressFill');
   const progressLabel = document.getElementById('progressLabel');
