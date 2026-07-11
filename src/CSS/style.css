@@ -3321,3 +3321,251 @@ ul {
 .quiz-other-pick-name {
     flex: 1;
 }
+
+/* ================================================
+   DARK MODE — theme_additions.css (v2, fixed)
+   Append to the bottom of style.css.
+   IMPORTANT: This REPLACES the previous theme_additions.css.
+   Delete the old dark-mode block before pasting this one,
+   or you'll have duplicate/conflicting rules.
+   ================================================ */
+
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666666;
+  --color-border: #eeeeee;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0f0f0f;
+  --color-surface: #1a1a1a;
+  --color-text: #f0f0f0;
+  --color-text-muted: #aaaaaa;
+  --color-border: #2a2a2a;
+  /* NOTE: --color-dark and --color-light are intentionally NOT swapped.
+     Swapping them broke buttons/text across the site because many
+     components use --color-dark assuming it stays dark. Instead we
+     target each surface/text case explicitly below. */
+}
+
+/* Base page */
+[data-theme="dark"] body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ---------- Generic surfaces (cards, panels) ---------- */
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .pl-product-card,
+[data-theme="dark"] .deal-card,
+[data-theme="dark"] .story-card,
+[data-theme="dark"] .team-card,
+[data-theme="dark"] .auth-card,
+[data-theme="dark"] .checkout-form-section,
+[data-theme="dark"] .order-summary-section,
+[data-theme="dark"] .quiz-result-card,
+[data-theme="dark"] .quiz-container,
+[data-theme="dark"] .support-channel-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .related-product-card,
+[data-theme="dark"] .quiz-other-pick-card,
+[data-theme="dark"] .co-radio-card {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .breadcrumb-bar,
+[data-theme="dark"] .listing-page-wrapper,
+[data-theme="dark"] .team-section,
+[data-theme="dark"] .faq-section,
+[data-theme="dark"] .deals-page-wrapper,
+[data-theme="dark"] .support-body,
+[data-theme="dark"] .auth-page-wrapper,
+[data-theme="dark"] .quiz-page-main {
+  background-color: var(--color-bg);
+}
+
+/* ---------- Form inputs ---------- */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .co-form-group label,
+[data-theme="dark"] .auth-form-group label,
+[data-theme="dark"] .support-form-group label {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Headings & text that used --color-dark directly ---------- */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .card-details h3,
+[data-theme="dark"] .pl-card-title,
+[data-theme="dark"] .deal-card-title,
+[data-theme="dark"] .listing-title,
+[data-theme="dark"] .section-heading,
+[data-theme="dark"] .quiz-result-title,
+[data-theme="dark"] .quiz-question,
+[data-theme="dark"] .story-hero h1,
+[data-theme="dark"] .hero-content h1,
+[data-theme="dark"] .co-section-title,
+[data-theme="dark"] .story-card h3,
+[data-theme="dark"] .team-card-text h3,
+[data-theme="dark"] .auth-brand p,
+[data-theme="dark"] .support-channel-card h3,
+[data-theme="dark"] .support-info-block h3,
+[data-theme="dark"] .related-product-title,
+[data-theme="dark"] .quiz-other-pick-name {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .card-category,
+[data-theme="dark"] .pl-card-subtitle,
+[data-theme="dark"] .section-subtext,
+[data-theme="dark"] .listing-subtitle,
+[data-theme="dark"] .quiz-result-subtitle,
+[data-theme="dark"] .story-card p,
+[data-theme="dark"] .team-card-text p,
+[data-theme="dark"] .support-channel-card p,
+[data-theme="dark"] .support-info-block p,
+[data-theme="dark"] .quiz-question-label,
+[data-theme="dark"] .related-product-price {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Header ---------- */
+[data-theme="dark"] .header-icons .icon-label,
+[data-theme="dark"] .header-icons a,
+[data-theme="dark"] .header-icons button {
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] .search-bar-desktop input {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* ---------- Buttons: fix invisible text (was relying on swapped --color-dark) ---------- */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .quiz-button,
+[data-theme="dark"] .card-cart-btn,
+[data-theme="dark"] .pl-add-btn,
+[data-theme="dark"] .deal-add-btn {
+  background-color: var(--color-primary, #f59e0b);
+  color: #1a1a1a;
+}
+
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .btn-outline {
+  border-color: var(--color-text);
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+[data-theme="dark"] .btn-secondary:hover,
+[data-theme="dark"] .btn-outline:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+[data-theme="dark"] .add-to-cart-btn,
+[data-theme="dark"] .place-order-btn,
+[data-theme="dark"] .support-submit-btn,
+[data-theme="dark"] .auth-btn {
+  background-color: var(--color-primary, #f59e0b);
+  color: #1a1a1a;
+}
+
+[data-theme="dark"] .buy-now-btn {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+[data-theme="dark"] .quiz-retake-btn,
+[data-theme="dark"] .quiz-back-btn {
+  border-color: var(--color-border);
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+/* ---------- Quiz options ---------- */
+[data-theme="dark"] .quiz-option {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .quiz-option:hover,
+[data-theme="dark"] .quiz-option.selected {
+  background-color: var(--color-primary, #f59e0b);
+  color: #1a1a1a;
+  border-color: var(--color-primary, #f59e0b);
+}
+
+[data-theme="dark"] .quiz-option-icon {
+  color: var(--color-primary, #f59e0b);
+}
+
+/* ---------- Quiz banner (has its own dark gradient already, fix text) ---------- */
+[data-theme="dark"] .quiz-banner-text h2 {
+  color: #ffffff;
+}
+[data-theme="dark"] .quiz-banner-text p {
+  color: #cccccc;
+}
+
+/* ---------- Checkout: radio cards, price rows ---------- */
+[data-theme="dark"] .co-radio-label,
+[data-theme="dark"] .summary-row,
+[data-theme="dark"] .total-row,
+[data-theme="dark"] .checkout-item-name,
+[data-theme="dark"] .checkout-item-price {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .co-radio-card:has(input:checked) {
+  border-color: var(--color-primary, #f59e0b);
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* ---------- Support / FAQ ---------- */
+[data-theme="dark"] .faq-question {
+  color: var(--color-text);
+}
+[data-theme="dark"] .faq-answer p {
+  color: var(--color-text-muted);
+}
+[data-theme="dark"] .support-hours-list li {
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+
+/* ---------- Our Story hero (gradient text bug fix) ---------- */
+[data-theme="dark"] .story-hero {
+  background-color: var(--color-bg);
+}
+[data-theme="dark"] .story-hero h1 {
+  color: var(--color-text);
+}
+[data-theme="dark"] .story-hero-sub {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Toggle button visibility in header ---------- */
+.theme-toggle-btn i {
+  color: inherit;
+}
+
+/* Smooth theme transitions */
+body, .product-card, .pl-product-card, .deal-card, input, select, textarea,
+.quiz-option, .co-radio-card {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
